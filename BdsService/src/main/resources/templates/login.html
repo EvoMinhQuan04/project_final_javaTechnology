@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login Page</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div class="login-container">
+      <div class="left-panel">
+        <img src="/images/login.png" alt="Illustration" class="illustration" />
+      </div>
+      <div class="right-panel">
+        <h2>Xin chào bạn</h2>
+        <h3>Đăng nhập để tiếp tục</h3>
+
+        <form action="/login" method="post">
+          <div class="close-btn" onclick="window.location.href='/'">X</div>
+
+          <div class="input-group">
+            <input
+              type="text"
+              name="username"
+              placeholder="Tên đăng nhập"
+              required
+            />
+          </div>
+
+          <div class="input-group">
+            <input
+              type="password"
+              name="password"
+              placeholder="Mật khẩu"
+              required
+            />
+          </div>
+
+          <button type="submit" class="login-btn">Đăng nhập</button>
+
+          <div class="options">
+            <label><input type="checkbox" /> Nhớ tài khoản</label>
+            <a href="/forgot">Quên mật khẩu?</a>
+          </div>
+
+          <p class="or">Hoặc</p>
+          <button class="social-login apple">Đăng nhập với Apple</button>
+          <button class="social-login facebook">Đăng nhập với Facebook</button>
+          <button class="social-login google">Đăng nhập với Google</button>
+
+          <p class="register">
+            Chưa là thành viên? <a href="/register">Đăng ký tại đây</a>
+          </p>
+
+          <div class="error-message" style="color: red; margin-top: 10px">
+            <span th:if="${error != null}" th:text="${error}"></span>
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

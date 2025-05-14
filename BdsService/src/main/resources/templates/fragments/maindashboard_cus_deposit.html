@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="vi" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Nạp Tiền – Cara</title>
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #6C5DD3;
+      --primary-dark: #574DC8;
+      --accent: #FF6B6B;
+      --bg-light: #F7F8FC;
+      --card-bg: #FFFFFF;
+      --text-dark: #2E2E38;
+      --text-light: #666687;
+      --input-bg: #F0F1F7;
+      --border-radius: 1rem;
+      --transition: 0.3s ease;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #EEF2FF, #F7F8FC);
+      color: var(--text-dark);
+      line-height: 1.6;
+    }
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .card {
+      background: var(--card-bg);
+      border-radius: var(--border-radius);
+      box-shadow: 0 12px 24px rgba(0,0,0,0.05);
+      overflow: hidden;
+    }
+    .card-header {
+      background: var(--primary);
+      color: #fff;
+      padding: 1.5rem 2rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      text-align: center;
+    }
+    .card-header h1 {
+      font-size: 1.75rem;
+      font-weight: 600;
+      flex: 1;
+    }
+    .card-body {
+      padding: 2rem;
+    }
+    .form-group {
+      margin-bottom: 1.75rem;
+    }
+    .form-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+      color: var(--text-dark);
+    }
+    .form-group input[type="number"] {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      font-size: 1rem;
+      border: none;
+      border-radius: var(--border-radius);
+      background: var(--input-bg);
+      transition: box-shadow var(--transition), background var(--transition);
+    }
+    .form-group input[type="number"]:focus {
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(108,93,211,0.2);
+      background: #fff;
+    }
+
+    .quick-select {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+    .quick-select button {
+      background: var(--bg-light);
+      border: none;
+      padding: 0.75rem 1rem;
+      font-size: 0.95rem;
+      border-radius: var(--border-radius);
+      cursor: pointer;
+      transition: background var(--transition), transform var(--transition);
+    }
+    .quick-select button:hover {
+      background: var(--primary-dark);
+      color: #fff;
+      transform: translateY(-2px);
+    }
+
+    .agreement {
+      display: flex;
+      align-items: center;
+      background: #F2F2F7;
+      padding: 1rem 1.5rem;
+      border-radius: var(--border-radius);
+      margin-bottom: 2rem;
+    }
+    .agreement input {
+      margin-right: 0.75rem;
+      width: 1.2rem;
+      height: 1.2rem;
+      accent-color: var(--primary);
+    }
+    .agreement label {
+      font-size: 0.95rem;
+      color: var(--text-light);
+    }
+    .agreement .hotline {
+      margin-left: auto;
+      font-size: 0.95rem;
+      color: var(--text-light);
+    }
+
+    .btn-submit {
+      width: 100%;
+      padding: 0.85rem;
+      background: var(--accent);
+      color: #fff;
+      font-size: 1rem;
+      font-weight: 600;
+      border: none;
+      border-radius: var(--border-radius);
+      cursor: pointer;
+      transition: background var(--transition), transform var(--transition);
+    }
+    .btn-submit:hover {
+      background: darken(var(--accent), 10%);
+      transform: translateY(-2px);
+    }
+
+    @media (max-width: 600px) {
+      .card-header { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
+      .card-body { padding: 1.5rem; }
+      .form-group { margin-bottom: 1.25rem; }
+      .quick-select { gap: 0.75rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="card">
+      <div class="card-header">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="#fff"><path d="M12 1L3 5v6c0 5 3.8 9.9 9 11 5.2-1.1 9-6 9-11V5l-9-4zm0 2.18L17.6 6 12 8 6.4 6 12 3.18z"/></svg>
+        <h1>Nạp Tiền Vào Tài Khoản</h1>
+      </div>
+      <div class="card-body">
+        <div class="form-group">
+          <label for="deposit-amount">Nhập số tiền bạn muốn nạp (₫)</label>
+          <input type="number" id="deposit-amount" placeholder="Ví dụ: 1.000.000" />
+        </div>
+        <div class="quick-select">
+          <button type="button" onclick="setAmount(500000)">500.000 ₫</button>
+          <button type="button" onclick="setAmount(1000000)">1.000.000 ₫</button>
+          <button type="button" onclick="setAmount(2000000)">2.000.000 ₫</button>
+          <button type="button" onclick="setAmount(3000000)">3.000.000 ₫</button>
+          <button type="button" onclick="setAmount(5000000)">5.000.000 ₫</button>
+          <button type="button" onclick="setAmount(10000000)">10.000.000 ₫</button>
+        </div>
+        <div class="agreement">
+          <input type="checkbox" id="agree" />
+          <label for="agree">Tôi đã đọc và đồng ý với các điều khoản</label>
+          <span class="hotline">Hotline: 1900 1881</span>
+        </div>
+        <input type="hidden" id="userId" th:value="${id}" />
+        <button class="btn-submit" onclick="submitDeposit()">Tiến hành nạp</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function setAmount(amount) {
+      document.getElementById('deposit-amount').value = amount;
+    }
+    function submitDeposit() {
+      const amount = +document.getElementById('deposit-amount').value;
+      if (!amount || amount < 10000) {
+        alert('Số tiền nạp tối thiểu là 10.000 ₫');
+        return;
+      }
+      if (!document.getElementById('agree').checked) {
+        alert('Vui lòng đồng ý với các điều khoản trước khi nạp');
+        return;
+      }
+      const userId = document.getElementById('userId').value;
+      const form = document.createElement('form');
+      form.method = 'POST';
+      form.action = '/checkout';
+      form.innerHTML = `
+        <input type="hidden" name="money" value="${amount}">
+        <input type="hidden" name="userId" value="${userId}">
+      `;
+      document.body.appendChild(form);
+      form.submit();
+    }
+  </script>
+</body>
+</html>

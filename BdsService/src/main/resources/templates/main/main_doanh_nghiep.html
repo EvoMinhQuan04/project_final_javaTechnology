@@ -1,0 +1,477 @@
+<div th:fragment="main_doanh_nghiep" class="re__nlcc-main-layout">
+
+
+
+    <div id="MiddleSubMenu">
+
+
+        <div class="re__broker-search re__enterprise-search">
+            <div class="re__broker-control">
+                <div class="re__first-col">
+                    <div class="re__search-title">Tìm kiếm doanh nghiệp</div>
+                </div>
+                <div class="re__second-col">
+                    <div class="re__kw-search">
+                        <!--                        <div class="re__input&#45;&#45;sm re__input-icon-right&#45;&#45;sm re__icon-search"><input onkeyup="if (event.target.value && event.target === document.activeElement){    event.target.nextSibling.parentElement.getElementsByClassName('re__input-icon-close')[0].classList.remove('re__hidden-icon');   event.target.classList.add('re__input-focus');}else {   event.target.parentElement.getElementsByClassName('re__input-icon-close')[0].classList.add('re__hidden-icon');   event.target.classList.remove('re__input-focus');}" onfocus="if (event.target.value && event.target === document.activeElement){    event.target.nextSibling.parentElement.getElementsByClassName('re__input-icon-close')[0].classList.remove('re__hidden-icon');   event.target.classList.add('re__input-focus');}else {   event.target.parentElement.getElementsByClassName('re__input-icon-close')[0].classList.add('re__hidden-icon');   event.target.classList.remove('re__input-focus');}" onfocusout="setTimeout(function(){ event.target.parentElement.getElementsByClassName('re__input-icon-close')[0].classList.add('re__hidden-icon'); }, 200)"  re__input-icon-right&#45;&#45;sm re__icon-search" id="txtKeyword" maxlength="100" name="txtKeyword" placeholder="Nh&#x1EAD;p t&#x1EEB; kh&#xF3;a t&#xEC;m ki&#x1EBF;m" type="text" value="" /><span onclick="this.parentElement.querySelector('input[onkeyup]').value = ''; this.parentElement.querySelector('input[onkeyup]').dispatchEvent(new Event('blur')); this.parentElement.querySelector('input[onkeyup]').classList.remove('re__input-focus'); this.classList.add('re__hidden-icon');" class="re__input-icon-close re__hidden-icon"><span class="path1"></span><span class="path2"></span></span><div class="re__error-message " ><span class="field-validation-valid" data-valmsg-for="txtKeyword" data-valmsg-replace="true"></span></div><div class="re__info-message"></div></div>-->
+                    </div>
+                </div>
+            </div>
+            <div id="searchcontrol" class="re__broker-control">
+                <div class="re__first-col">
+                    &nbsp;
+                </div>
+                <div class="re__second-col">
+                    <div class="re__select--sm js__bds-select-container" style="" tabindex="0">   <span class="re__filter-label select-text hasvalue js__bds-select-button">       <span class="select-text-content js__bds-select-button-current-text">Lĩnh vực</span>   </span><input id="hdBusiness" name="hdBusiness" type="hidden" value="" />  <div class="re__select-dropdown advance-select-options js__bds-select-dropdown mCustomScrollBox mCS-light mCSB_vertical">      <ul class="re__dropdown-no-art--sm advance-options js__bds-select-list"><li vl="" class="advance-options current js__option">Lĩnh vực</li><li vl="8" class="advance-options  js__option">Chủ đầu tư</li><li vl="6" class="advance-options  js__option">Thi công xây dựng</li><li vl="11" class="advance-options  js__option">Tư vấn thiết kế</li><li vl="9" class="advance-options  js__option">Sàn giao dịch bất động sản</li><li vl="10" class="advance-options  js__option">Trang trí nội thất</li><li vl="7" class="advance-options  js__option">Vật liệu xây dựng</li><li vl="12" class="advance-options  js__option">Tài chính pháp lý</li><li vl="15" class="advance-options  js__option">Các lĩnh vực khác</li>      </ul>  </div></div>
+                    <div class="re__select--sm js__bds-select-container" style="" tabindex="0">   <span class="re__filter-label select-text hasvalue js__bds-select-button">       <span class="select-text-content js__bds-select-button-current-text">Tỉnh/Thành phố</span>   </span><input id="hdCity" name="hdCity" type="hidden" value="" />  <div class="re__select-dropdown advance-select-options js__bds-select-dropdown mCustomScrollBox mCS-light mCSB_vertical">      <ul class="re__dropdown-no-art--sm advance-options js__bds-select-list"><li vl="" class="advance-options current js__option">Tỉnh/Thành phố</li><li vl="SG" class="advance-options  js__option">Hồ Chí Minh</li><li vl="HN" class="advance-options  js__option">Hà Nội</li><li vl="DDN" class="advance-options  js__option">Đà Nẵng</li><li vl="BD" class="advance-options  js__option">Bình Dương</li><li vl="DNA" class="advance-options  js__option">Đồng Nai</li><li vl="KH" class="advance-options  js__option">Khánh Hòa</li><li vl="HP" class="advance-options  js__option">Hải Phòng</li><li vl="LA" class="advance-options  js__option">Long An</li><li vl="QNA" class="advance-options  js__option">Quảng Nam</li><li vl="VT" class="advance-options  js__option">Bà Rịa Vũng Tàu</li><li vl="DDL" class="advance-options  js__option">Đắk Lắk</li><li vl="CT" class="advance-options  js__option">Cần Thơ</li><li vl="BTH" class="advance-options  js__option">Bình Thuận  </li><li vl="LDD" class="advance-options  js__option">Lâm Đồng</li><li vl="TTH" class="advance-options  js__option">Thừa Thiên Huế</li><li vl="KG" class="advance-options  js__option">Kiên Giang</li><li vl="BN" class="advance-options  js__option">Bắc Ninh</li><li vl="QNI" class="advance-options  js__option">Quảng Ninh</li><li vl="TH" class="advance-options  js__option">Thanh Hóa</li><li vl="NA" class="advance-options  js__option">Nghệ An</li><li vl="HD" class="advance-options  js__option">Hải Dương</li><li vl="GL" class="advance-options  js__option">Gia Lai</li><li vl="BP" class="advance-options  js__option">Bình Phước</li><li vl="HY" class="advance-options  js__option">Hưng Yên</li><li vl="BDD" class="advance-options  js__option">Bình Định</li><li vl="TG" class="advance-options  js__option">Tiền Giang</li><li vl="TB" class="advance-options  js__option">Thái Bình</li><li vl="BG" class="advance-options  js__option">Bắc Giang</li><li vl="HB" class="advance-options  js__option">Hòa Bình</li><li vl="AG" class="advance-options  js__option">An Giang</li><li vl="VP" class="advance-options  js__option">Vĩnh Phúc</li><li vl="TNI" class="advance-options  js__option">Tây Ninh</li><li vl="TN" class="advance-options  js__option">Thái Nguyên</li><li vl="LCA" class="advance-options  js__option">Lào Cai</li><li vl="NDD" class="advance-options  js__option">Nam Định</li><li vl="QNG" class="advance-options  js__option">Quảng Ngãi</li><li vl="BTR" class="advance-options  js__option">Bến Tre</li><li vl="DNO" class="advance-options  js__option">Đắk Nông</li><li vl="CM" class="advance-options  js__option">Cà Mau</li><li vl="VL" class="advance-options  js__option">Vĩnh Long</li><li vl="NB" class="advance-options  js__option">Ninh Bình</li><li vl="PT" class="advance-options  js__option">Phú Thọ</li><li vl="NT" class="advance-options  js__option">Ninh Thuận</li><li vl="PY" class="advance-options  js__option">Phú Yên</li><li vl="HNA" class="advance-options  js__option">Hà Nam</li><li vl="HT" class="advance-options  js__option">Hà Tĩnh</li><li vl="DDT" class="advance-options  js__option">Đồng Tháp</li><li vl="ST" class="advance-options  js__option">Sóc Trăng</li><li vl="KT" class="advance-options  js__option">Kon Tum</li><li vl="QB" class="advance-options  js__option">Quảng Bình</li><li vl="QT" class="advance-options  js__option">Quảng Trị</li><li vl="TV" class="advance-options  js__option">Trà Vinh</li><li vl="HGI" class="advance-options  js__option">Hậu Giang</li><li vl="SL" class="advance-options  js__option">Sơn La</li><li vl="BL" class="advance-options  js__option">Bạc Liêu</li><li vl="YB" class="advance-options  js__option">Yên Bái</li><li vl="TQ" class="advance-options  js__option">Tuyên Quang</li><li vl="DDB" class="advance-options  js__option">Điện Biên</li><li vl="LCH" class="advance-options  js__option">Lai Châu</li><li vl="LS" class="advance-options  js__option">Lạng Sơn</li><li vl="HG" class="advance-options  js__option">Hà Giang</li><li vl="BK" class="advance-options  js__option">Bắc Kạn</li><li vl="CB" class="advance-options  js__option">Cao Bằng</li>      </ul>  </div></div>
+                    <div class="re__select--sm js__bds-select-container" style="" tabindex="0">   <span class="re__filter-label select-text hasvalue js__bds-select-button">       <span class="select-text-content js__bds-select-button-current-text">Quận/Huyện</span>   </span><input id="hdDistrict" name="hdDistrict" type="hidden" value="" />  <div class="re__select-dropdown advance-select-options js__bds-select-dropdown mCustomScrollBox mCS-light mCSB_vertical">      <ul class="re__dropdown-no-art--sm advance-options js__bds-select-list"><li vl="" class="advance-options current js__option">Quận/Huyện</li>      </ul>  </div></div>
+                    <span class="re__btn re__btn-pr-solid--sm" id="btnSearch">Tìm kiếm</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div id="MainContent">
+    </div>
+
+    <div class="re__nlcc-main-left">
+        <h1 class="re__broker-title--xs">
+            Các doanh nghiệp, công ty bất động sản hàng đầu tại Việt Nam
+        </h1>
+
+        <div class="re__enterprise-compact">
+
+            <div class="list-company">
+                <h2><a title="Ch&#x1EE7; &#x111;&#x1EA7;u t&#x1B0;" href="ct-dau-tu-du-an" class="re__broker-title re__link-se">Ch&#x1EE7; &#x111;&#x1EA7;u t&#x1B0;</a></h2>
+                <ul>
+                    <li>
+                        <a class="re__verticalbox re__enterprise-thumb" href="/dau-tu-du-an-quan-1/cong-ty-co-phan-dia-oc-phu-dong-ep3072">
+                            <img src="https://file4.batdongsan.com.vn/2024/09/25/20240925115926-f9fd_wm.jpg" alt="C&#xD4;NG TY C&#x1ED4; PH&#x1EA6;N &#x110;&#x1ECA;A &#x1ED0;C PH&#xDA; &#x110;&#xD4;NG ">
+                        </a>
+                        <h3 class="re__enterprise-name"><a title="C&#xD4;NG TY C&#x1ED4; PH&#x1EA6;N &#x110;&#x1ECA;A &#x1ED0;C PH&#xDA; &#x110;&#xD4;NG " class="re__link-se-gray" href="/dau-tu-du-an-quan-1/cong-ty-co-phan-dia-oc-phu-dong-ep3072">C&#xD4;NG TY C&#x1ED4; PH&#x1EA6;N &#x110;&#x1ECA;A &#x1ED0;C PH&#xDA; &#x110;&#xD4;NG </a></h3>
+                    </li>
+                    <li>
+                        <a class="re__verticalbox re__enterprise-thumb" href="/dau-tu-du-an-cau-giay/cong-ty-co-phan-tap-doan-dong-do-ep3065">
+                            <img src="https://file4.batdongsan.com.vn/2024/05/15/20240515115213-46de_wm.jpg" alt="C&#xF4;ng ty C&#x1ED5; ph&#x1EA7;n T&#x1EAD;p &#x111;o&#xE0;n &#x110;&#xF4;ng &#x110;&#xF4;">
+                        </a>
+                        <h3 class="re__enterprise-name"><a title="C&#xF4;ng ty C&#x1ED5; ph&#x1EA7;n T&#x1EAD;p &#x111;o&#xE0;n &#x110;&#xF4;ng &#x110;&#xF4;" class="re__link-se-gray" href="/dau-tu-du-an-cau-giay/cong-ty-co-phan-tap-doan-dong-do-ep3065">C&#xF4;ng ty C&#x1ED5; ph&#x1EA7;n T&#x1EAD;p &#x111;o&#xE0;n &#x110;&#xF4;ng &#x110;&#xF4;</a></h3>
+                    </li>
+                    <li>
+                        <a class="re__verticalbox re__enterprise-thumb" href="/dau-tu-du-an-hoai-nhon-bdd/cong-ty-co-phan-tasmania-binh-dinh-ep3064">
+                            <img src="https://file4.batdongsan.com.vn/2024/04/03/20240403213738-9fb5_wm.jpg" alt="C&#xF4;ng ty C&#x1ED5; ph&#x1EA7;n Tasmania B&#xEC;nh &#x110;&#x1ECB;nh">
+                        </a>
+                        <h3 class="re__enterprise-name"><a title="C&#xF4;ng ty C&#x1ED5; ph&#x1EA7;n Tasmania B&#xEC;nh &#x110;&#x1ECB;nh" class="re__link-se-gray" href="/dau-tu-du-an-hoai-nhon-bdd/cong-ty-co-phan-tasmania-binh-dinh-ep3064">C&#xF4;ng ty C&#x1ED5; ph&#x1EA7;n Tasmania B&#xEC;nh &#x110;&#x1ECB;nh</a></h3>
+                    </li>
+                    <li>
+                        <a class="re__verticalbox re__enterprise-thumb" href="/dau-tu-du-an-thai-binh-tb/cong-ty-tnhh-bat-dong-san-ree-ree-land-ep3057">
+                            <img src="https://file4.batdongsan.com.vn/2024/01/22/20240122171306-6e02_wm.jpg" alt="C&#xF4;ng ty TNHH B&#x1EA5;t &#x111;&#x1ED9;ng s&#x1EA3;n REE (REE Land)">
+                        </a>
+                        <h3 class="re__enterprise-name"><a title="C&#xF4;ng ty TNHH B&#x1EA5;t &#x111;&#x1ED9;ng s&#x1EA3;n REE (REE Land)" class="re__link-se-gray" href="/dau-tu-du-an-thai-binh-tb/cong-ty-tnhh-bat-dong-san-ree-ree-land-ep3057">C&#xF4;ng ty TNHH B&#x1EA5;t &#x111;&#x1ED9;ng s&#x1EA3;n REE (REE Land)</a></h3>
+                    </li>
+                </ul>
+                <h2><a title="Thi c&#xF4;ng x&#xE2;y d&#x1EF1;ng" href="ct-thi-cong-xay-dung" class="re__broker-title re__link-se">Thi c&#xF4;ng x&#xE2;y d&#x1EF1;ng</a></h2>
+                <ul>
+                    <li>
+                        <a class="re__verticalbox re__enterprise-thumb" href="/thi-cong-xay-dung-binh-thanh/kim-oanh-group-ep3048">
+                            <img src="https://file4.batdongsan.com.vn/2023/10/13/20231013170445-bb13_wm.jpg" alt="Kim Oanh Group ">
+                        </a>
+                        <h3 class="re__enterprise-name"><a title="Kim Oanh Group " class="re__link-se-gray" href="/thi-cong-xay-dung-binh-thanh/kim-oanh-group-ep3048">Kim Oanh Group </a></h3>
+                    </li>
+                    <li>
+                        <a class="re__verticalbox re__enterprise-thumb" href="/thi-cong-xay-dung-son-tra-ddn/cong-ty-co-phan-cosmos-housing-ep3020">
+                            <img src="https://file4.batdongsan.com.vn/2023/04/12/20230412154702-cd05_wm.jpg" alt="C&#xD4;NG TY C&#x1ED4; PH&#x1EA6;N COSMOS HOUSING">
+                        </a>
+                        <h3 class="re__enterprise-name"><a title="C&#xD4;NG TY C&#x1ED4; PH&#x1EA6;N COSMOS HOUSING" class="re__link-se-gray" href="/thi-cong-xay-dung-son-tra-ddn/cong-ty-co-phan-cosmos-housing-ep3020">C&#xD4;NG TY C&#x1ED4; PH&#x1EA6;N COSMOS HOUSING</a></h3>
+                    </li>
+                    <li>
+                        <a class="re__verticalbox re__enterprise-thumb" href="/thi-cong-xay-dung-nam-tu-liem/cong-ty-co-phan-dau-tu-mhd-ha-noi-ep3019">
+                            <img src="https://file4.batdongsan.com.vn/2023/04/12/20230412152528-f986_wm.jpg" alt="C&#xF4;ng ty C&#x1ED5; ph&#x1EA7;n &#x110;&#x1EA7;u T&#x1B0; MHD H&#xE0; N&#x1ED9;i">
+                        </a>
+                        <h3 class="re__enterprise-name"><a title="C&#xF4;ng ty C&#x1ED5; ph&#x1EA7;n &#x110;&#x1EA7;u T&#x1B0; MHD H&#xE0; N&#x1ED9;i" class="re__link-se-gray" href="/thi-cong-xay-dung-nam-tu-liem/cong-ty-co-phan-dau-tu-mhd-ha-noi-ep3019">C&#xF4;ng ty C&#x1ED5; ph&#x1EA7;n &#x110;&#x1EA7;u T&#x1B0; MHD H&#xE0; N&#x1ED9;i</a></h3>
+                    </li>
+                    <li>
+                        <a class="re__verticalbox re__enterprise-thumb" href="/thi-cong-xay-dung-cau-giay/cong-ty-co-phan-tap-doan-dong-do-ep3065">
+                            <img src="https://file4.batdongsan.com.vn/2024/05/15/20240515115213-46de_wm.jpg" alt="C&#xF4;ng ty C&#x1ED5; ph&#x1EA7;n T&#x1EAD;p &#x111;o&#xE0;n &#x110;&#xF4;ng &#x110;&#xF4;">
+                        </a>
+                        <h3 class="re__enterprise-name"><a title="C&#xF4;ng ty C&#x1ED5; ph&#x1EA7;n T&#x1EAD;p &#x111;o&#xE0;n &#x110;&#xF4;ng &#x110;&#xF4;" class="re__link-se-gray" href="/thi-cong-xay-dung-cau-giay/cong-ty-co-phan-tap-doan-dong-do-ep3065">C&#xF4;ng ty C&#x1ED5; ph&#x1EA7;n T&#x1EAD;p &#x111;o&#xE0;n &#x110;&#xF4;ng &#x110;&#xF4;</a></h3>
+                    </li>
+                </ul>
+                <h2><a title="T&#x1B0; v&#x1EA5;n thi&#x1EBF;t k&#x1EBF;" href="ct-thiet-ke-kien-truc" class="re__broker-title re__link-se">T&#x1B0; v&#x1EA5;n thi&#x1EBF;t k&#x1EBF;</a></h2>
+                <ul>
+                    <li>
+                        <a class="re__verticalbox re__enterprise-thumb" href="/thiet-ke-kien-truc-long-bien/cong-ty-co-phan-dau-tu-phat-trien-bat-dong-san-kim-cuong-ep3029">
+                            <img src="https://staticfile.batdongsan.com.vn/images/avatar/no-image-default.png" alt="C&#xF4;ng ty c&#x1ED5; ph&#x1EA7;n &#x111;&#x1EA7;u t&#x1B0; ph&#xE1;t tri&#x1EC3;n b&#x1EA5;t &#x111;&#x1ED9;ng s&#x1EA3;n Kim C&#x1B0;&#x1A1;ng">
+                        </a>
+                        <h3 class="re__enterprise-name"><a title="C&#xF4;ng ty c&#x1ED5; ph&#x1EA7;n &#x111;&#x1EA7;u t&#x1B0; ph&#xE1;t tri&#x1EC3;n b&#x1EA5;t &#x111;&#x1ED9;ng s&#x1EA3;n Kim C&#x1B0;&#x1A1;ng" class="re__link-se-gray" href="/thiet-ke-kien-truc-long-bien/cong-ty-co-phan-dau-tu-phat-trien-bat-dong-san-kim-cuong-ep3029">C&#xF4;ng ty c&#x1ED5; ph&#x1EA7;n &#x111;&#x1EA7;u t&#x1B0; ph&#xE1;t tri&#x1EC3;n b&#x1EA5;t &#x111;&#x1ED9;ng s&#x1EA3;n Kim C&#x1B0;&#x1A1;ng</a></h3>
+                    </li>
+                    <li>
+                        <a class="re__verticalbox re__enterprise-thumb" href="/thiet-ke-kien-truc-son-tra-ddn/cong-ty-co-phan-cosmos-housing-ep3020">
+                            <img src="https://file4.batdongsan.com.vn/2023/04/12/20230412154702-cd05_wm.jpg" alt="C&#xD4;NG TY C&#x1ED4; PH&#x1EA6;N COSMOS HOUSING">
+                        </a>
+                        <h3 class="re__enterprise-name"><a title="C&#xD4;NG TY C&#x1ED4; PH&#x1EA6;N COSMOS HOUSING" class="re__link-se-gray" href="/thiet-ke-kien-truc-son-tra-ddn/cong-ty-co-phan-cosmos-housing-ep3020">C&#xD4;NG TY C&#x1ED4; PH&#x1EA6;N COSMOS HOUSING</a></h3>
+                    </li>
+                    <li>
+                        <a class="re__verticalbox re__enterprise-thumb" href="/thiet-ke-kien-truc-tan-binh/cong-ty-cp-thuong-mai-thuy-duong-duc-binh-ep2997">
+                            <img src="https://file4.batdongsan.com.vn/2023/01/10/20230110171502-ae53_wm.jpg" alt="C&#xF4;ng ty CP Th&#x1B0;&#x1A1;ng M&#x1EA1;i Th&#xF9;y D&#x1B0;&#x1A1;ng - &#x110;&#x1EE9;c B&#xEC;nh">
+                        </a>
+                        <h3 class="re__enterprise-name"><a title="C&#xF4;ng ty CP Th&#x1B0;&#x1A1;ng M&#x1EA1;i Th&#xF9;y D&#x1B0;&#x1A1;ng - &#x110;&#x1EE9;c B&#xEC;nh" class="re__link-se-gray" href="/thiet-ke-kien-truc-tan-binh/cong-ty-cp-thuong-mai-thuy-duong-duc-binh-ep2997">C&#xF4;ng ty CP Th&#x1B0;&#x1A1;ng M&#x1EA1;i Th&#xF9;y D&#x1B0;&#x1A1;ng - &#x110;&#x1EE9;c B&#xEC;nh</a></h3>
+                    </li>
+                    <li>
+                        <a class="re__verticalbox re__enterprise-thumb" href="/thiet-ke-kien-truc-quan-3/hoang-phuc-land-ep2970">
+                            <img src="https://file4.batdongsan.com.vn/2022/08/23/20220823155803-911b_wm.jpg" alt="Ho&#xE0;ng Ph&#xFA;c Land">
+                        </a>
+                        <h3 class="re__enterprise-name"><a title="Ho&#xE0;ng Ph&#xFA;c Land" class="re__link-se-gray" href="/thiet-ke-kien-truc-quan-3/hoang-phuc-land-ep2970">Ho&#xE0;ng Ph&#xFA;c Land</a></h3>
+                    </li>
+                </ul>
+                <h2><a title="S&#xE0;n giao d&#x1ECB;ch b&#x1EA5;t &#x111;&#x1ED9;ng s&#x1EA3;n" href="ct-tu-van-moi-gioi-bat-dong-san" class="re__broker-title re__link-se">S&#xE0;n giao d&#x1ECB;ch b&#x1EA5;t &#x111;&#x1ED9;ng s&#x1EA3;n</a></h2>
+                <ul>
+                    <li>
+                        <a class="re__verticalbox re__enterprise-thumb" href="/tu-van-moi-gioi-bat-dong-san-ben-cat-bd/cong-ty-tnhh-dau-tu-xay-dung-dich-vu-hoang-tho-group-ep2813">
+                            <img src="https://file4.batdongsan.com.vn/2020/09/28/PGsxuI1y/20200928152939-aa13.jpg" alt="C&#xD4;NG TY TNHH &#x110;&#x1EA6;U T&#x1AF; X&#xC2;Y D&#x1EF0;NG D&#x1ECA;CH V&#x1EE4; HO&#xC0;NG TH&#x1ED4; GROUP">
+                        </a>
+                        <h3 class="re__enterprise-name"><a title="C&#xD4;NG TY TNHH &#x110;&#x1EA6;U T&#x1AF; X&#xC2;Y D&#x1EF0;NG D&#x1ECA;CH V&#x1EE4; HO&#xC0;NG TH&#x1ED4; GROUP" class="re__link-se-gray" href="/tu-van-moi-gioi-bat-dong-san-ben-cat-bd/cong-ty-tnhh-dau-tu-xay-dung-dich-vu-hoang-tho-group-ep2813">C&#xD4;NG TY TNHH &#x110;&#x1EA6;U T&#x1AF; X&#xC2;Y D&#x1EF0;NG D&#x1ECA;CH V&#x1EE4; HO&#xC0;NG TH&#x1ED4; GROUP</a></h3>
+                    </li>
+                    <li>
+                        <a class="re__verticalbox re__enterprise-thumb" href="/tu-van-moi-gioi-bat-dong-san-quan-10/cong-ty-co-phan-bat-dong-san-xay-dung-trang-tri-noi-that-vuong-dien-group-ep3073">
+                            <img src="https://file4.batdongsan.com.vn/2024/09/25/20240925145148-1e06_wm.jpg" alt="C&#xF4;ng Ty C&#x1ED5; Ph&#x1EA7;n B&#x1EA5;t &#x110;&#x1ED9;ng S&#x1EA3;n X&#xE2;y D&#x1EF1;ng Trang Tr&#xED; N&#x1ED9;i Th&#x1EA5;t V&#x1AF;&#x1A0;NG &#x110;I&#x1EC0;N GROUP ">
+                        </a>
+                        <h3 class="re__enterprise-name"><a title="C&#xF4;ng Ty C&#x1ED5; Ph&#x1EA7;n B&#x1EA5;t &#x110;&#x1ED9;ng S&#x1EA3;n X&#xE2;y D&#x1EF1;ng Trang Tr&#xED; N&#x1ED9;i Th&#x1EA5;t V&#x1AF;&#x1A0;NG &#x110;I&#x1EC0;N GROUP " class="re__link-se-gray" href="/tu-van-moi-gioi-bat-dong-san-quan-10/cong-ty-co-phan-bat-dong-san-xay-dung-trang-tri-noi-that-vuong-dien-group-ep3073">C&#xF4;ng Ty C&#x1ED5; Ph&#x1EA7;n B&#x1EA5;t &#x110;&#x1ED9;ng S&#x1EA3;n X&#xE2;y D&#x1EF1;ng Trang Tr&#xED; N&#x1ED9;i Th&#x1EA5;t V&#x1AF;&#x1A0;NG &#x110;I&#x1EC0;N GROUP </a></h3>
+                    </li>
+                    <li>
+                        <a class="re__verticalbox re__enterprise-thumb" href="/tu-van-moi-gioi-bat-dong-san-quan-3/cong-ty-tnhh-dau-tu-quan-ly-phat-trien-sunny-land-ep3068">
+                            <img src="https://file4.batdongsan.com.vn/2024/07/26/20240726163602-f129_wm.jpg" alt=" C&#xD4;NG TY TNHH &#x110;&#x1EA6;U T&#x1AF; QU&#x1EA2;N L&#xDD; PH&#xC1;T TRI&#x1EC2;N SUNNY LAND">
+                        </a>
+                        <h3 class="re__enterprise-name"><a title=" C&#xD4;NG TY TNHH &#x110;&#x1EA6;U T&#x1AF; QU&#x1EA2;N L&#xDD; PH&#xC1;T TRI&#x1EC2;N SUNNY LAND" class="re__link-se-gray" href="/tu-van-moi-gioi-bat-dong-san-quan-3/cong-ty-tnhh-dau-tu-quan-ly-phat-trien-sunny-land-ep3068"> C&#xD4;NG TY TNHH &#x110;&#x1EA6;U T&#x1AF; QU&#x1EA2;N L&#xDD; PH&#xC1;T TRI&#x1EC2;N SUNNY LAND</a></h3>
+                    </li>
+                    <li>
+                        <a class="re__verticalbox re__enterprise-thumb" href="/tu-van-moi-gioi-bat-dong-san-quan-1/cty-co-phan-dau-tu-tt-realty-ep3074">
+                            <img src="https://file4.batdongsan.com.vn/2024/10/03/20241003164430-7183_wm.jpg" alt=" CTY C&#x1ED4; PH&#x1EA6;N &#x110;&#x1EA6;U T&#x1AF; TT REALTY">
+                        </a>
+                        <h3 class="re__enterprise-name"><a title=" CTY C&#x1ED4; PH&#x1EA6;N &#x110;&#x1EA6;U T&#x1AF; TT REALTY" class="re__link-se-gray" href="/tu-van-moi-gioi-bat-dong-san-quan-1/cty-co-phan-dau-tu-tt-realty-ep3074"> CTY C&#x1ED4; PH&#x1EA6;N &#x110;&#x1EA6;U T&#x1AF; TT REALTY</a></h3>
+                    </li>
+                </ul>
+                <h2><a title="Trang tr&#xED; n&#x1ED9;i th&#x1EA5;t" href="ct-trang-tri-noi-that" class="re__broker-title re__link-se">Trang tr&#xED; n&#x1ED9;i th&#x1EA5;t</a></h2>
+                <ul>
+                    <li>
+                        <a class="re__verticalbox re__enterprise-thumb" href="/trang-tri-noi-that-thu-duc/cong-ty-co-phan-noi-that-duy-phuc-ep2831">
+                            <img src="https://file4.batdongsan.com.vn/2020/12/11/hmcVYWuR/20201211165110-e89f.jpg" alt="C&#xF4;ng ty C&#x1ED5; Ph&#x1EA7;n n&#x1ED9;i th&#x1EA5;t Duy Ph&#xFA;c">
+                        </a>
+                        <h3 class="re__enterprise-name"><a title="C&#xF4;ng ty C&#x1ED5; Ph&#x1EA7;n n&#x1ED9;i th&#x1EA5;t Duy Ph&#xFA;c" class="re__link-se-gray" href="/trang-tri-noi-that-thu-duc/cong-ty-co-phan-noi-that-duy-phuc-ep2831">C&#xF4;ng ty C&#x1ED5; Ph&#x1EA7;n n&#x1ED9;i th&#x1EA5;t Duy Ph&#xFA;c</a></h3>
+                    </li>
+                    <li>
+                        <a class="re__verticalbox re__enterprise-thumb" href="/trang-tri-noi-that-quan-9/cong-ty-tnhh-dau-tu-thuong-mai-flexhouse-ep2736">
+                            <img src="https://file4.batdongsan.com.vn/2019/09/25/PGsxuI1y/20190925102723-4164.jpg" alt="C&#xD4;NG TY TNHH &#x110;&#x1EA6;U T&#x1AF; TH&#x1AF;&#x1A0;NG MAI FLEXHOUSE">
+                        </a>
+                        <h3 class="re__enterprise-name"><a title="C&#xD4;NG TY TNHH &#x110;&#x1EA6;U T&#x1AF; TH&#x1AF;&#x1A0;NG MAI FLEXHOUSE" class="re__link-se-gray" href="/trang-tri-noi-that-quan-9/cong-ty-tnhh-dau-tu-thuong-mai-flexhouse-ep2736">C&#xD4;NG TY TNHH &#x110;&#x1EA6;U T&#x1AF; TH&#x1AF;&#x1A0;NG MAI FLEXHOUSE</a></h3>
+                    </li>
+                    <li>
+                        <a class="re__verticalbox re__enterprise-thumb" href="/trang-tri-noi-that-quan-3/cong-ty-co-phan-stdecor-ep2614">
+                            <img src="https://file4.batdongsan.com.vn/2018/09/04/3ZsSL6gy/20180904143240-d54e.jpg" alt="C&#xD4;NG TY C&#x1ED4; PH&#x1EA6;N STDECOR">
+                        </a>
+                        <h3 class="re__enterprise-name"><a title="C&#xD4;NG TY C&#x1ED4; PH&#x1EA6;N STDECOR" class="re__link-se-gray" href="/trang-tri-noi-that-quan-3/cong-ty-co-phan-stdecor-ep2614">C&#xD4;NG TY C&#x1ED4; PH&#x1EA6;N STDECOR</a></h3>
+                    </li>
+                    <li>
+                        <a class="re__verticalbox re__enterprise-thumb" href="/trang-tri-noi-that-hai-ba-trung/noi-that-toan-tam-ep1938">
+                            <img src="https://staticfile.batdongsan.com.vn/images/avatar/no-image-default.png" alt="N&#x1ED9;i Th&#x1EA5;t To&#xE0;n T&#xE2;m">
+                        </a>
+                        <h3 class="re__enterprise-name"><a title="N&#x1ED9;i Th&#x1EA5;t To&#xE0;n T&#xE2;m" class="re__link-se-gray" href="/trang-tri-noi-that-hai-ba-trung/noi-that-toan-tam-ep1938">N&#x1ED9;i Th&#x1EA5;t To&#xE0;n T&#xE2;m</a></h3>
+                    </li>
+                </ul>
+                <h2><a title="V&#x1EAD;t li&#x1EC7;u x&#xE2;y d&#x1EF1;ng" href="ct-vat-lieu-xay-dung" class="re__broker-title re__link-se">V&#x1EAD;t li&#x1EC7;u x&#xE2;y d&#x1EF1;ng</a></h2>
+                <ul>
+                    <li>
+                        <a class="re__verticalbox re__enterprise-thumb" href="/vat-lieu-xay-dung-nam-tu-liem/cong-ty-co-phan-dau-tu-mhd-ha-noi-ep3019">
+                            <img src="https://file4.batdongsan.com.vn/2023/04/12/20230412152528-f986_wm.jpg" alt="C&#xF4;ng ty C&#x1ED5; ph&#x1EA7;n &#x110;&#x1EA7;u T&#x1B0; MHD H&#xE0; N&#x1ED9;i">
+                        </a>
+                        <h3 class="re__enterprise-name"><a title="C&#xF4;ng ty C&#x1ED5; ph&#x1EA7;n &#x110;&#x1EA7;u T&#x1B0; MHD H&#xE0; N&#x1ED9;i" class="re__link-se-gray" href="/vat-lieu-xay-dung-nam-tu-liem/cong-ty-co-phan-dau-tu-mhd-ha-noi-ep3019">C&#xF4;ng ty C&#x1ED5; ph&#x1EA7;n &#x110;&#x1EA7;u T&#x1B0; MHD H&#xE0; N&#x1ED9;i</a></h3>
+                    </li>
+                    <li>
+                        <a class="re__verticalbox re__enterprise-thumb" href="/vat-lieu-xay-dung-luong-son-hb/cty-tnhh-khu-do-thi-moi-trung-minh-ep3015">
+                            <img src="https://staticfile.batdongsan.com.vn/images/avatar/no-image-default.png" alt="CTY TNHH Khu &#x111;&#xF4; th&#x1ECB; m&#x1EDB;i Trung Minh">
+                        </a>
+                        <h3 class="re__enterprise-name"><a title="CTY TNHH Khu &#x111;&#xF4; th&#x1ECB; m&#x1EDB;i Trung Minh" class="re__link-se-gray" href="/vat-lieu-xay-dung-luong-son-hb/cty-tnhh-khu-do-thi-moi-trung-minh-ep3015">CTY TNHH Khu &#x111;&#xF4; th&#x1ECB; m&#x1EDB;i Trung Minh</a></h3>
+                    </li>
+                    <li>
+                        <a class="re__verticalbox re__enterprise-thumb" href="/vat-lieu-xay-dung-ninh-kieu-ct/cong-ty-tnhh-thuong-mai-dich-vu-van-tai-loi-my-2-ep3006">
+                            <img src="https://staticfile.batdongsan.com.vn/images/avatar/no-image-default.png" alt="C&#xD4;NG TY TNHH TH&#x1AF;&#x1A0;NG M&#x1EA0;I D&#x1ECA;CH V&#x1EE4; V&#x1EAC;N T&#x1EA2;I L&#x1EE2;I MY 2">
+                        </a>
+                        <h3 class="re__enterprise-name"><a title="C&#xD4;NG TY TNHH TH&#x1AF;&#x1A0;NG M&#x1EA0;I D&#x1ECA;CH V&#x1EE4; V&#x1EAC;N T&#x1EA2;I L&#x1EE2;I MY 2" class="re__link-se-gray" href="/vat-lieu-xay-dung-ninh-kieu-ct/cong-ty-tnhh-thuong-mai-dich-vu-van-tai-loi-my-2-ep3006">C&#xD4;NG TY TNHH TH&#x1AF;&#x1A0;NG M&#x1EA0;I D&#x1ECA;CH V&#x1EE4; V&#x1EAC;N T&#x1EA2;I L&#x1EE2;I MY 2</a></h3>
+                    </li>
+                    <li>
+                        <a class="re__verticalbox re__enterprise-thumb" href="/vat-lieu-xay-dung-bac-tu-liem/cong-ty-co-phan-quan-ly-tai-san-song-nhue-ep3003">
+                            <img src="https://file4.batdongsan.com.vn/2023/02/14/20230214165432-f7ad_wm.jpg" alt="C&#xF4;ng ty C&#x1ED5; ph&#x1EA7;n Qu&#x1EA3;n L&#xFD; T&#xE0;i S&#x1EA3;n S&#xF4;ng Nhu&#x1EC7;">
+                        </a>
+                        <h3 class="re__enterprise-name"><a title="C&#xF4;ng ty C&#x1ED5; ph&#x1EA7;n Qu&#x1EA3;n L&#xFD; T&#xE0;i S&#x1EA3;n S&#xF4;ng Nhu&#x1EC7;" class="re__link-se-gray" href="/vat-lieu-xay-dung-bac-tu-liem/cong-ty-co-phan-quan-ly-tai-san-song-nhue-ep3003">C&#xF4;ng ty C&#x1ED5; ph&#x1EA7;n Qu&#x1EA3;n L&#xFD; T&#xE0;i S&#x1EA3;n S&#xF4;ng Nhu&#x1EC7;</a></h3>
+                    </li>
+                </ul>
+                <h2><a title="T&#xE0;i ch&#xED;nh ph&#xE1;p l&#xFD;" href="ct-tai-chinh-phap-ly" class="re__broker-title re__link-se">T&#xE0;i ch&#xED;nh ph&#xE1;p l&#xFD;</a></h2>
+                <ul>
+                    <li>
+                        <a class="re__verticalbox re__enterprise-thumb" href="/tai-chinh-phap-ly-binh-thanh/tap-doan-anpha-holdings-ep2726">
+                            <img src="https://file4.batdongsan.com.vn/2019/06/27/zk7ggeWN/20190627084736-d272.jpg" alt="T&#x1EAD;p &#x111;o&#xE0;n Anpha Holdings">
+                        </a>
+                        <h3 class="re__enterprise-name"><a title="T&#x1EAD;p &#x111;o&#xE0;n Anpha Holdings" class="re__link-se-gray" href="/tai-chinh-phap-ly-binh-thanh/tap-doan-anpha-holdings-ep2726">T&#x1EAD;p &#x111;o&#xE0;n Anpha Holdings</a></h3>
+                    </li>
+                    <li>
+                        <a class="re__verticalbox re__enterprise-thumb" href="/tai-chinh-phap-ly-hai-ba-trung/cong-ty-cp-dau-tu-phat-trien-ha-tang-hoang-thanh-ep3031">
+                            <img src="https://staticfile.batdongsan.com.vn/images/avatar/no-image-default.png" alt="C&#xF4;ng ty CP &#x110;&#x1EA7;u t&#x1B0; &amp; Ph&#xE1;t tri&#x1EC3;n H&#x1EA1; t&#x1EA7;ng Ho&#xE0;ng Th&#xE0;nh">
+                        </a>
+                        <h3 class="re__enterprise-name"><a title="C&#xF4;ng ty CP &#x110;&#x1EA7;u t&#x1B0; &amp; Ph&#xE1;t tri&#x1EC3;n H&#x1EA1; t&#x1EA7;ng Ho&#xE0;ng Th&#xE0;nh" class="re__link-se-gray" href="/tai-chinh-phap-ly-hai-ba-trung/cong-ty-cp-dau-tu-phat-trien-ha-tang-hoang-thanh-ep3031">C&#xF4;ng ty CP &#x110;&#x1EA7;u t&#x1B0; &amp; Ph&#xE1;t tri&#x1EC3;n H&#x1EA1; t&#x1EA7;ng Ho&#xE0;ng Th&#xE0;nh</a></h3>
+                    </li>
+                    <li>
+                        <a class="re__verticalbox re__enterprise-thumb" href="/tai-chinh-phap-ly-quan-3/hoang-phuc-land-ep2970">
+                            <img src="https://file4.batdongsan.com.vn/2022/08/23/20220823155803-911b_wm.jpg" alt="Ho&#xE0;ng Ph&#xFA;c Land">
+                        </a>
+                        <h3 class="re__enterprise-name"><a title="Ho&#xE0;ng Ph&#xFA;c Land" class="re__link-se-gray" href="/tai-chinh-phap-ly-quan-3/hoang-phuc-land-ep2970">Ho&#xE0;ng Ph&#xFA;c Land</a></h3>
+                    </li>
+                    <li>
+                        <a class="re__verticalbox re__enterprise-thumb" href="/tai-chinh-phap-ly/cong-ty-co-phan-tap-doan-vngroup-ep2916">
+                            <img src="https://file4.batdongsan.com.vn/2021/12/01/20211201170435-9317.jpg" alt="C&#xF4;ng ty C&#x1ED5; ph&#x1EA7;n T&#x1EAD;p &#x111;o&#xE0;n VNGroup">
+                        </a>
+                        <h3 class="re__enterprise-name"><a title="C&#xF4;ng ty C&#x1ED5; ph&#x1EA7;n T&#x1EAD;p &#x111;o&#xE0;n VNGroup" class="re__link-se-gray" href="/tai-chinh-phap-ly/cong-ty-co-phan-tap-doan-vngroup-ep2916">C&#xF4;ng ty C&#x1ED5; ph&#x1EA7;n T&#x1EAD;p &#x111;o&#xE0;n VNGroup</a></h3>
+                    </li>
+                </ul>
+                <h2><a title="C&#xE1;c l&#x129;nh v&#x1EF1;c kh&#xE1;c" href="ct-cac-linh-vuc-khac" class="re__broker-title re__link-se">C&#xE1;c l&#x129;nh v&#x1EF1;c kh&#xE1;c</a></h2>
+                <ul>
+                    <li>
+                        <a class="re__verticalbox re__enterprise-thumb" href="/cac-linh-vuc-khac-dong-da/ahaslides-vietnam-co-ltd-ep3060">
+                            <img src="https://file4.batdongsan.com.vn/2024/03/07/20240307111045-c25d_wm.jpg" alt="AhaSlides Vietnam Co Ltd">
+                        </a>
+                        <h3 class="re__enterprise-name"><a title="AhaSlides Vietnam Co Ltd" class="re__link-se-gray" href="/cac-linh-vuc-khac-dong-da/ahaslides-vietnam-co-ltd-ep3060">AhaSlides Vietnam Co Ltd</a></h3>
+                    </li>
+                    <li>
+                        <a class="re__verticalbox re__enterprise-thumb" href="/cac-linh-vuc-khac-thanh-xuan/cong-ty-co-phan-jobsgo-ep3062">
+                            <img src="https://file4.batdongsan.com.vn/2024/03/26/20240326214408-d375_wm.jpg" alt="C&#xF4;ng ty C&#x1ED5; Ph&#x1EA7;n JobsGO">
+                        </a>
+                        <h3 class="re__enterprise-name"><a title="C&#xF4;ng ty C&#x1ED5; Ph&#x1EA7;n JobsGO" class="re__link-se-gray" href="/cac-linh-vuc-khac-thanh-xuan/cong-ty-co-phan-jobsgo-ep3062">C&#xF4;ng ty C&#x1ED5; Ph&#x1EA7;n JobsGO</a></h3>
+                    </li>
+                    <li>
+                        <a class="re__verticalbox re__enterprise-thumb" href="/cac-linh-vuc-khac-nam-tu-liem/cong-ty-tnhh-oreka-viet-nam-ep3055">
+                            <img src="https://file4.batdongsan.com.vn/2024/01/03/20240103141826-188f_wm.jpg" alt="C&#xD4;NG TY TNHH OREKA VI&#x1EC6;T NAM">
+                        </a>
+                        <h3 class="re__enterprise-name"><a title="C&#xD4;NG TY TNHH OREKA VI&#x1EC6;T NAM" class="re__link-se-gray" href="/cac-linh-vuc-khac-nam-tu-liem/cong-ty-tnhh-oreka-viet-nam-ep3055">C&#xD4;NG TY TNHH OREKA VI&#x1EC6;T NAM</a></h3>
+                    </li>
+                    <li>
+                        <a class="re__verticalbox re__enterprise-thumb" href="/cac-linh-vuc-khac-nam-tu-liem/lien-danh-cong-ty-cp-dau-tu-xay-dung-nalico-ep3040">
+                            <img src="https://file4.batdongsan.com.vn/2023/06/16/20230616071420-43f2_wm.jpg" alt="Li&#xEA;n danh C&#xF4;ng ty CP &#x110;&#x1EA7;u t&#x1B0; x&#xE2;y d&#x1EF1;ng NALICO">
+                        </a>
+                        <h3 class="re__enterprise-name"><a title="Li&#xEA;n danh C&#xF4;ng ty CP &#x110;&#x1EA7;u t&#x1B0; x&#xE2;y d&#x1EF1;ng NALICO" class="re__link-se-gray" href="/cac-linh-vuc-khac-nam-tu-liem/lien-danh-cong-ty-cp-dau-tu-xay-dung-nalico-ep3040">Li&#xEA;n danh C&#xF4;ng ty CP &#x110;&#x1EA7;u t&#x1B0; x&#xE2;y d&#x1EF1;ng NALICO</a></h3>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+    <div class="re__nlcc-main-right">
+
+        <div class="re__box-newsletter-mini">
+            <div class="re__newsletter-title">
+                <img src="https://file4.batdongsan.com.vn/images/icon-newsletter-small.jpg">
+                <span>Nhận bản tin từ Batdongsan.com.vn</span>
+            </div>
+            <div class="re__newsletter-bound">
+                <div class="re__input--sm">
+                    <input type="text" id="email" placeholder="Nhập email">
+                </div>
+                <a href="javascript:void(0);" class="re__btn re__btn-pr-solid--sm" id="newsletterRegister">Đăng ký</a>
+                <div id="emailValid"></div>
+            </div>
+        </div>
+
+
+
+
+        <div class="re__box-with-border">
+            <div class="re__box-header-full re__header-center">
+                <h2 class="re__header-text">
+                    D&#x1EF1; &#xE1;n &#x111;ang thi c&#xF4;ng
+                </h2>
+            </div>
+            <div class="re__box-border re__box-thumbnail re__box-progress js__prj-prgress-box" id="prjProgress">
+                <div class="swiper-container">
+                    <div class="swiper-wrapper">
+                        <div class="re__item-wrap js__prj-prgress">
+                            <a href="/du-an-khu-do-thi-moi-uong-bi-qni/khu-do-thi-opus-one-uong-bi-pj4199/p4" class="re__item-thumb">
+                                <img src="https://file4.batdongsan.com.vn/crop/78x78/2021/07/02/akCJKkFO/20210702134000-a0ee.jpg" alt="Khu &#x111;&#xF4; th&#x1ECB; Opus One U&#xF4;ng B&#xED;">
+                            </a>
+
+                            <div class="re__item-title">
+                                <h3>
+                                    <a title="Khu &#x111;&#xF4; th&#x1ECB; Opus One U&#xF4;ng B&#xED;" href="/du-an-khu-do-thi-moi-uong-bi-qni/khu-do-thi-opus-one-uong-bi-pj4199/p4" class="re__link-se">
+                                        Khu &#x111;&#xF4; th&#x1ECB; Opus One U&#xF4;ng B&#xED;
+                                    </a>
+                                </h3>
+                                <div class="re__progress">Tiến độ dự án cập nhật ngày 30/06/2021</div>
+                            </div>
+                        </div>
+                        <div class="re__item-wrap js__prj-prgress">
+                            <a href="/du-an-khu-do-thi-moi-hai-duong-hd/phu-quy-golden-land-pj5319/p4" class="re__item-thumb">
+                                <img src="https://file4.batdongsan.com.vn/crop/78x78/2021/07/01/akCJKkFO/20210701161934-8b0a.jpg" alt="Ph&#xFA; Qu&#xFD; Golden Land">
+                            </a>
+
+                            <div class="re__item-title">
+                                <h3>
+                                    <a title="Ph&#xFA; Qu&#xFD; Golden Land" href="/du-an-khu-do-thi-moi-hai-duong-hd/phu-quy-golden-land-pj5319/p4" class="re__link-se">
+                                        Ph&#xFA; Qu&#xFD; Golden Land
+                                    </a>
+                                </h3>
+                                <div class="re__progress">Tiến độ dự án cập nhật ngày 26/06/2021</div>
+                            </div>
+                        </div>
+                        <div class="re__item-wrap js__prj-prgress">
+                            <a href="/du-an-khu-do-thi-moi-phu-rieng-bp/felicia-city-binh-phuoc-pj4593/p4" class="re__item-thumb">
+                                <img src="https://file4.batdongsan.com.vn/crop/78x78/2021/06/22/akCJKkFO/20210622082957-dfb2.jpg" alt="Felicia City B&#xEC;nh Ph&#x1B0;&#x1EDB;c">
+                            </a>
+
+                            <div class="re__item-title">
+                                <h3>
+                                    <a title="Felicia City B&#xEC;nh Ph&#x1B0;&#x1EDB;c" href="/du-an-khu-do-thi-moi-phu-rieng-bp/felicia-city-binh-phuoc-pj4593/p4" class="re__link-se">
+                                        Felicia City B&#xEC;nh Ph&#x1B0;&#x1EDB;c
+                                    </a>
+                                </h3>
+                                <div class="re__progress">Tiến độ dự án cập nhật ngày 22/06/2021</div>
+                            </div>
+                        </div>
+                        <div class="re__item-wrap js__prj-prgress">
+                            <a href="/du-an-khac-thanh-hoa-th/quang-hung-central-point-pj5316/p4" class="re__item-thumb">
+                                <img src="https://file4.batdongsan.com.vn/crop/78x78/2021/06/24/akCJKkFO/20210624153438-b23b.jpg" alt="Qu&#x1EA3;ng H&#x1B0;ng Central Point">
+                            </a>
+
+                            <div class="re__item-title">
+                                <h3>
+                                    <a title="Qu&#x1EA3;ng H&#x1B0;ng Central Point" href="/du-an-khac-thanh-hoa-th/quang-hung-central-point-pj5316/p4" class="re__link-se">
+                                        Qu&#x1EA3;ng H&#x1B0;ng Central Point
+                                    </a>
+                                </h3>
+                                <div class="re__progress">Tiến độ dự án cập nhật ngày 20/06/2021</div>
+                            </div>
+                        </div>
+                        <div class="re__item-wrap js__prj-prgress">
+                            <a href="/du-an-khu-do-thi-moi-bien-hoa-dna/aqua-city-pj4282/p4" class="re__item-thumb">
+                                <img src="https://file4.batdongsan.com.vn/crop/78x78/2020/10/23/hmcVYWuR/20201023083500-f07a.jpg" alt="Aqua City">
+                            </a>
+
+                            <div class="re__item-title">
+                                <h3>
+                                    <a title="Aqua City" href="/du-an-khu-do-thi-moi-bien-hoa-dna/aqua-city-pj4282/p4" class="re__link-se">
+                                        Aqua City
+                                    </a>
+                                </h3>
+                                <div class="re__progress">Tiến độ dự án cập nhật ngày 15/06/2021</div>
+                            </div>
+                        </div>
+                        <div class="re__item-wrap js__prj-prgress">
+                            <a href="/du-an-biet-thu-lien-ke-ha-dong/an-vuong-villa-pj3080/p4" class="re__item-thumb">
+                                <img src="https://file4.batdongsan.com.vn/crop/78x78/2017/08/22/0I4XNtd4/20170822112926-1e5d.jpg" alt="An V&#x1B0;&#x1EE3;ng Villa">
+                            </a>
+
+                            <div class="re__item-title">
+                                <h3>
+                                    <a title="An V&#x1B0;&#x1EE3;ng Villa" href="/du-an-biet-thu-lien-ke-ha-dong/an-vuong-villa-pj3080/p4" class="re__link-se">
+                                        An V&#x1B0;&#x1EE3;ng Villa
+                                    </a>
+                                </h3>
+                                <div class="re__progress">Tiến độ dự án cập nhật ngày 11/06/2021</div>
+                            </div>
+                        </div>
+                        <div class="re__item-wrap js__prj-prgress">
+                            <a href="/du-an-khac-dong-phu-bp/huu-phuc-royal-villas-pj5300/p4" class="re__item-thumb">
+                                <img src="https://file4.batdongsan.com.vn/crop/78x78/2021/06/15/20210615141932-6b40.jpg" alt="H&#x1EEF;u Ph&#xFA;c Royal Villas">
+                            </a>
+
+                            <div class="re__item-title">
+                                <h3>
+                                    <a title="H&#x1EEF;u Ph&#xFA;c Royal Villas" href="/du-an-khac-dong-phu-bp/huu-phuc-royal-villas-pj5300/p4" class="re__link-se">
+                                        H&#x1EEF;u Ph&#xFA;c Royal Villas
+                                    </a>
+                                </h3>
+                                <div class="re__progress">Tiến độ dự án cập nhật ngày 10/06/2021</div>
+                            </div>
+                        </div>
+                        <div class="re__item-wrap js__prj-prgress">
+                            <a href="/du-an-biet-thu-lien-ke-gia-lam/lan-vien-villa-pj5321/p4" class="re__item-thumb">
+                                <img src="https://file4.batdongsan.com.vn/crop/78x78/2021/07/02/akCJKkFO/20210702135722-ac39.jpg" alt="Lan Vi&#xEA;n Villa">
+                            </a>
+
+                            <div class="re__item-title">
+                                <h3>
+                                    <a title="Lan Vi&#xEA;n Villa" href="/du-an-biet-thu-lien-ke-gia-lam/lan-vien-villa-pj5321/p4" class="re__link-se">
+                                        Lan Vi&#xEA;n Villa
+                                    </a>
+                                </h3>
+                                <div class="re__progress">Tiến độ dự án cập nhật ngày 01/06/2021</div>
+                            </div>
+                        </div>
+                        <div class="re__item-wrap js__prj-prgress">
+                            <a href="/du-an-can-ho-chung-cu-thanh-hoa-th/tecco-center-point-pj5313/p4" class="re__item-thumb">
+                                <img src="https://file4.batdongsan.com.vn/crop/78x78/2021/06/23/akCJKkFO/20210623094048-d088.jpg" alt="Tecco Center Point">
+                            </a>
+
+                            <div class="re__item-title">
+                                <h3>
+                                    <a title="Tecco Center Point" href="/du-an-can-ho-chung-cu-thanh-hoa-th/tecco-center-point-pj5313/p4" class="re__link-se">
+                                        Tecco Center Point
+                                    </a>
+                                </h3>
+                                <div class="re__progress">Tiến độ dự án cập nhật ngày 31/05/2021</div>
+                            </div>
+                        </div>
+                        <div class="re__item-wrap js__prj-prgress">
+                            <a href="/du-an-can-ho-chung-cu-dong-da/lancaster-luminaire-pj4225/p4" class="re__item-thumb">
+                                <img src="https://file4.batdongsan.com.vn/crop/78x78/2019/04/09/zk7ggeWN/20190409154215-ad86.jpg" alt="Lancaster Luminaire">
+                            </a>
+
+                            <div class="re__item-title">
+                                <h3>
+                                    <a title="Lancaster Luminaire" href="/du-an-can-ho-chung-cu-dong-da/lancaster-luminaire-pj4225/p4" class="re__link-se">
+                                        Lancaster Luminaire
+                                    </a>
+                                </h3>
+                                <div class="re__progress">Tiến độ dự án cập nhật ngày 26/05/2021</div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="re__progress-pagination js__progress-pagination">
+                    <a action="go-left" class="re__btn re__btn-se-ghost--sm re__btn-icon--sm re__left">
+                        <i class="re__icon-chevron-left"></i>
+                    </a>
+                    <div class="re__progress-dot swiper-pagination"></div>
+                    <a action="go-right" class="re__btn re__btn-se-ghost--sm re__btn-icon--sm re__right">
+                        <i class="re__icon-chevron-right"></i>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+
+
+
+
+
+        <div class="re__fb-fanpage">
+            <div id="fb-root"></div>
+            <script>
+                (function (d, s, id) {
+                    var js, fjs = d.getElementsByTagName(s)[0];
+                    if (d.getElementById(id)) return;
+                    js = d.createElement(s); js.id = id;
+                    js.src = "//connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.9&appId=302507473246792";
+                    fjs.parentNode.insertBefore(js, fjs);
+                }(document, 'script', 'facebook-jssdk'));</script>
+
+            <div class="fb-page" data-href="https://www.facebook.com/Batdongsandv/" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true">
+                <blockquote cite="https://www.facebook.com/Batdongsandv/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/Batdongsandv/">Batdongsan.com.vn</a></blockquote>
+            </div>
+        </div>
+
+    </div>
+
+
+    <div class="banner-bottom">
+        <div style="float: left; width: 560px"></div>
+        <div style="float: left; width: 430px; margin-left: 5px"></div>
+    </div>
+    <div class="clearfix"></div>
+</div>

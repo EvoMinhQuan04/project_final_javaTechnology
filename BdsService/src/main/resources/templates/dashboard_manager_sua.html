@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Update Land for Sale</title>
+    <style>
+      /* Reset cơ bản và box-sizing */
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+  
+      /* Font và nền chung */
+      body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #f0f2f5;
+        color: #333;
+        line-height: 1.6;
+        padding: 20px;
+      }
+  
+      /* Tiêu đề */
+      h2 {
+        text-align: center;
+        margin-bottom: 30px;
+        color: #4CAF50;
+        font-size: 2rem;
+      }
+  
+      /* Container form */
+      form {
+        max-width: 600px;
+        margin: 0 auto;
+        background: #fff;
+        padding: 30px;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      }
+  
+      /* Nhãn */
+      label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: 600;
+      }
+  
+      /* Các input và textarea */
+      input[type="text"],
+      input[type="number"],
+      textarea {
+        width: 100%;
+        padding: 10px 12px;
+        margin-bottom: 20px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font-size: 0.95rem;
+        transition: border-color 0.2s;
+      }
+  
+      input:focus,
+      textarea:focus {
+        outline: none;
+        border-color: #4CAF50;
+      }
+  
+      /* CKEditor container */
+      .cke_editor {
+        margin-bottom: 20px;
+      }
+  
+      /* Nút submit */
+      button[type="submit"] {
+        display: block;
+        width: 100%;
+        background: #4CAF50;
+        color: #fff;
+        border: none;
+        padding: 12px;
+        font-size: 1rem;
+        font-weight: 600;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background 0.3s, transform 0.1s;
+      }
+  
+      button[type="submit"]:hover {
+        background: #45a049;
+        transform: translateY(-1px);
+      }
+  
+      button[type="submit"]:active {
+        transform: translateY(1px);
+      }
+  
+      /* Responsive trên mobile */
+      @media (max-width: 600px) {
+        form {
+          padding: 20px;
+        }
+      }
+    </style>
+    <script>
+      function postLand() {
+        const formData = new FormData();
+
+        // Get form field values
+        formData.append("name", document.getElementById("name").value);
+        formData.append(
+          "price",
+          parseFloat(document.getElementById("price").value)
+        );
+        formData.append(
+          "area",
+          parseFloat(document.getElementById("area").value)
+        );
+        formData.append("interior", document.getElementById("interior").value);
+        formData.append(
+          "numberOfToilets",
+          parseInt(document.getElementById("numberOfToilets").value)
+        );
+        formData.append(
+          "numberOfBedRooms",
+          parseInt(document.getElementById("numberOfBedRooms").value)
+        );
+        formData.append(
+          "description",
+          CKEDITOR.instances.description.getData()
+        );
+        formData.append("legal", document.getElementById("legal").value);
+
+        // Get the land ID from a hidden field or the URL
+        const landId = document.getElementById("id").value;
+
+        // Send POST request to update the land
+        fetch(`/admin/edit/${landId}`, {
+          method: "POST",
+          body: formData,
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            alert("Update successful!");
+            console.log(data);
+          })
+          .catch((error) => {
+            alert("Update successfully!");
+            // chuyển về trang hiển thị danh sách
+            window.location.href = "/manager-list";
+            console.error("Error:", error);
+          });
+      }
+    </script>
+
+    <script src="https://cdn.ckeditor.com/4.20.2/standard/ckeditor.js"></script>
+  </head>
+  <body>
+    <h2>Update Land for Sale</h2>
+    <form
+      onsubmit="event.preventDefault(); postLand();"
+      enctype="multipart/form-data"
+    >
+      <input type="hidden" id="id" name="id" th:value="${landForSale.id}" />
+
+      <!-- Hidden field to pass the Land ID -->
+
+      <label for="name">Name:</label>
+      <input
+        type="text"
+        id="name"
+        name="name"
+        th:value="${landForSale.name}"
+        required
+      /><br /><br />
+
+      <label for="price">Price:</label>
+      <input
+        type="number"
+        id="price"
+        name="price"
+        th:value="${landForSale.price}"
+        required
+      /><br /><br />
+
+      <label for="area">Area:</label>
+      <input
+        type="number"
+        step="0.1"
+        id="area"
+        name="area"
+        th:value="${landForSale.area}"
+        required
+      /><br /><br />
+
+      <label for="interior">Interior:</label>
+      <input
+        type="text"
+        id="interior"
+        name="interior"
+        th:value="${landForSale.interior}"
+        required
+      /><br /><br />
+
+      <label for="numberOfToilets">Number of Toilets:</label>
+      <input
+        type="number"
+        id="numberOfToilets"
+        name="numberOfToilets"
+        th:value="${landForSale.numberOfToilets}"
+        required
+      /><br /><br />
+
+      <label for="numberOfBedRooms">Number of Bedrooms:</label>
+      <input
+        type="number"
+        id="numberOfBedRooms"
+        name="numberOfBedRooms"
+        th:value="${landForSale.numberOfBedRooms}"
+        required
+      /><br /><br />
+
+      <label for="description">Description:</label>
+      <textarea
+        id="description"
+        name="description"
+        th:text="${landForSale.description}"
+      ></textarea
+      ><br /><br />
+      <script>
+        window.addEventListener("load", function () {
+          // Initialize CKEditor with the value from Thymeleaf
+          CKEDITOR.replace("description");
+        });
+      </script>
+
+      <label for="legal">Legal:</label>
+      <input
+        type="text"
+        id="legal"
+        name="legal"
+        value="Sổ đỏ chính chủ"
+        th:value="${landForSale.legal}"
+        required
+      /><br /><br />
+
+      <!-- Input for uploading images -->
+
+      <button type="submit">Update Land</button>
+    </form>
+  </body>
+</html>

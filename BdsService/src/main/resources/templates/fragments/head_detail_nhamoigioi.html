@@ -1,0 +1,464 @@
+<head>
+  <link rel="preconnect" href="https://staticfile.batdongsan.com.vn" />
+  <link rel="dns-prefetch" href="https://staticfile.batdongsan.com.vn" />
+  <link rel="preconnect" href="https://file4.batdongsan.com.vn" />
+  <link rel="dns-prefetch" href="https://file4.batdongsan.com.vn" />
+
+  <script>
+    window.unlFeatures = [
+      {
+        f: "cplus-7377_new-search-location-focus",
+        v: "cplus-7377_new-search-location-focus_onboarding",
+        s: "1",
+      },
+      { f: "cplus-8842_new-label-verified-listing", v: "disabled", s: "0" },
+      { f: "cplus-7974-braze-in-app-message", v: "", s: "0" },
+      { f: "BDSMON2-PIVOT-ENTRY-TOP-MENU-CONSUMER", v: "", s: "1" },
+      {
+        f: "cplus-7839_apply-dynamic-serving-all-category-location",
+        v: "",
+        s: "1",
+      },
+      { f: "cplus-7677-kong-api-gateway-integration", v: "", s: "0" },
+      { f: "cplus-7406_new-api-suggestion", v: "", s: "0" },
+      { f: "BDSMON2-PIVOT-CONSUMER", v: "", s: "1" },
+      { f: "cplus-7959-refreshToken-new-flow", v: "", s: "1" },
+      { f: "cplus-7974-braze-integration", v: "", s: "1" },
+      { f: "cplus-8431-braze-web-push", v: "", s: "1" },
+      {
+        f: "cplus-8127-move-seo-controller-to-seo-listing-service",
+        v: "",
+        s: "1",
+      },
+      { f: "cplus-8478_KYC-bookmark-listing", v: "", s: "1" },
+    ];
+  </script>
+
+  <script>
+    !(function () {
+      var analytics = (window.analytics = window.analytics || []);
+      if (!analytics.initialize)
+        if (analytics.invoked)
+          window.console &&
+            console.error &&
+            console.error("Segment snippet included twice.");
+        else {
+          analytics.invoked = !0;
+          analytics.methods = [
+            "trackSubmit",
+            "trackClick",
+            "trackLink",
+            "trackForm",
+            "pageview",
+            "identify",
+            "reset",
+            "group",
+            "track",
+            "ready",
+            "alias",
+            "debug",
+            "page",
+            "once",
+            "off",
+            "on",
+            "addSourceMiddleware",
+            "addIntegrationMiddleware",
+            "setAnonymousId",
+            "addDestinationMiddleware",
+          ];
+          analytics.factory = function (e) {
+            return function () {
+              if (window.analytics.initialized)
+                return window.analytics[e].apply(window.analytics, arguments);
+              var i = Array.prototype.slice.call(arguments);
+              i.unshift(e);
+              analytics.push(i);
+              return analytics;
+            };
+          };
+          for (var i = 0; i < analytics.methods.length; i++) {
+            var key = analytics.methods[i];
+            analytics[key] = analytics.factory(key);
+          }
+          analytics.load = function (key, i) {
+            var t = document.createElement("script");
+            t.type = "text/javascript";
+            t.async = !0;
+            t.src =
+              "https://cdn.segment.com/analytics.js/v1/" +
+              key +
+              "/analytics.min.js";
+            var n = document.getElementsByTagName("script")[0];
+            n.parentNode.insertBefore(t, n);
+            analytics._loadOptions = i;
+          };
+          analytics._writeKey = "W4EsSW2yr56lXiy6zXJobIL8E7wZVaLt";
+          analytics.SNIPPET_VERSION = "4.16.1";
+          analytics.load("W4EsSW2yr56lXiy6zXJobIL8E7wZVaLt");
+          let data = window.pageTrackingData;
+          if (data && data.bdsUuid) {
+            analytics.setAnonymousId(data.bdsUuid);
+          }
+          const isLogin =
+            window.userServices && window.userServices.currentUserInfo;
+          if (
+            data &&
+            data.pageTrackingType == "LDP" &&
+            data.products &&
+            (isLogin || data.isSegmentIdentify)
+          ) {
+            const productInfo = data.products[0];
+            if (productInfo) {
+              const props = {
+                eventData: {
+                  intent: productInfo.intent,
+                  pageType: productInfo.pageType,
+                  productId: productInfo.productId,
+                },
+                metaData: {
+                  projectId: productInfo.projectId,
+                  vipType: productInfo.vipType,
+                  verified: productInfo.verified,
+                  expired: productInfo.expired,
+                  cateId: productInfo.cateId,
+                  cityCode: productInfo.cityCode,
+                  districtId: productInfo.districtId,
+                  wardId: productInfo.wardId,
+                  streetId: productInfo.streetId,
+                  pageId: productInfo.pageId,
+                },
+              };
+              analytics.track("LdpPageViewed", props);
+            }
+          }
+        }
+    })();
+  </script>
+  <script
+    type="text/javascript"
+    src="https://staticfile.batdongsan.com.vn/js/segment-analytics/filestatic.ver2.msvbds.SegmentClient.min.js"
+    async=""
+    data-cfasync="false"
+  ></script>
+
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    var data = {
+      event: "pageInfo",
+      cat: "0",
+      dtk: "eb",
+      ite: "2825",
+      pag: "232",
+      cit: "null",
+      dis: "null",
+      war: "null",
+      str: "null",
+      pro: "null",
+      pri: "null",
+      mip: "null",
+      map: "null",
+      are: "null",
+      mia: "null",
+      maa: "null",
+      dir: "null",
+      rom: "null",
+      vrs: "0",
+      unl: window.unlFeatures,
+    };
+
+    window.dataLayer.push(data);
+  </script>
+
+  <!-- Google Tag Manager -->
+  <script>
+    (function (w, d, s, l, i) {
+      w[l] = w[l] || [];
+      w[l].push({
+        "gtm.start": new Date().getTime(),
+        event: "gtm.js",
+      });
+      var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s),
+        dl = l != "dataLayer" ? "&l=" + l : "";
+      j.async = true;
+      j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+      f.parentNode.insertBefore(j, f);
+    })(window, document, "script", "dataLayer", "GTM-MMVJT5G");
+  </script>
+  <!-- End Global site tag (gtag.js) - Google Analytics -->
+  <!-- End Google Tag Manager -->
+  <script
+    data-ad-client="ca-pub-4522977639867868"
+    async
+    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+  ></script>
+
+  <link
+    rel="alternate"
+    href="https://batdongsan.com.vn/cho-thue-nha-mat-pho/cong-ty-co-phan-bat-dong-san-gigareal-eb2825"
+    hreflang="vi-vn"
+  />
+
+  <link
+    href="https://staticfile.batdongsan.com.vn/images/logo/symbol-only.svg"
+    rel="shortcut icon"
+    type="image/svg+xml"
+  />
+  <link
+    rel="icon"
+    type="image/png"
+    href="https://staticfile.batdongsan.com.vn/images/logo/favicon_sisu_57x57.png"
+    sizes="57x57"
+  />
+  <link
+    rel="icon"
+    type="image/png"
+    href="https://staticfile.batdongsan.com.vn/images/logo/favicon_sisu_152x152.png"
+    sizes="152x152"
+  />
+  <link
+    rel="icon"
+    type="image/png"
+    href="https://staticfile.batdongsan.com.vn/images/logo/favicon_sisu_144x144.png"
+    sizes="144x144"
+  />
+  <link
+    rel="icon"
+    type="image/png"
+    href="https://staticfile.batdongsan.com.vn/images/logo/favicon_sisu_120x120.png"
+    sizes="120x120"
+  />
+  <link
+    rel="icon"
+    type="image/png"
+    href="https://staticfile.batdongsan.com.vn/images/logo/favicon_sisu_114x114.png"
+    sizes="114x114"
+  />
+  <link
+    rel="icon"
+    type="image/png"
+    href="https://staticfile.batdongsan.com.vn/images/logo/favicon_sisu_76x76.png"
+    sizes="76x76"
+  />
+  <link
+    rel="icon"
+    type="image/png"
+    href="https://staticfile.batdongsan.com.vn/images/logo/favicon_sisu_72x72.png"
+    sizes="72x72"
+  />
+  <link
+    rel="apple-touch-icon"
+    href="https://staticfile.batdongsan.com.vn/images/logo/favicon_sisu_57x57.png"
+    sizes="57x57"
+  />
+  <link
+    rel="nokia-touch-icon"
+    href="https://staticfile.batdongsan.com.vn/images/logo/favicon_sisu_57x57.png"
+  />
+  <link
+    rel="apple-touch-icon"
+    href="https://staticfile.batdongsan.com.vn/images/logo/favicon_sisu_114x114.png"
+    sizes="1x1"
+  />
+  <link
+    rel="apple-touch-icon"
+    href="https://staticfile.batdongsan.com.vn/images/logo/favicon_sisu_152x152.png"
+    sizes="152x152"
+  />
+  <link
+    rel="apple-touch-icon"
+    href="https://staticfile.batdongsan.com.vn/images/logo/favicon_sisu_144x144.png"
+    sizes="144x144"
+  />
+  <link
+    rel="apple-touch-icon"
+    href="https://staticfile.batdongsan.com.vn/images/logo/favicon_sisu_120x120.png"
+    sizes="120x120"
+  />
+  <link
+    rel="apple-touch-icon"
+    href="https://staticfile.batdongsan.com.vn/images/logo/favicon_sisu_114x114.png"
+    sizes="114x114"
+  />
+  <link
+    rel="apple-touch-icon"
+    href="https://staticfile.batdongsan.com.vn/images/logo/favicon_sisu_76x76.png"
+    sizes="76x76"
+  />
+  <link
+    rel="apple-touch-icon"
+    href="https://staticfile.batdongsan.com.vn/images/logo/favicon_sisu_72x72.png"
+    sizes="72x72"
+  />
+  <link
+    rel="apple-touch-icon"
+    href="https://staticfile.batdongsan.com.vn/images/logo/symbol-only.svg"
+  />
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+  />
+  <meta http-equiv="audience" content="general" />
+  <meta name="resource-type" content="document" />
+  <meta name="abstract" content="Thông tin nhà đất Việt Nam" />
+  <meta name="classification" content="Bất động sản Việt Nam" />
+  <meta name="area" content="Nhà đất và bất động sản" />
+  <meta name="placename" content="Việt Nam" />
+  <meta name="author" content="Batdongsan.com.vn" />
+  <meta name="copyright" content="©2007 Batdongsan.com.vn" />
+  <meta name="owner" content="Batdongsan.com.vn" />
+  <meta name="generator" content="Công ty Cổ phần PropertyGuru Việt Nam" />
+  <meta name="distribution" content="Global" />
+  <meta name="revisit-after" content="1 days" />
+  <meta name="referrer" content="no-referrer-when-downgrade" />
+
+  <meta name="robots" content="index,follow" />
+
+  <link
+    rel="canonical"
+    href="https://batdongsan.com.vn/cho-thue-nha-mat-pho/cong-ty-co-phan-bat-dong-san-gigareal-eb2825"
+  />
+
+  <link
+    rel="alternate"
+    media="only screen and (max-width: 640px)"
+    href="https://batdongsan.com.vn/cho-thue-nha-mat-pho/cong-ty-co-phan-bat-dong-san-gigareal-eb2825"
+  />
+
+  <meta name="custom-apple-itunes-app" content="app-id=866492094" />
+  <meta
+    name="keywords"
+    content="Công, ty, chúng, tôi, hoạt, động, trong, lĩnh, vực"
+  />
+  <meta
+    name="description"
+    content="Công ty chúng tôi hoạt động trong lĩnh vực dịch vụ môi giới Bất động sản cho thuê được điều hành bởi đội ngũ dày dặn kinh nghiệm trong nhiề"
+  />
+  <title>CÔNG TY CỔ PHẦN BẤT ĐỘNG SẢN GIGAREAL | Công ty môi giới</title>
+  <meta name="googlebot-news" content="noindex" />
+
+  <link
+    rel="stylesheet"
+    href="https://staticfile.batdongsan.com.vn/js/fancy2.0/source/jquery.fancybox.min.css"
+  />
+  <link
+    rel="stylesheet"
+    href="https://staticfile.batdongsan.com.vn/js/fancy2.0/source/helpers/jquery.fancybox-buttons.min.css"
+  />
+  <link
+    rel="stylesheet"
+    href="https://staticfile.batdongsan.com.vn/js/jquery-ui.min.css"
+  />
+  <link
+    rel="stylesheet"
+    href="https://staticfile.batdongsan.com.vn/css/fontawesomeMSV/css/font-awesome.min.css"
+  />
+  <link
+    rel="stylesheet"
+    href="https://staticfile.batdongsan.com.vn/css/jquery.mCustomScrollbar.min.css"
+  />
+  <link
+    rel="stylesheet"
+    href="https://staticfile.batdongsan.com.vn/css/filestatic.ver3eb9ae29.msvbds.addStyle.min.css"
+  />
+  <link
+    rel="stylesheet"
+    href="https://staticfile.batdongsan.com.vn/css/web/filestatic.ver3eb9ae29.msvbds.layout.min.css"
+  />
+  <link
+    rel="stylesheet"
+    href="https://staticfile.batdongsan.com.vn/lib/jquery-swiper/css/swiper.min.css"
+  />
+
+  <link
+    rel="stylesheet"
+    href="https://staticfile.batdongsan.com.vn/lib/microtip/microtip.min.css"
+  />
+  <link
+    rel="stylesheet"
+    href="https://staticfile.batdongsan.com.vn/css/web/filestatic.ver3eb9ae29.msvbds.nlcc.min.css"
+  />
+  <link
+    rel="stylesheet"
+    href="https://staticfile.batdongsan.com.vn/css/web/filestatic.ver3eb9ae29.msvbds.fengshui-home.min.css"
+  />
+  <link
+    rel="stylesheet"
+    href="https://staticfile.batdongsan.com.vn/css/web/filestatic.ver3eb9ae29.msvbds.contact-broker.min.css"
+  />
+  <link
+    rel="stylesheet"
+    href="https://staticfile.batdongsan.com.vn/css/web/filestatic.ver3eb9ae29.msvbds.contact-broker-details.min.css"
+  />
+  <link
+    rel="stylesheet"
+    href="https://staticfile.batdongsan.com.vn/css/web/filestatic.ver3eb9ae29.msvbds.srp-cplus-5262.min.css"
+  />
+
+  <script
+    type="text/javascript"
+    src="https://staticfile.batdongsan.com.vn/js/Common/Global/filestatic.ver11.msvbds.SyncFunctions.min.js"
+  ></script>
+  <script
+    type="text/javascript"
+    src="https://staticfile.batdongsan.com.vn/js/Common/filestatic.ver4.msvbds.Common.CacheHelper.min.js"
+  ></script>
+  <script
+    type="text/javascript"
+    src="https://staticfile.batdongsan.com.vn/js/filestatic.ver7.msvbds.speedup.min.js"
+    async=""
+    data-cfasync="false"
+  ></script>
+  <script
+    type="text/javascript"
+    src="https://staticfile.batdongsan.com.vn/js/Common/Global/filestatic.ver8.msvbds.Extensions.min.js"
+    async=""
+    data-cfasync="false"
+  ></script>
+  <script
+    type="text/javascript"
+    src="https://staticfile.batdongsan.com.vn/js/Common/Global/filestatic.ver31.msvbds.Services.min.js"
+    async=""
+    data-cfasync="false"
+  ></script>
+  <script
+    type="text/javascript"
+    src="https://staticfile.batdongsan.com.vn/js/Common/filestatic.ver4.msvbds.Common.State.min.js"
+    async=""
+    data-cfasync="false"
+  ></script>
+  <script
+    type="text/javascript"
+    src="https://staticfile.batdongsan.com.vn/js/Common/UIHelpers/filestatic.ver86.msvbds.FrontEnd.KycLoadingHelper.min.js"
+    async=""
+    data-cfasync="false"
+  ></script>
+  <script
+    type="text/javascript"
+    src="https://staticfile.batdongsan.com.vn/js/Origins/Layout/filestatic.ver26.msvbds.FrontEnd.UserInfo.min.js"
+    async=""
+    data-cfasync="false"
+  ></script>
+
+  <script
+    async
+    src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"
+  ></script>
+  <script
+    type="text/javascript"
+    src="https://staticfile.batdongsan.com.vn/js/Origins/Binnova/filestatic.ver3eb9ae29.msvbds.FrontEnd.GAMBannerViewer.min.js"
+    async=""
+    data-cfasync="false"
+  ></script>
+  <script
+    type="text/javascript"
+    src="https://staticfile.batdongsan.com.vn/js/Origins/Binnova/filestatic.ver3.msvbds.FrontEnd.GAMBannerScript.min.js"
+    async=""
+    data-cfasync="false"
+  ></script>
+  <script>
+    window.googletag = window.googletag || { cmd: [] };
+  </script>
+</head>

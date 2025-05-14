@@ -1,0 +1,2463 @@
+<div
+  th:fragment="mainBody"
+  class="re__main"
+  itemprop="about"
+  xmlns:th="http://www.w3.org/1999/xhtml"
+>
+  <div class="re__home new-home-2020">
+    <div class="re__content-block re__home__head-block">
+      <div class="re__home-search-box">
+        <div
+          style="display: none"
+          data-locations-services-params='{"getCitiesUrl":"/Product/ProductSearch/GetCities","getDistrictsUrl":"/Product/ProductSearch/GetDistricts","getStreetsByDistrictIdsUrl":"/Product/ProductSearch/GetStreetsByDistrictIds","getWardsByDistrictIdsUrl":"/Product/ProductSearch/GetWardsByDistrictIds","getProjectsByDistrictIdsUrl":"/Product/ProductSearch/GetProjectsByDistrictIds"}'
+        ></div>
+        <form
+          action="/nha-dat-ban"
+          method="post"
+          id="boxSearchForm"
+          class="re__home-search-box js__home-search-box re__search-has-location-input fix"
+          data-home-search="true"
+          isnewsearch="true"
+          novalidate="novalidate"
+        >
+          <div class="re__search-box-container">
+            <ul
+              class="re__search-box-tabs re__tab-box-ghost-group re__product-type-tab js__product-type"
+            >
+              <li
+                class="re__tab-box-ghost--sm js__tab re__actived"
+                data-type="38"
+              >
+                Nhà đất bán
+              </li>
+              <li class="re__tab-box-ghost--sm js__tab" data-type="49">
+                Nhà đất cho thuê
+              </li>
+            </ul>
+
+            <input
+              data-val="true"
+              data-val-required="The ProductType field is required."
+              id="ProductType"
+              name="ProductType"
+              type="hidden"
+              value="38"
+            />
+            <div class="re__search-box-content js__search-box-content">
+              <div
+                class="re__input-group--sm re__search-box-row js__search-row-location"
+              >
+                <div
+                  class="re__search-location-select-header js_search-location-select-header js__search-new-ui-header js__ob_remove-style js__ob-parents-close"
+                  data-step="2"
+                  tabindex="0"
+                >
+                  <div
+                    class="re__search-location-row re__search-location-select-header-item js_search-location-select-header-item"
+                  >
+                    <div
+                      class="re__city-code-select js__listing-search-select-container js__city-code-select"
+                      data-multiple="false"
+                      data-default-value="Trên toàn quốc"
+                      data-type=""
+                      tracking-id="open-search-location"
+                      tracking-label="loc=Home"
+                    >
+                      <div
+                        tabindex="0"
+                        class="re__listing-search-select-button js__listing-search-select-button js__listing-search-select-tooltip re__has-value"
+                        aria-label="Hồ Chí Minh"
+                      >
+                        <i
+                          class="js__selected-icon re__city-icon-search re__icon-location"
+                        ></i>
+                        <div
+                          class="re__listing-search-select-button-current-text custom-value js__listing-search-select-button-current-text hasvalue"
+                        >
+                          Cà Mau
+                        </div>
+                        <i class="re__icon-chevron-down--sm"></i>
+                        <span class="re__postfix-div"></span>
+                      </div>
+                      <input id="CityCode" name="CityCode" type="hidden" />
+                    </div>
+                    <i class="re__icon-search re__location-icon-search"></i>
+                    <div
+                      class="js__location-select re__location-select re__location-input"
+                      data-microtip-position="bottom"
+                      role="tooltip"
+                    >
+                      <ul
+                        id="LocationTags"
+                        class="js__location-tags re__location-tags"
+                        exceed-limited="false"
+                      ></ul>
+                      <input
+                        id="LocationSearch"
+                        class="location-search__field valid ui-autocomplete-input"
+                        type="search"
+                        tabindex="0"
+                        autocomplete="off"
+                        placeholder="Nhập tối đa 5 địa điểm, dự án. Ví dụ: Quận Hoàn Kiếm, Quận Đống Đa"
+                      />
+                    </div>
+                    <button
+                      type="button"
+                      class="re__btn re__btn-pr-solid--sm re__btn-icon-left--sm re__btn-search"
+                      id="btnSearch"
+                    >
+                      <span>Tìm kiếm</span>
+                    </button>
+                  </div>
+                  <div
+                    class="re__search-location-select-header-item-no-city js_search-location-select-header-item-no-city"
+                  >
+                    <div class="re__header-item-no-city">
+                      <div class="re__city-search-select-header-title">
+                        Bạn muốn tìm bất động sản tại tỉnh thành nào?
+                      </div>
+                      <a
+                        class="re__city-search-select-button-close js__listing-search-no-city-button-close"
+                      >
+                        <i
+                          class="re__icon-close-no-circle no-city-button-close js__close-city-box"
+                        ></i>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="re__listing-search-location-select-dropdown-position js__listing-search-location-select-dropdown-position"
+                >
+                  <div
+                    class="re__city-search-select-dropdown re__location-search-select-dropdown-container js__city-search-select-dropdown"
+                  >
+                    <div class="re__city-search-select-body">
+                      <div class="re__city-search-select-popular-list">
+                        <span class="re__menu-title-top-list"
+                          >Top tỉnh thành nổi bật</span
+                        >
+                        <ul class="re__popular-selection">
+                          <li
+                            class="re__popular-selection-card js__option"
+                            value="Hà Nội"
+                            tracking-id="select-search-location"
+                            tracking-label="loc=Home"
+                          >
+                            <span class="re__popular-selection-name"
+                              >Hà Nội</span
+                            >
+                            <div class="re__gradient"></div>
+                            <img
+                              class="re__popular-selection-img"
+                              src="https://staticfile.batdongsan.com.vn/images/search/city-search-select/hn.webp"
+                              alt="popular-city-selection-img"
+                            />
+                          </li>
+                          <li
+                            class="re__popular-selection-card js__option"
+                            value="Thành phố Hồ Chí Minh"
+                            tracking-id="select-search-location"
+                            tracking-label="loc=Home"
+                          >
+                            <span class="re__popular-selection-name"
+                              >Hồ Chí Minh</span
+                            >
+                            <div class="re__gradient"></div>
+                            <img
+                              class="re__popular-selection-img"
+                              src="https://staticfile.batdongsan.com.vn/images/search/city-search-select/hcm.webp"
+                              alt="popular-city-selection-img"
+                            />
+                          </li>
+                          <li
+                            class="re__popular-selection-card js__option"
+                            value="Đà Nẵng"
+                            tracking-id="select-search-location"
+                            tracking-label="loc=Home"
+                          >
+                            <span class="re__popular-selection-name"
+                              >Đà Nẵng</span
+                            >
+                            <div class="re__gradient"></div>
+                            <img
+                              class="re__popular-selection-img"
+                              src="https://staticfile.batdongsan.com.vn/images/search/city-search-select/dn.webp"
+                              alt="popular-city-selection-img"
+                            />
+                          </li>
+                          <li
+                            class="re__popular-selection-card js__option"
+                            value="Bình Dương"
+                            tracking-id="select-search-location"
+                            tracking-label="loc=Home"
+                          >
+                            <span class="re__popular-selection-name"
+                              >Bình Dương</span
+                            >
+                            <div class="re__gradient"></div>
+                            <img
+                              class="re__popular-selection-img"
+                              src="https://staticfile.batdongsan.com.vn/images/search/city-search-select/bd.webp"
+                              alt="popular-city-selection-img"
+                            />
+                          </li>
+                          <li
+                            class="re__popular-selection-card js__option"
+                            value="Đồng Nai"
+                            tracking-id="select-search-location"
+                            tracking-label="loc=Home"
+                          >
+                            <span class="re__popular-selection-name"
+                              >Đồng Nai</span
+                            >
+                            <div class="re__gradient"></div>
+                            <img
+                              class="re__popular-selection-img"
+                              src="https://staticfile.batdongsan.com.vn/images/search/city-search-select/don.webp"
+                              alt="popular-city-selection-img"
+                            />
+                          </li>
+                          <li
+                            class="re__popular-selection-card js__option"
+                            value="Khánh Hoà"
+                            tracking-id="select-search-location"
+                            tracking-label="loc=Home"
+                          >
+                            <span class="re__popular-selection-name"
+                              >Khánh Hòa</span
+                            >
+                            <div class="re__gradient"></div>
+                            <img
+                              class="re__popular-selection-img"
+                              src="https://staticfile.batdongsan.com.vn/images/search/city-search-select/kh.webp"
+                              alt="popular-city-selection-img"
+                            />
+                          </li>
+                        </ul>
+                      </div>
+                      <div class="re__city-search-select-list-wrapper">
+                        <span class="re__menu-title">Tất cả tỉnh thành</span>
+                        <ul class="re__city-search-select-list">
+                          <li
+                            class="js__option re__option"
+                            value="An Giang"
+                            tracking-id="select-search-location"
+                            tracking-label="loc=Home"
+                          >
+                            <span> An Giang </span>
+                          </li>
+                          <li
+                            class="js__option re__option"
+                            value="Vũng Tàu"
+                            tracking-id="select-search-location"
+                            tracking-label="loc=Home"
+                          >
+                            <span> Bà Rịa Vũng Tàu </span>
+                          </li>
+                          <li
+                            class="js__option re__option"
+                            value="Bắc Giang"
+                            tracking-id="select-search-location"
+                            tracking-label="loc=Home"
+                          >
+                            <span> Bắc Giang </span>
+                          </li>
+                          <li
+                            class="js__option re__option"
+                            value="Bắc Kạn"
+                            tracking-id="select-search-location"
+                            tracking-label="loc=Home"
+                          >
+                            <span> Bắc Kạn </span>
+                          </li>
+                          <li
+                            class="js__option re__option"
+                            value="Bạc Liêu"
+                            tracking-id="select-search-location"
+                            tracking-label="loc=Home"
+                          >
+                            <span> Bạc Liêu </span>
+                          </li>
+                          <li
+                            class="js__option re__option"
+                            value="Bắc Ninh"
+                            tracking-id="select-search-location"
+                            tracking-label="loc=Home"
+                          >
+                            <span> Bắc Ninh </span>
+                          </li>
+                          <li
+                            class="js__option re__option"
+                            value="Bến Tre"
+                            tracking-id="select-search-location"
+                            tracking-label="loc=Home"
+                          >
+                            <span> Bến Tre </span>
+                          </li>
+                          <li
+                            class="js__option re__option"
+                            value="Bình Định"
+                            tracking-id="select-search-location"
+                            tracking-label="loc=Home"
+                          >
+                            <span> Bình Định </span>
+                          </li>
+                          <li
+                            class="js__option re__option"
+                            value="Bình Dương"
+                            tracking-id="select-search-location"
+                            tracking-label="loc=Home"
+                          >
+                            <span> Bình Dương </span>
+                          </li>
+                          <li
+                            class="js__option re__option"
+                            value="Bình Phước"
+                            tracking-id="select-search-location"
+                            tracking-label="loc=Home"
+                          >
+                            <span> Bình Phước </span>
+                          </li>
+                          <li
+                            class="js__option re__option"
+                            value="Bình Thuận"
+                            tracking-id="select-search-location"
+                            tracking-label="loc=Home"
+                          >
+                            <span> Bình Thuận </span>
+                          </li>
+                          <li
+                            class="js__option re__option"
+                            value="Cà Mau"
+                            tracking-id="select-search-location"
+                            tracking-label="loc=Home"
+                          >
+                            <span> Cà Mau </span>
+                          </li>
+                          <li
+                            class="js__option re__option"
+                            value="Cần Thơ"
+                            tracking-id="select-search-location"
+                            tracking-label="loc=Home"
+                          >
+                            <span> Cần Thơ </span>
+                          </li>
+                          <li
+                            class="js__option re__option"
+                            value="Cao Bằng"
+                            tracking-id="select-search-location"
+                            tracking-label="loc=Home"
+                          >
+                            <span> Cao Bằng </span>
+                          </li>
+                          <li
+                            class="js__option re__option"
+                            value="Đà Nẵng"
+                            tracking-id="select-search-location"
+                            tracking-label="loc=Home"
+                          >
+                            <span> Đà Nẵng </span>
+                          </li>
+                          <li
+                            class="js__option re__option"
+                            value="Đắk Lắk"
+                            tracking-id="select-search-location"
+                            tracking-label="loc=Home"
+                          >
+                            <span> Đắk Lắk </span>
+                          </li>
+                          <li
+                            class="js__option re__option"
+                            value="Đắk Nông"
+                            tracking-id="select-search-location"
+                            tracking-label="loc=Home"
+                          >
+                            <span> Đắk Nông </span>
+                          </li>
+                          <li
+                            class="js__option re__option"
+                            value="Điện Biên"
+                            tracking-id="select-search-location"
+                            tracking-label="loc=Home"
+                          >
+                            <span> Điện Biên </span>
+                          </li>
+                          <li
+                            class="js__option re__option"
+                            value="Đồng Nai"
+                            tracking-id="select-search-location"
+                            tracking-label="loc=Home"
+                          >
+                            <span> Đồng Nai </span>
+                          </li>
+                          <li
+                            class="js__option re__option"
+                            value="Đồng Tháp"
+                            tracking-id="select-search-location"
+                            tracking-label="loc=Home"
+                          >
+                            <span> Đồng Tháp </span>
+                          </li>
+                          <li
+                            class="js__option re__option"
+                            value="Gia Lai"
+                            tracking-id="select-search-location"
+                            tracking-label="loc=Home"
+                          >
+                            <span> Gia Lai </span>
+                          </li>
+                          <li
+                            class="js__option re__option"
+                            value="Hà Giang"
+                            tracking-id="select-search-location"
+                            tracking-label="loc=Home"
+                          >
+                            <span> Hà Giang </span>
+                          </li>
+                          <li
+                            class="js__option re__option"
+                            value="Hà Nam"
+                            tracking-id="select-search-location"
+                            tracking-label="loc=Home"
+                          >
+                            <span> Hà Nam </span>
+                          </li>
+                          <li
+                            class="js__option re__option"
+                            value="Hà Nội"
+                            tracking-id="select-search-location"
+                            tracking-label="loc=Home"
+                          >
+                            <span> Hà Nội </span>
+                          </li>
+                          <li
+                            class="js__option re__option"
+                            value="Hà Tĩnh"
+                            tracking-id="select-search-location"
+                            tracking-label="loc=Home"
+                          >
+                            <span> Hà Tĩnh </span>
+                          </li>
+                          <li
+                            class="js__option re__option"
+                            value="Hải Dương"
+                            tracking-id="select-search-location"
+                            tracking-label="loc=Home"
+                          >
+                            <span> Hải Dương </span>
+                          </li>
+                          <li
+                            class="js__option re__option"
+                            value="Hải Phòng"
+                            tracking-id="select-search-location"
+                            tracking-label="loc=Home"
+                          >
+                            <span> Hải Phòng </span>
+                          </li>
+                          <li
+                            class="js__option re__option"
+                            value="Hậu Giang"
+                            tracking-id="select-search-location"
+                            tracking-label="loc=Home"
+                          >
+                            <span> Hậu Giang </span>
+                          </li>
+                          <li
+                            class="js__option re__option"
+                            value="Thành Phố Hồ Chí Minh"
+                            tracking-id="select-search-location"
+                            tracking-label="loc=Home"
+                          >
+                            <span> Hồ Chí Minh </span>
+                          </li>
+                          <li
+                            class="js__option re__option"
+                            value="Hoà Bình"
+                            tracking-id="select-search-location"
+                            tracking-label="loc=Home"
+                          >
+                            <span> Hòa Bình </span>
+                          </li>
+                          <li
+                            class="js__option re__option"
+                            value="Hưng Yên"
+                            tracking-id="select-search-location"
+                            tracking-label="loc=Home"
+                          >
+                            <span> Hưng Yên </span>
+                          </li>
+                          <li
+                            class="js__option re__option"
+                            value="Khánh Hoà"
+                            tracking-id="select-search-location"
+                            tracking-label="loc=Home"
+                          >
+                            <span> Khánh Hòa </span>
+                          </li>
+                          <li
+                            class="js__option re__option"
+                            value="Kiên Giang"
+                            tracking-id="select-search-location"
+                            tracking-label="loc=Home"
+                          >
+                            <span> Kiên Giang </span>
+                          </li>
+                          <li
+                            class="js__option re__option"
+                            value="Kon Tum"
+                            tracking-id="select-search-location"
+                            tracking-label="loc=Home"
+                          >
+                            <span> Kon Tum </span>
+                          </li>
+                          <li
+                            class="js__option re__option"
+                            value="Lai Châu"
+                            tracking-id="select-search-location"
+                            tracking-label="loc=Home"
+                          >
+                            <span> Lai Châu </span>
+                          </li>
+                          <li
+                            class="js__option re__option"
+                            value="Lâm Đồng"
+                            tracking-id="select-search-location"
+                            tracking-label="loc=Home"
+                          >
+                            <span> Lâm Đồng </span>
+                          </li>
+                          <li
+                            class="js__option re__option"
+                            value="Lạng Sơn"
+                            tracking-id="select-search-location"
+                            tracking-label="loc=Home"
+                          >
+                            <span> Lạng Sơn </span>
+                          </li>
+                          <li
+                            class="js__option re__option"
+                            value="Lào Cai"
+                            tracking-id="select-search-location"
+                            tracking-label="loc=Home"
+                          >
+                            <span> Lào Cai </span>
+                          </li>
+                          <li
+                            class="js__option re__option"
+                            value="Long An"
+                            tracking-id="select-search-location"
+                            tracking-label="loc=Home"
+                          >
+                            <span> Long An </span>
+                          </li>
+                          <li
+                            class="js__option re__option"
+                            value="Nam Định"
+                            tracking-id="select-search-location"
+                            tracking-label="loc=Home"
+                          >
+                            <span> Nam Định </span>
+                          </li>
+                          <li
+                            class="js__option re__option"
+                            value="Nghệ An"
+                            tracking-id="select-search-location"
+                            tracking-label="loc=Home"
+                          >
+                            <span> Nghệ An </span>
+                          </li>
+                          <li
+                            class="js__option re__option"
+                            value="Ninh Bình"
+                            tracking-id="select-search-location"
+                            tracking-label="loc=Home"
+                          >
+                            <span> Ninh Bình </span>
+                          </li>
+                          <li
+                            class="js__option re__option"
+                            value="Ninh Thuận"
+                            tracking-id="select-search-location"
+                            tracking-label="loc=Home"
+                          >
+                            <span> Ninh Thuận </span>
+                          </li>
+                          <li
+                            class="js__option re__option"
+                            value="Phú Thọ"
+                            tracking-id="select-search-location"
+                            tracking-label="loc=Home"
+                          >
+                            <span> Phú Thọ </span>
+                          </li>
+                          <li
+                            class="js__option re__option"
+                            value="Phú Yên"
+                            tracking-id="select-search-location"
+                            tracking-label="loc=Home"
+                          >
+                            <span> Phú Yên </span>
+                          </li>
+                          <li
+                            class="js__option re__option"
+                            value="Quảng Bình"
+                            tracking-id="select-search-location"
+                            tracking-label="loc=Home"
+                          >
+                            <span> Quảng Bình </span>
+                          </li>
+                          <li
+                            class="js__option re__option"
+                            value="Quảng Nam"
+                            tracking-id="select-search-location"
+                            tracking-label="loc=Home"
+                          >
+                            <span> Quảng Nam </span>
+                          </li>
+                          <li
+                            class="js__option re__option"
+                            value="Quảng Ngãi"
+                            tracking-id="select-search-location"
+                            tracking-label="loc=Home"
+                          >
+                            <span> Quảng Ngãi </span>
+                          </li>
+                          <li
+                            class="js__option re__option"
+                            value="Quảng Ninh"
+                            tracking-id="select-search-location"
+                            tracking-label="loc=Home"
+                          >
+                            <span> Quảng Ninh </span>
+                          </li>
+                          <li
+                            class="js__option re__option"
+                            value="Quảng Trị"
+                            tracking-id="select-search-location"
+                            tracking-label="loc=Home"
+                          >
+                            <span> Quảng Trị </span>
+                          </li>
+                          <li
+                            class="js__option re__option"
+                            value="Sóc Trăng"
+                            tracking-id="select-search-location"
+                            tracking-label="loc=Home"
+                          >
+                            <span> Sóc Trăng </span>
+                          </li>
+                          <li
+                            class="js__option re__option"
+                            value="Sơn La"
+                            tracking-id="select-search-location"
+                            tracking-label="loc=Home"
+                          >
+                            <span> Sơn La </span>
+                          </li>
+                          <li
+                            class="js__option re__option"
+                            value="Tây Ninh"
+                            tracking-id="select-search-location"
+                            tracking-label="loc=Home"
+                          >
+                            <span> Tây Ninh </span>
+                          </li>
+                          <li
+                            class="js__option re__option"
+                            value="Thái Bình"
+                            tracking-id="select-search-location"
+                            tracking-label="loc=Home"
+                          >
+                            <span> Thái Bình </span>
+                          </li>
+                          <li
+                            class="js__option re__option"
+                            value="Thái Nguyên"
+                            tracking-id="select-search-location"
+                            tracking-label="loc=Home"
+                          >
+                            <span> Thái Nguyên </span>
+                          </li>
+                          <li
+                            class="js__option re__option"
+                            value="Thanh Hoá"
+                            tracking-id="select-search-location"
+                            tracking-label="loc=Home"
+                          >
+                            <span> Thanh Hóa </span>
+                          </li>
+                          <li
+                            class="js__option re__option"
+                            value="Thừa Thiên Huế"
+                            tracking-id="select-search-location"
+                            tracking-label="loc=Home"
+                          >
+                            <span> Thừa Thiên Huế </span>
+                          </li>
+                          <li
+                            class="js__option re__option"
+                            value="Tiền Giang"
+                            tracking-id="select-search-location"
+                            tracking-label="loc=Home"
+                          >
+                            <span> Tiền Giang </span>
+                          </li>
+                          <li
+                            class="js__option re__option"
+                            value="Trà Vinh"
+                            tracking-id="select-search-location"
+                            tracking-label="loc=Home"
+                          >
+                            <span> Trà Vinh </span>
+                          </li>
+                          <li
+                            class="js__option re__option"
+                            value="Tuyên Quang"
+                            tracking-id="select-search-location"
+                            tracking-label="loc=Home"
+                          >
+                            <span> Tuyên Quang </span>
+                          </li>
+                          <li
+                            class="js__option re__option"
+                            value="Vĩnh Long"
+                            tracking-id="select-search-location"
+                            tracking-label="loc=Home"
+                          >
+                            <span> Vĩnh Long </span>
+                          </li>
+                          <li
+                            class="js__option re__option"
+                            value="Vĩnh Phúc"
+                            tracking-id="select-search-location"
+                            tracking-label="loc=Home"
+                          >
+                            <span> Vĩnh Phúc </span>
+                          </li>
+                          <li
+                            class="js__option re__option"
+                            value="Yên Bái"
+                            tracking-id="select-search-location"
+                            tracking-label="loc=Home"
+                          >
+                            <span> Yên Bái </span>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="re__location-search-select-dropdown re__location-search-select-dropdown-container js__location-search-select-dropdown"
+                  >
+                    <div class="re__location-search-select-body">
+                      <div
+                        class="js__location-autocomplete re__location-autocomplete"
+                      >
+                        <ul
+                          id="ui-id-1"
+                          tabindex="0"
+                          class="ui-menu ui-widget ui-widget-content ui-autocomplete ui-front fix custom-width"
+                          unselectable="on"
+                          style="display: none; top: 166px"
+                        ></ul>
+                        <ul
+                          id="ui-id-1"
+                          tabindex="0"
+                          class="ui-menu ui-widget ui-widget-content ui-autocomplete ui-front"
+                          unselectable="on"
+                          style="display: none"
+                        ></ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="home-filter home-filter-1">
+                <div
+                  class="search-filter js__listing-search-select-container re__category-select re__category-select-sell"
+                  data-multiple="true"
+                  data-default-value="Loại nhà đất"
+                  data-type=""
+                  default-value="Loại nhà đất"
+                >
+                  <span
+                    class="select-text select-custom js__listing-search-select-button js__listing-search-select-tooltip"
+                    tracking-id="search-open-filter"
+                    tracking-label="filterType=Cate,loc=Home"
+                  >
+                    <span
+                      class="select-text-content js__listing-search-select-button-current-text loaiNhaDatText"
+                      >Loại nhà đất</span
+                    >
+                  </span>
+
+                  <input
+                    id="CategoryIdsAsString"
+                    name="CategoryIdsAsString"
+                    type="hidden"
+                    value=""
+                  />
+                  <div class="re__listing-search-select-dropdown-position">
+                    <div
+                      class="re__listing-search-select-dropdown re__multiple js__listing-search-select-select-dropdown re__listing-search-select-dropdown-category"
+                    >
+                      <div class="re__listing-search-select-header">
+                        <span
+                          class="re__listing-search-select-header-title js__listing-search-select-header-title searchLoai"
+                          >Loại nhà đất</span
+                        >
+                        <a
+                          class="re__listing-search-select-button-close js__listing-search-select-button-close"
+                        >
+                          <i class="re__icon-close-no-circle"></i>
+                        </a>
+                      </div>
+                      <ul class="re__listing-search-select-list">
+                        <li class="js__option re__option" value="Chung cư">
+                          <span>
+                            <i class="re__icon-apartment--sm"></i>
+                            Chung cư
+                          </span>
+                        </li>
+                        <li class="js__option re__option" value="Căn hộ">
+                          <span>
+                            <i class="re__icon-private-house--sm"></i>
+                            Căn hộ
+                          </span>
+                        </li>
+                        <li class="js__option re__option" value="Biệt thự">
+                          <span>
+                            <i class="re__icon-complex--sm"></i>
+                            Biệt thự
+                          </span>
+                        </li>
+                        <li class="js__option re__option" value="Nhà mặt phố">
+                          <span>
+                            <i class="re__icon-street-house--sm"></i>
+                            Nhà mặt phố
+                          </span>
+                        </li>
+                        <li class="js__option re__option" value="Nhà riêng">
+                          <span>
+                            <i class="re__icon-dorm--sm"></i>
+                            Nhà riêng
+                          </span>
+                        </li>
+                      </ul>
+
+                      <div
+                        class="re__listing-search-select-footer js__listing-search-select-footer"
+                      >
+                        <a
+                          class="re__btn re__btn-se-ghost--sm js__listing-search-select-reset-button"
+                        >
+                          <span>Đặt lại</span>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="hidden js__sell-category-select-list">
+                  <li class="js__option re__option" value="Chung cư">
+                    <span>
+                      <i class="re__icon-apartment--sm"></i>
+                      Chung cư
+                    </span>
+                  </li>
+                  <li class="js__option re__option" value="Căn hộ">
+                    <span>
+                      <i class="re__icon-private-house--sm"></i>
+                      Căn hộ
+                    </span>
+                  </li>
+                  <li class="js__option re__option" value="Biệt thự">
+                    <span>
+                      <i class="re__icon-complex--sm"></i>
+                      Biệt thự
+                    </span>
+                  </li>
+                  <li class="js__option re__option" value="Nhà mặt phố">
+                    <span>
+                      <i class="re__icon-street-house--sm"></i>
+                      Nhà mặt phố
+                    </span>
+                  </li>
+                  <li class="js__option re__option" value="Nhà riêng">
+                    <span>
+                      <i class="re__icon-dorm--sm"></i>
+                      Nhà riêng
+                    </span>
+                  </li>
+                </div>
+                <div class="hidden js__rent-category-select-list">
+                  <li class="js__option re__option" value="Chung cư">
+                    <span>
+                      <i class="re__icon-apartment--sm"></i>
+                      Chung cư
+                    </span>
+                  </li>
+                  <li class="js__option re__option" value="Căn hộ">
+                    <span>
+                      <i class="re__icon-private-house--sm"></i>
+                      Căn hộ
+                    </span>
+                  </li>
+                  <li class="js__option re__option" value="Biệt thự">
+                    <span>
+                      <i class="re__icon-complex--sm"></i>
+                      Biệt thự
+                    </span>
+                  </li>
+                  <li class="js__option re__option" value="Nhà mặt phố">
+                    <span>
+                      <i class="re__icon-street-house--sm"></i>
+                      Nhà mặt phố
+                    </span>
+                  </li>
+                  <li class="js__option re__option" value="Nhà riêng">
+                    <span>
+                      <i class="re__icon-dorm--sm"></i>
+                      Nhà riêng
+                    </span>
+                  </li>
+                </div>
+
+                <div
+                  class="search-filter js__listing-search-select-container re__price-select"
+                  data-multiple="false"
+                  data-default-value="Mức giá"
+                  data-type=""
+                  default-value="Mức giá"
+                >
+                  <span
+                    class="select-text select-custom js__listing-search-select-button js__listing-search-select-tooltip"
+                    tracking-id="search-open-filter"
+                    tracking-label="filterType=Price,loc=Home"
+                  >
+                    <span
+                      class="select-text-content js__listing-search-select-button-current-text PriceText"
+                      >Mức giá</span
+                    >
+                  </span>
+
+                  <input
+                    id="PriceAsString"
+                    name="PriceAsString"
+                    type="hidden"
+                    value=""
+                  />
+                  <div class="re__listing-search-select-dropdown-position">
+                    <div
+                      class="re__listing-search-select-dropdown re__listing-search-select-dropdown-price js__listing-search-select-select-dropdown"
+                    >
+                      <div class="re__listing-search-select-header">
+                        <span
+                          class="re__listing-search-select-header-title js__listing-search-select-header-title"
+                          >Mức giá</span
+                        >
+                        <a
+                          class="re__listing-search-select-button-close js__listing-search-select-button-close"
+                        >
+                          <i class="re__icon-close-no-circle"></i>
+                        </a>
+                      </div>
+                      <ul class="re__listing-search-select-list">
+                        <li class="js__option re__option" value="1">
+                          <span> Dưới 100 triệu </span>
+                        </li>
+                        <li class="js__option re__option" value="2">
+                          <span> 100 - 200 triệu </span>
+                        </li>
+                        <li class="js__option re__option" value="3">
+                          <span> 200 - 300 triệu </span>
+                        </li>
+                        <li class="js__option re__option" value="4">
+                          <span> 300 - 500 triệu </span>
+                        </li>
+                        <li class="js__option re__option" value="5">
+                          <span> 500 - 800 triệu </span>
+                        </li>
+                        <li class="js__option re__option" value="6">
+                          <span> 800 - 1 tỷ </span>
+                        </li>
+                        <li class="js__option re__option" value="7">
+                          <span> 1 - 2 tỷ </span>
+                        </li>
+                        <li class="js__option re__option" value="8">
+                          <span> Trên 2 tỷ </span>
+                        </li>
+                        <li class="js__option re__option" value="0">
+                          <span> Thỏa thuận </span>
+                        </li>
+                      </ul>
+
+                      <div
+                        class="re__listing-search-select-footer js__listing-search-select-footer"
+                      >
+                        <a
+                          class="re__btn re__btn-se-ghost--sm js__listing-search-select-reset-button"
+                        >
+                          <span>Đặt lại</span>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="hidden js__sell-price-select-list">
+                  <li class="js__option re__option" value="1">
+                    <span> Dưới 100 triệu </span>
+                  </li>
+                  <li class="js__option re__option" value="2">
+                    <span> 100 - 200 triệu </span>
+                  </li>
+                  <li class="js__option re__option" value="3">
+                    <span> 200 - 300 triệu </span>
+                  </li>
+                  <li class="js__option re__option" value="4">
+                    <span> 300 - 500 triệu </span>
+                  </li>
+                  <li class="js__option re__option" value="5">
+                    <span> 500 - 800 triệu </span>
+                  </li>
+                  <li class="js__option re__option" value="6">
+                    <span> 800 - 1 tỷ </span>
+                  </li>
+                  <li class="js__option re__option" value="7">
+                    <span> 1 - 2 tỷ </span>
+                  </li>
+                  <li class="js__option re__option" value="8">
+                    <span> Trên 2 tỷ </span>
+                  </li>
+                  <li class="js__option re__option" value="0">
+                    <span> Thỏa thuận </span>
+                  </li>
+                </div>
+                <div class="hidden js__rent-price-select-list">
+                  <li class="js__option re__option" value="1">
+                    <span> Dưới 1 triệu </span>
+                  </li>
+                  <li class="js__option re__option" value="2">
+                    <span> 1 - 3 triệu </span>
+                  </li>
+                  <li class="js__option re__option" value="3">
+                    <span> 3 - 5 triệu </span>
+                  </li>
+                  <li class="js__option re__option" value="4">
+                    <span> 5 - 10 triệu </span>
+                  </li>
+                  <li class="js__option re__option" value="5">
+                    <span> 10 - 40 triệu </span>
+                  </li>
+                  <li class="js__option re__option" value="6">
+                    <span> 40 - 70 triệu </span>
+                  </li>
+                  <li class="js__option re__option" value="7">
+                    <span> 70 - 100 triệu </span>
+                  </li>
+                  <li class="js__option re__option" value="8">
+                    <span> Trên 100 triệu </span>
+                  </li>
+                  <li class="js__option re__option" value="0">
+                    <span> Thỏa thuận </span>
+                  </li>
+                </div>
+
+                <div
+                  class="search-filter js__listing-search-select-container re__area-select"
+                  data-multiple="false"
+                  data-default-value="Diện tích"
+                  data-type=""
+                  default-value="Diện tích"
+                >
+                  <span
+                    class="select-text select-custom js__listing-search-select-button js__listing-search-select-tooltip"
+                    tracking-id="search-open-filter"
+                    tracking-label="filterType=Area,loc=Home"
+                  >
+                    <span
+                      class="select-text-content js__listing-search-select-button-current-text AreaText"
+                      >Diện tích</span
+                    >
+                  </span>
+
+                  <input
+                    id="AreaAsString"
+                    name="AreaAsString"
+                    type="hidden"
+                    value=""
+                  />
+                  <div class="re__listing-search-select-dropdown-position">
+                    <div
+                      class="re__listing-search-select-dropdown re__listing-search-select-dropdown-area js__listing-search-select-select-dropdown"
+                    >
+                      <div class="re__listing-search-select-header">
+                        <span
+                          class="re__listing-search-select-header-title js__listing-search-select-header-title"
+                          >Diện tích</span
+                        >
+                        <a
+                          class="re__listing-search-select-button-close js__listing-search-select-button-close"
+                        >
+                          <i class="re__icon-close-no-circle"></i>
+                        </a>
+                      </div>
+
+                      <ul class="re__listing-search-select-list">
+                        <li class="js__option re__option" value="1">
+                          <span> Dưới 30 m² </span>
+                        </li>
+                        <li class="js__option re__option" value="2">
+                          <span> 30 - 50 m² </span>
+                        </li>
+                        <li class="js__option re__option" value="3">
+                          <span> 50 - 80 m² </span>
+                        </li>
+                        <li class="js__option re__option" value="4">
+                          <span> 80 - 100 m² </span>
+                        </li>
+                        <li class="js__option re__option" value="5">
+                          <span> 100 - 150 m² </span>
+                        </li>
+                        <li class="js__option re__option" value="6">
+                          <span> 150 - 200 m² </span>
+                        </li>
+                        <li class="js__option re__option" value="7">
+                          <span> 200 - 250 m² </span>
+                        </li>
+                        <li class="js__option re__option" value="8">
+                          <span> 250 - 300 m² </span>
+                        </li>
+                        <li class="js__option re__option" value="9">
+                          <span> 300 - 500 m² </span>
+                        </li>
+                        <li class="js__option re__option" value="10">
+                          <span> Trên 500 m² </span>
+                        </li>
+                      </ul>
+
+                      <div
+                        class="re__listing-search-select-footer js__listing-search-select-footer"
+                      >
+                        <a
+                          class="re__btn re__btn-se-ghost--sm js__listing-search-select-reset-button"
+                        >
+                          <span>Đặt lại</span>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div
+                  class="search-filter js__listing-search-select-container re__stages-select js__stages-select"
+                  data-multiple="true"
+                  data-default-value="Trạng thái"
+                  data-type=""
+                  style="display: none"
+                >
+                  <span
+                    class="select-text select-custom js__listing-search-select-button js__listing-search-select-tooltip"
+                    tracking-id="search-open-filter"
+                    tracking-label="filterType=Other,loc=Home"
+                  >
+                    <span
+                      class="select-text-content js__listing-search-select-button-current-text"
+                      >Trạng thái</span
+                    >
+                  </span>
+
+                  <input
+                    id="StagesAsString"
+                    name="StagesAsString"
+                    type="hidden"
+                    value=""
+                  />
+                  <div class="re__listing-search-select-dropdown-position">
+                    <div
+                      class="re__listing-search-select-dropdown re__multiple js__listing-search-select-select-dropdown"
+                    >
+                      <div class="re__listing-search-select-header">
+                        <span
+                          class="re__listing-search-select-header-title js__listing-search-select-header-title"
+                          >Trạng thái</span
+                        >
+                        <a
+                          class="re__listing-search-select-button-close js__listing-search-select-button-close"
+                        >
+                          <i class="re__icon-close-no-circle"></i>
+                        </a>
+                      </div>
+                      <ul class="re__listing-search-select-list">
+                        <li class="js__option re__option" value="1">
+                          <span> Sắp mở bán </span>
+                        </li>
+                        <li class="js__option re__option" value="2">
+                          <span> Đang mở bán </span>
+                        </li>
+                        <li class="js__option re__option" value="3">
+                          <span> Đã bàn giao </span>
+                        </li>
+                      </ul>
+
+                      <div
+                        class="re__listing-search-select-footer js__listing-search-select-footer"
+                      >
+                        <a
+                          class="re__btn re__btn-se-ghost--sm js__listing-search-select-reset-button"
+                        >
+                          <span>Đặt lại</span>
+                        </a>
+                        <a
+                          class="re__btn re__btn-pr-solid--sm js__listing-search-select-apply-button"
+                          tracking-id="search-apply-filter"
+                          tracking-label="filterType=Other,searchType=single"
+                        >
+                          <span>Áp dụng</span>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+
+        <script type="text/javascript">
+          (function waitHomeSearchBox() {
+            if (
+              window.FrontEnd &&
+              window.FrontEnd.Home &&
+              window.FrontEnd.Home.HomeSearchBox
+            ) {
+              new window.FrontEnd.Home.HomeSearchBox({
+                PRODUCT_TYPES: {
+                  SELL: 38,
+                  RENT: 49,
+                  PROJECT: 351,
+                },
+                PRICE_SLIDER_TYPE: {
+                  SELL: { maxValue: 60000, minValue: 0, step: 100.0, unit: 1 },
+                  RENT: { maxValue: 100, minValue: 0, step: 0.5, unit: 1 },
+                  PROJECT: { maxValue: 80, minValue: 0, step: 0.5, unit: 3 },
+                },
+                searchingHistoriesServicesParams:
+                  "{&quot;maxLength&quot;:20,&quot;syncTimeSearchingHistories&quot;:5.0,&quot;syncSearchingHistoriesUrl&quot;:&quot;/Product/ProductSearch/SyncSearchingHistories&quot;,&quot;removeSearchingHistoryUrl&quot;:&quot;/Product/ProductSearch/RemoveSearchingHistory&quot;}",
+                urlProjectSubmit: "/ProjectNet/ProjectSearch",
+                TRACKING_CONSTANTS: {
+                  TRACKING_ID: "multisearch-filter-apply",
+                  TRACKING_LABEL_LOC: "Other-Home",
+                },
+                DYNAMIC_PLACEHOLDER: [
+                  "Dự án Vinhomes Ocean Park",
+                  "Dự án Sunrise City",
+                  "Dự án Ecopark",
+                  "Đường Láng",
+                  "Đường Nguyễn Thị Minh Khai",
+                  "Đường Võ Văn Kiệt",
+                  "Quận 2",
+                  "Quận Cầu Giấy",
+                  "Quận Hải Châu",
+                ],
+                ENABLE_MULTIPLE_SEARCHING_HISTORIES: true,
+                API_POPULAR_SEARCH: "/Product/ProductSearch/GetPopularSearch",
+              });
+            } else {
+              setTimeout(waitHomeSearchBox, 100);
+            }
+          })();
+        </script>
+      </div>
+      <div
+        class="re__home__head__banner-container re__banner-container re__banner-container-no-style js__gam__home__head__banner-container"
+      >
+        <div
+          class="re__banner-cover re__master-head loveMoney102 ads-loaded swiper-container swiper-container-fade swiper-container-initialized swiper-container-horizontal"
+          style=""
+        >
+          <iframe
+            class="lazyloaded"
+            src="https://file4.batdongsan.com.vn/Banners/HieuNM/HuongTT9/1920x560/20220321-1735/index.html?link=https://batdongsan.com.vn/tin-thi-truong/uu-dai-doc-quyen-tu-batdongsan-com-vn-danh-rieng-cho-cac-khach-hang-moi-ar108492"
+            id="fr12789"
+            width="100%"
+            height="480px"
+            frameborder="0"
+            scrolling="no"
+            style="height: 100%"
+          ></iframe>
+          <div class="swiper-wrapper" style="transition-duration: 1000ms">
+            <div
+              id="home-web-master-head-1"
+              class="re__home-master-head show-banner"
+              data-google-query-id=""
+              style="display: none"
+            >
+              <div
+                id="google_ads_iframe_/22637580558/Live.BDS/Live.BDS.PC.Home.Masthead.Slot1_0__container__"
+                style="border: 0pt none; width: 1920px; height: 0px"
+              ></div>
+            </div>
+            <div
+              id="home-web-master-head-5"
+              class="re__home-master-head show-banner"
+              data-google-query-id=""
+              style="display: none"
+            >
+              <div
+                id="google_ads_iframe_/22637580558/Live.BDS/Live.BDS.PC.Home.Masthead.Slot5_0__container__"
+                style="border: 0pt none; width: 1920px; height: 0px"
+              ></div>
+            </div>
+            <div
+              id="home-web-master-head-2"
+              class="re__home-master-head show-banner"
+              data-google-query-id=""
+              style="display: none"
+            >
+              <div
+                id="google_ads_iframe_/22637580558/Live.BDS/Live.BDS.PC.Home.Masthead.Slot2_0__container__"
+                style="border: 0pt none; width: 1920px; height: 0px"
+              ></div>
+            </div>
+            <div
+              id="home-web-master-head-4"
+              class="re__home-master-head show-banner"
+              data-google-query-id=""
+              style="display: none"
+            >
+              <div
+                id="google_ads_iframe_/22637580558/Live.BDS/Live.BDS.PC.Home.Masthead.Slot4_0__container__"
+                style="border: 0pt none; width: 1920px; height: 0px"
+              ></div>
+            </div>
+            <div
+              id="home-web-master-head-3"
+              class="re__home-master-head show-banner"
+              data-google-query-id=""
+              style="display: none"
+            >
+              <div
+                id="google_ads_iframe_/22637580558/Live.BDS/Live.BDS.PC.Home.Masthead.Slot3_0__container__"
+                style="border: 0pt none; width: 1920px; height: 0px"
+              ></div>
+            </div>
+          </div>
+          <div
+            class="swiper-pagination swiper-pagination-clickable swiper-pagination-bullets"
+            style="display: none"
+          ></div>
+          <span
+            class="swiper-notification"
+            aria-live="assertive"
+            aria-atomic="true"
+          ></span>
+        </div>
+        <a
+          class="js__gam-go-left re__btn re__btn-se-border--sm re__left re__btn-icon--sm re__btn-navigation"
+          style="display: none"
+          tabindex="0"
+          role="button"
+          aria-label="Previous slide"
+          aria-disabled="false"
+        >
+          <i class="re__icon-chevron-left"></i>
+        </a>
+        <a
+          class="js__gam-go-right re__btn re__btn-se-border--sm re__right re__btn-icon--sm re__btn-navigation"
+          style="display: none"
+          tabindex="0"
+          role="button"
+          aria-label="Next slide"
+          aria-disabled="false"
+        >
+          <i class="re__icon-chevron-right"></i>
+        </a>
+      </div>
+    </div>
+
+    <div
+      class="re__content-block re__home__hot-news-block js__home__hot-news-block"
+    >
+      <div class="re__content-container">
+        <div class="re__home__hot-news__article-container">
+          <div
+            id="hometabs"
+            class="re__article-tabs lazyloaded"
+            data-func="initHotNewsGroup();"
+            data-script=""
+          >
+            <div class="re__tab-under-line-group">
+              <h2
+                data-tab="hometab1"
+                class="re__tab-under-line--lg re__actived js__tab-item"
+              >
+                Tin nổi bật
+              </h2>
+            </div>
+            <div class="re__article-tabs-border"></div>
+            <div class="clear"></div>
+          </div>
+          <a
+            href="/tin-tuc"
+            id="tabview"
+            class="re__article-tab-link re__link-pr"
+            ><span>Xem thêm</span> <i class="re__icon-arrow-right--sm"></i
+          ></a>
+          <div id="re__article-info-preview news-slide">
+            <div id="hometab1" class="newscontain">
+              <div
+                class="re__article-info-container js__article-info-container"
+              >
+                <div
+                  articlegadatalayer='{"ecommerce":{"impressions":[{"id":"ar819424","list":"Home Page"},{"id":"ar819167","list":"Home Page"},{"id":"ar818914","list":"Home Page"},{"id":"ar103041","list":"Home Page"},{"id":"ar789890","list":"Home Page"},{"id":"ar819377","list":"Home Page"}]},"event":"eec.impression_nlcc"}'
+                ></div>
+                <div
+                  id="hottab-0"
+                  class="re__article-info-item"
+                  style="display: none"
+                >
+                  <h3>
+                    <a
+                      title="Nữ Tiếp Viên Hàng Không Một Mình “Bắc Tiến”, Chuyển Hướng Sang Môi Giới Bất Động Sản"
+                      href="/wiki/nu-tiep-vien-hang-khong-mot-minh-bac-tien-chuyen-huong-sang-moi-gioi-bat-dong-san-819424"
+                    >
+                      <img
+                        src="https://img.iproperty.com.my/angel/610x342-crop/wp-content/uploads/sites/7/2024/10/Oanh.jpg"
+                      />
+                      <span class="re__link-se article-title"
+                        >Nữ Tiếp Viên Hàng Không Một Mình “Bắc Tiến”, Chuyển
+                        Hướng Sang Môi Giới Bất Động Sản</span
+                      >
+                    </a>
+                  </h3>
+                  <span class="article-time"
+                    ><i class="re__icon-clock--sm"></i>
+                    <span>1 ngày trước</span></span
+                  >
+                </div>
+                <div
+                  id="hottab-1"
+                  class="re__article-info-item hidden"
+                  style="display: none"
+                >
+                  <h3>
+                    <a
+                      title="Kịch Bản Nào Cho Thị Trường Bất Động Sản Việt Nam Trong Quý 4/2024?"
+                      href="/phan-tich-danh-gia/kich-ban-nao-cho-thi-truong-bat-dong-san-viet-nam-trong-quy-4-2024-cd-hn-819167"
+                    >
+                      <img
+                        src="https://img.iproperty.com.my/angel/610x342-crop/wp-content/uploads/sites/7/2024/10/anh-bai-1.jpeg"
+                      />
+                      <span class="re__link-se article-title"
+                        >Kịch Bản Nào Cho Thị Trường Bất Động Sản Việt Nam Trong
+                        Quý 4/2024?</span
+                      >
+                    </a>
+                  </h3>
+                  <span class="article-time"
+                    ><i class="re__icon-clock--sm"></i>
+                    <span>3 ngày trước</span></span
+                  >
+                </div>
+                <div
+                  id="hottab-2"
+                  class="re__article-info-item hidden"
+                  style="display: none"
+                >
+                  <h3>
+                    <a
+                      title="Bất Động Sản Đông Anh (Hà Nội) Tiếp Tục Nổi Sóng Mới"
+                      href="/tin-tuc/bat-dong-san-dong-anh-tiep-tuc-noi-song-moi-cd-hn-818914"
+                    >
+                      <img
+                        src="https://img.iproperty.com.my/angel/610x342-crop/wp-content/uploads/sites/7/2024/10/dong-anh-1-1.jpg"
+                      />
+                      <span class="re__link-se article-title"
+                        >Bất Động Sản Đông Anh (Hà Nội) Tiếp Tục Nổi Sóng
+                        Mới</span
+                      >
+                    </a>
+                  </h3>
+                  <span class="article-time"
+                    ><i class="re__icon-clock--sm"></i>
+                    <span>7 ngày trước</span></span
+                  >
+                </div>
+                <div
+                  id="hottab-3"
+                  class="re__article-info-item hidden"
+                  style="display: none"
+                >
+                  <h3>
+                    <a
+                      title="Trọn Bộ Lãi Suất Vay Mua Nhà Mới Nhất Tháng 10/2024"
+                      href="/tin-tuc/lai-suat-vay-mua-nha-ngan-hang-nao-thap-nhat-103041"
+                    >
+                      <img
+                        class="lazyloaded"
+                        error-image-class="error-photo"
+                        data-src="https://img.iproperty.com.my/angel/610x342-crop/wp-content/uploads/sites/7/2024/09/anh-thume.jpg"
+                        src="https://img.iproperty.com.my/angel/610x342-crop/wp-content/uploads/sites/7/2024/09/anh-thume.jpg"
+                      />
+                      <span class="re__link-se article-title"
+                        >Trọn Bộ Lãi Suất Vay Mua Nhà Mới Nhất Tháng
+                        10/2024</span
+                      >
+                    </a>
+                  </h3>
+                  <span class="article-time"
+                    ><i class="re__icon-clock--sm"></i>
+                    <span>1 tuần trước</span></span
+                  >
+                </div>
+                <div
+                  id="hottab-4"
+                  class="re__article-info-item hidden"
+                  style="display: none"
+                >
+                  <h3>
+                    <a
+                      title="Giá Nhà Liền Thổ Giảm Mạnh, Chung Cư Liên Tục Tăng"
+                      href="/tin-tuc/gia-nha-lien-tho-giam-manh-chung-cu-lien-tuc-tang-cd-hcm-789890"
+                    >
+                      <img
+                        class="lazyloaded"
+                        error-image-class="error-photo"
+                        data-src="https://img.iproperty.com.my/angel/610x342-crop/wp-content/uploads/sites/7/2023/12/DJI_0050.jpg"
+                        src="https://img.iproperty.com.my/angel/610x342-crop/wp-content/uploads/sites/7/2023/12/DJI_0050.jpg"
+                      />
+                      <span class="re__link-se article-title"
+                        >Giá Nhà Liền Thổ Giảm Mạnh, Chung Cư Liên Tục
+                        Tăng</span
+                      >
+                    </a>
+                  </h3>
+                  <span class="article-time"
+                    ><i class="re__icon-clock--sm"></i>
+                    <span>42 tuần trước</span></span
+                  >
+                </div>
+                <div
+                  id="hottab-5"
+                  class="re__article-info-item hidden"
+                  style="display: block"
+                >
+                  <h3>
+                    <a
+                      title="Xu Hướng Đầu Tư Bất Động Sản Phổ Yên: Nhà Phố Lên Ngôi"
+                      th:href="@{/chitiet-tin-tuc/{id}(id=${latestNews.id})}"
+                    >
+                      <img
+                        class="lazyloaded"
+                        error-image-class="error-photo"
+                        th:src="@{${latestNews.images[0].imageLink}}"
+                      />
+                      <span
+                        class="re__link-se article-title"
+                        th:text="${latestNews.title}"
+                      ></span>
+                    </a>
+                  </h3>
+                </div>
+              </div>
+              <div
+                class="re__article-list-container js__article-list-container"
+              >
+                <ul>
+                  <li class="" th:each="news : ${top4}">
+                    <h3>
+                      <a
+                        title="Nữ Tiếp Viên Hàng Không Một Mình “Bắc Tiến”, Chuyển Hướng Sang Môi Giới Bất Động Sản"
+                        data-index="#hottab-0"
+                        th:href="@{/chitiet-tin-tuc/{id}(id=${news.id})}"
+                        th:text="${news.title}"
+                        class="re__article-list-item"
+                      >
+                      </a>
+                    </h3>
+                  </li>
+                </ul>
+              </div>
+              <div class="clear"></div>
+            </div>
+            <div id="hometab2" class="hidden newscontain">
+              <div class="clear"></div>
+            </div>
+            <div id="hometab3" class="hidden newscontain">
+              <div class="clear"></div>
+            </div>
+            <div id="hometab4" class="hidden newscontain">
+              <div class="clear"></div>
+            </div>
+          </div>
+
+          <script type="text/javascript">
+            function initHotNewsGroup() {
+              new window.FrontEnd.Home.HotNewsGroupBinnova({
+                getNewNewsAsHtmlUrl: "/Systems/Home/GetNewNewsAsHtml",
+                getHotSubjectHCMAsHtmlUrl:
+                  "/Systems/Home/GetHotSubjectHCMAsHtml",
+                getHotSubjectHNAsHtmlUrl: "/Systems/Home/GetHotSubjectHNAsHtml",
+              });
+            }
+          </script>
+        </div>
+        <div
+          class="re__home__hot-news__banner-container re__banner-container"
+          style=""
+        >
+          <div
+            id="home-web-square-banner-1"
+            class="re__home-square-banner"
+            data-google-query-id=""
+            style="display: none"
+          >
+            <div
+              id="google_ads_iframe_/22637580558/Live.BDS/Live.BDS.PC.Home.R1_0__container__"
+              style="border: 0pt none; width: 250px; height: 0px"
+            ></div>
+          </div>
+          <div
+            id="home-web-square-banner-2"
+            class="re__home-square-banner"
+            data-google-query-id=""
+            style="display: none"
+          >
+            <div
+              id="google_ads_iframe_/22637580558/Live.BDS/Live.BDS.PC.Home.R2_0__container__"
+              style="border: 0pt none; width: 250px; height: 0px"
+            ></div>
+          </div>
+        </div>
+        <div class="clear"></div>
+      </div>
+    </div>
+    <div class="re__content-block re__home__bds-for-you-block re__bg-grey-50">
+      <div class="re__content-container">
+        <link
+          rel="stylesheet"
+          href="https://staticfile.batdongsan.com.vn/lib/microtip/microtip.min.css"
+        />
+
+        <h2 class="re__content-container-label">Bất động sản dành cho bạn</h2>
+        <span class="re__content-container-link">
+          <a class="re__link-se" href="/nha-dat-ban"
+            >Tin nhà đất bán mới nhất</a
+          >
+          &nbsp;&nbsp;|&nbsp;&nbsp;
+          <a class="re__link-se" href="/nha-dat-cho-thue"
+            >Tin nhà đất cho thuê mới nhất</a
+          >
+        </span>
+
+        <div
+          id="interestedProductsBinnovaContent"
+          class="re__product-container"
+        >
+          <div class="home-product product-4-you">
+            <div class="js__interested-product re__interested-product-cards">
+              <div
+                th:each="list : ${landForSaleList.size() > 12 ? landForSaleList.subList(0, 12) : landForSaleList}"
+                class="re__product-item re__interested-product-card js__product-item"
+              >
+                <div
+                  class="js__card js__card-compact-web pr-container re__card-compact re__vip-diamond"
+                  prav="https://file4.batdongsan.com.vn/crop/200x140/2024/10/18/20241018152906-7d2e_wm.jpg"
+                  uid="2270804"
+                  prid="41252402"
+                  vtp="vip-diamond"
+                  clo="hpre"
+                >
+                  <a
+                    class="js__product-link-for-product-id"
+                    data-product-id="41252402"
+                    th:href="@{'/chi-tiet-nha-dat-ban/' + ${list.id}}"
+                    th:title="${list.name}"
+                    tracking-id="navigate-ldp-from-home"
+                    tracking-label="loc=Other-Home,ipos=16,intentType=Bottom"
+                  >
+                    <div class="re__card-image">
+                      <img
+                        alt="Ảnh đại diện"
+                        class="lazyload pr-img"
+                        abc="3.20241018152906-7d2e_wm.jpg"
+                        th:data-src="${list.images[0].imageLink}"
+                      />
+                      <div class="re__card-image-feature">
+                        <i class="re__icon-image"></i>
+                        <span th:text="${list.images.size()}"></span>
+                      </div>
+                      <div class="card-label-img label--v2"></div>
+                    </div>
+                    <div class="re__card-info">
+                      <div class="re__card-info-content">
+                        <div class="re__card-title" th:text="${list.name}">
+                          <h3 class="js__card-title">
+                            CHỦ NGỢP BÁN GẤP NHÀ 1 TRỆT 1 LẦU, CÁCH CẦU TRÀM
+                            1,5KM. GIÁ TL 1 TỶ 330 TRIỆU ( GIÁ 100% )
+                          </h3>
+                        </div>
+                        <div class="re__card-config">
+                          <span
+                            class="re__card-config-price"
+                            th:text="${list.formatToReadableUnit(list.price)}"
+                            >1,33 tỷ</span
+                          >
+                          <span class="re__card-config-area">
+                            <span class="re__card-config-dot">.</span>
+                            <span
+                              class="re__card-config-price"
+                              th:text="${list.area + ' m²'}"
+                            ></span>
+                          </span>
+
+                          <div class="re__clear"></div>
+                        </div>
+                        <div class="re__card-location">
+                          <i class="re__icon-location--sm"></i>
+                          <span
+                            th:text="${list.district} + ', ' + ${list.province}"
+                            >Cần Đước, Long An</span
+                          >
+                        </div>
+                        <div class="re__clearfix"></div>
+                        <div class="re__card-contact">
+                          <div class="re__card-published-info">
+                            <span
+                              class="re__card-published-info-published-at"
+                              th:aria-label="${#temporals.format(list.available.purchaseDate, 'dd/MM/yyyy')}"
+                              data-microtip-position="right"
+                              role="tooltip"
+                              th:text="${list.getRelativeTime(list.datePosted)}"
+                            >
+                              Đăng hôm nay
+                            </span>
+                          </div>
+                          <div class="re__card-contact-button">
+                            <span
+                              class="js__marking-product__KYC re__btn re__btn-se-border--sm re__btn-icon--sm"
+                              data-marked-product-info-as-json='{"documentId":"41252402","productId":41252402,"avatarinfowap":"https://file4.batdongsan.com.vn/crop/200x140/2024/10/18/20241018152906-7d2e_wm.jpg","title":"CHỦ NGỢP BÁN GẤP NHÀ 1 TRỆT 1 LẦU, CÁCH CẦU TRÀM 1,5KM. GIÁ TL 1 TỶ 330 TRIỆU ( GIÁ 100% )","url":"/ban-nha-rieng-xa-long-trach/chu-ngop-ban-gap-1-tret-1-lau-cach-cau-tram-1-5km-gia-tl-1-ty-330-trieu-gia-100-pr41252402"}'
+                              aria-label="Bấm để lưu tin"
+                              data-microtip-position="bottom"
+                              role="tooltip"
+                              kyc-tracking-id="save-listing"
+                              tracking-label="loc=Other-Home,status=save"
+                              title=""
+                              data-change-marking="1"
+                            >
+                              <i class="re__icon-heart--sm"></i>
+                              <i class="re__icon-heart-pressed--sm"></i>
+                            </span>
+                          </div>
+                          <div class="re__clear-both"></div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="re__clearfix"></div>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="clear"></div>
+            <div id="ucHomeProductInterest_pnlViewMore">
+              <div class="re__product-view-more">
+                <a
+                  href="/nha-dat-ban"
+                  id="prd-viewless"
+                  class="re__btn re__btn-icon-right--md re__btn-se-border--md js__kyc-product-extend"
+                >
+                  Xem tiếp
+                </a>
+              </div>
+            </div>
+          </div>
+          <div
+            data-layer-1='[{"id":"pr41055158","list":"Home Page","position":1},{"id":"pr41093518","list":"Home Page","position":2},{"id":"pr41251113","list":"Home Page","position":3},{"id":"pr41138684","list":"Home Page","position":4},{"id":"pr41227071","list":"Home Page","position":5},{"id":"pr40140413","list":"Home Page","position":6},{"id":"pr40043751","list":"Home Page","position":7},{"id":"pr41187907","list":"Home Page","position":8}]'
+            data-layer-2='[{"id":"pr41176586","list":"Home Page","position":9},{"id":"pr40491320","list":"Home Page","position":10},{"id":"pr41073507","list":"Home Page","position":11},{"id":"pr41199298","list":"Home Page","position":12},{"id":"pr41244235","list":"Home Page","position":13},{"id":"pr40791352","list":"Home Page","position":14},{"id":"pr40630709","list":"Home Page","position":15},{"id":"pr41252402","list":"Home Page","position":16}]'
+          ></div>
+        </div>
+
+        <script type="text/javascript">
+          function initInterestedProducts() {
+            new window.FrontEnd.Home.InterestedProductsBinnova({
+              getInterestedProductsBinnovaUrl:
+                "/Systems/Home/GetInterestedProductsBinnova",
+            });
+          }
+        </script>
+      </div>
+    </div>
+
+    <div class="re__content-block re__home__banner-middle-block" style="">
+      <div
+        class="re__content-container re__banner-container js__banner-middle-home"
+      >
+        <div
+          id="home-web-middle-banner-1"
+          class="re__home-middle-banner"
+          data-google-query-id=""
+          style="display: none"
+        >
+          <div
+            id="google_ads_iframe_/22637580558/Live.BDS/Live.BDS.PC.Home.MastheadInline1_0__container__"
+            style="border: 0pt none; width: 1120px; height: 0px"
+          ></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="re__content-block re__home__place-block">
+      <div class="re__content-container">
+        <h2
+          class="re__content-container-label re__content-container-label-title"
+        >
+          Bất động sản theo địa điểm
+        </h2>
+        <div
+          class="re__home__place-container lazyload"
+          data-func="new window.FrontEnd.Home.ProductCountBinnova({});"
+          data-script=""
+        >
+          <div class="re__place-big re__place-item">
+            <div class="re__place-img place-img">
+              <img
+                src="https://file4.batdongsan.com.vn/images/newhome/cities1/HCM-web-1.jpg"
+              />
+              <img
+                class="lazyload"
+                data-src="https://file4.batdongsan.com.vn/images/newhome/cities1/HCM-web-2.jpg"
+              />
+              <img
+                class="lazyload"
+                data-src="https://file4.batdongsan.com.vn/images/newhome/cities1/HCM-web-3.jpg"
+              />
+            </div>
+
+            <h3>
+              <a
+                class="re__place-info buy-info re__place-info-sold"
+                href="/nha-dat-ban?province=Hồ%20Chí%20Minh&page=1"
+                title="Bán nhà TPHCM"
+              >
+                <span class="place-name">TP. Hồ Chí Minh</span><br />
+                <span class="place-number" th:text="${HCM.size()}"
+                  >70.011 tin đăng</span
+                >
+              </a>
+              <a
+                class="re__place-info rent-info re__place-info-rent"
+                href="/nha-dat-cho-thue?province=Hồ%20Chí%20Minh&page=1"
+                title="Thuê nhà TPHCM"
+              >
+                <span class="place-name">TP. Hồ Chí Minh</span><br />
+                <span class="place-number" th:text="${HCM1.size()}"
+                  >29.968 tin đăng</span
+                >
+              </a>
+            </h3>
+          </div>
+
+          <div class="re__place-small">
+            <div class="re__place-item">
+              <div class="re__place-img place-img">
+                <img
+                  src="https://file4.batdongsan.com.vn/images/newhome/cities1/HN-web-1.jpg"
+                />
+                <img
+                  class="lazyload"
+                  data-src="https://file4.batdongsan.com.vn/images/newhome/cities1/HN-web-2.jpg"
+                />
+                <img
+                  class="lazyload"
+                  data-src="https://file4.batdongsan.com.vn/images/newhome/cities1/HN-web-3.jpg"
+                />
+              </div>
+              <h3>
+                <a
+                  class="re__place-info buy-info re__place-info-sold"
+                  href="/nha-dat-ban?province=Hà%20Nội&page=1"
+                  title="Bán nhà Hà Nội"
+                >
+                  <span class="place-name">Hà Nội</span><br />
+                  <span class="place-number" th:text="${HN.size()}"
+                    >66.608 tin đăng</span
+                  >
+                </a>
+                <a
+                  class="re__place-info rent-info re__place-info-rent"
+                  href="/nha-dat-cho-thue?province=Hà%20Nội&page=1"
+                  title="Thuê nhà Hà Nội"
+                >
+                  <span class="place-name">Hà Nội</span><br />
+                  <span class="place-number" th:text="${HN1.size()}"
+                    >13.706 tin đăng</span
+                  >
+                </a>
+              </h3>
+            </div>
+            <div class="re__place-item">
+              <div class="re__place-img place-img">
+                <img
+                  src="https://file4.batdongsan.com.vn/images/newhome/cities1/DDN-web-1.jpg"
+                />
+                <img
+                  class="lazyload"
+                  data-src="https://file4.batdongsan.com.vn/images/newhome/cities1/DDN-web-2.jpg"
+                />
+                <img
+                  class="lazyload"
+                  data-src="https://file4.batdongsan.com.vn/images/newhome/cities1/DDN-web-3.jpg"
+                />
+              </div>
+              <h3>
+                <a
+                  class="re__place-info buy-info re__place-info-sold"
+                  href="/nha-dat-ban?province=Đà%20Nẵng&page=1"
+                  title="Bán nhà Đà Nẵng"
+                >
+                  <span class="place-name">Đà Nẵng</span><br />
+                  <span class="place-number" th:text="${DN.size()}"
+                    >8.812 tin đăng</span
+                  >
+                </a>
+                <a
+                  class="re__place-info rent-info re__place-info-rent"
+                  href="/nha-dat-cho-thue?province=Đà%20Nẵng&page=1"
+                  title="Thuê nhà Đà Nẵng"
+                >
+                  <span class="place-name">Đà Nẵng</span><br />
+                  <span class="place-number" th:text="${DN1.size()}"
+                    >714 tin đăng</span
+                  >
+                </a>
+              </h3>
+            </div>
+            <div class="re__place-item">
+              <div class="re__place-img place-img">
+                <img
+                  src="https://file4.batdongsan.com.vn/images/newhome/cities1/BD-web-1.jpg"
+                />
+                <img
+                  class="lazyload"
+                  data-src="https://file4.batdongsan.com.vn/images/newhome/cities1/BD-web-2.jpg"
+                />
+              </div>
+              <h3>
+                <a
+                  class="re__place-info buy-info re__place-info-sold"
+                  href="/nha-dat-ban?province=Bình%20Dương&page=1"
+                  title="Bán nhà Bình Dương"
+                >
+                  <span class="place-name">Bình Dương</span><br />
+                  <span class="place-number" th:text="${BD.size()}"
+                    >7.758 tin đăng</span
+                  >
+                </a>
+                <a
+                  class="re__place-info rent-info re__place-info-rent"
+                  href="/nha-dat-cho-thue?province=Bình%20Dương&page=1"
+                  title="Thuê nhà Bình Dương"
+                >
+                  <span class="place-name">Bình Dương</span><br />
+                  <span class="place-number" th:text="${BD1.size()}"
+                    >1.452 tin đăng</span
+                  >
+                </a>
+              </h3>
+            </div>
+            <div class="re__place-item">
+              <div class="re__place-img place-img">
+                <img
+                  src="https://file4.batdongsan.com.vn/images/newhome/cities1/DNA-web-1.jpg"
+                />
+                <img
+                  class="lazyload"
+                  data-src="https://file4.batdongsan.com.vn/images/newhome/cities1/DNA-web-2.jpg"
+                />
+                <img
+                  class="lazyload"
+                  data-src="https://file4.batdongsan.com.vn/images/newhome/cities1/DNA-web-3.jpg"
+                />
+              </div>
+              <h3>
+                <a
+                  class="re__place-info buy-info re__place-info-sold"
+                  href="/nha-dat-ban?province=Đồng%20Nai&page=1"
+                  title="Bán nhà Đồng Nai"
+                >
+                  <span class="place-name">Đồng Nai</span><br />
+                  <span class="place-number" th:text="${DongNai.size()}"
+                    >3.925 tin đăng</span
+                  >
+                </a>
+                <a
+                  class="re__place-info rent-info re__place-info-rent"
+                  href="/nha-dat-cho-thue?province=Đồng%20Nai&page=1"
+                  title="Thuê nhà Đồng Nai"
+                >
+                  <span class="place-name">Đồng Nai</span><br />
+                  <span class="place-number" th:text="${DongNai1.size()}"
+                    >432 tin đăng</span
+                  >
+                </a>
+              </h3>
+            </div>
+          </div>
+          <div class="clear"></div>
+        </div>
+
+        <style type="text/css">
+          .rent-info {
+            display: none;
+          }
+        </style>
+      </div>
+    </div>
+
+    <div
+      class="re__content-block re__home__vip-news-block"
+      style="height: fit-content"
+    >
+      <div class="re__content-container">
+        <h2 class="re__content-container-label">Tin tức bất động sản</h2>
+        <div
+          class="re__home__vip-news__article-container js__home__vip-news__article-container lazyload"
+          data-func="new window.FrontEnd.Home.VipNewsBinnova({});"
+          data-script="https://staticfile.batdongsan.com.vn/js/binnova/filestatic.ver69fcc55f.msvbds.FrontEnd.Home.VipNewsBinnova.min.js"
+        >
+          <div
+            articlegadatalayer='{"ecommerce":{"impressions":[{"id":"ar816093","list":"Home Page"},{"id":"ar818025","list":"Home Page"},{"id":"ar818945","list":"Home Page"},{"id":"ar789980","list":"Home Page"},{"id":"ar790097","list":"Home Page"},{"id":"ar789907","list":"Home Page"}]},"event":"eec.impression_nlcc"}'
+          ></div>
+          <div class="swiper-container">
+            <ul class="re__article-list-container swiper-wrapper">
+              <li
+                uid="816093"
+                class="re__article-list-item swiper-slide"
+                th:each="news,iterStat : ${top4}"
+              >
+                <div class="vip-news-img">
+                  <a th:href="@{/chitiet-tin-tuc/{id}(id=${news.id})}">
+                    <img
+                      class="lazyload"
+                      th:src="@{${news.images[0].imageLink}}"
+                    />
+                  </a>
+                </div>
+                <h3 class="vip-news-link">
+                  <span class="index" th:text="${iterStat.index + 1}"></span>
+                  <a
+                    class="re__link-se article-title"
+                    th:href="@{/chitiet-tin-tuc/{id}(id=${news.id})}"
+                    th:text="${news.title}"
+                  ></a>
+                </h3>
+              </li>
+            </ul>
+          </div>
+          <a
+            action="go-left"
+            class="re__btn re__btn-se-ghost--md re__left re__btn-icon--md go-left"
+          >
+            <i class="re__icon-chevron-left"></i>
+          </a>
+          <a
+            action="go-right"
+            class="re__btn re__btn-se-ghost--md re__right re__btn-icon--md go-right"
+          >
+            <i class="re__icon-chevron-right"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  let productTypeValue = "38";
+  let cityCode = "";
+  let locationSearchValue = "";
+
+  let checkSold = true;
+
+  let selectedCategoryValue = "";
+  let selectedPriceValue = "";
+  let selectedAreaValue = "";
+
+  const priceMapping = {
+    1: "Dưới 100 triệu",
+    2: "100 - 200 triệu",
+    3: "200 - 300 triệu",
+    4: "300 - 500 triệu",
+    5: "500 - 800 triệu",
+    6: "800 - 1 tỷ",
+    7: "1 - 2 tỷ",
+    8: "Trên 2 tỷ",
+    0: "Thỏa thuận",
+  };
+
+  const areaMapping = {
+    1: "Dưới 30 m²",
+    2: "30 - 50 m²",
+    3: "50 - 80 m²",
+    4: "80 - 100 m²",
+    5: "100 - 150 m²",
+    6: "150 - 200 m²",
+    7: "200 - 250 m²",
+    8: "250 - 300 m²",
+    9: "300 - 500 m²",
+    10: "Trên 500 m²",
+  };
+
+  function logProductTypeChange() {
+    productTypeValue = $("#ProductType").val();
+    cityCode = $("#CityCode").val();
+    console.log("Giá trị của ProductType đã thay đổi: " + productTypeValue);
+    console.log("Giá trị của CityCode đã thay đổi: " + cityCode);
+
+    const buyLinks = document.querySelectorAll(".re__place-info.buy-info");
+    const rentLinks = document.querySelectorAll(".re__place-info.rent-info");
+    const titleElement = document.querySelector(
+      ".re__content-container-label-title"
+    );
+
+    console.log("buyLinks: ", buyLinks);
+    console.log("rentLinks: ", rentLinks);
+
+    if (buyLinks.length > 0 && rentLinks.length > 0) {
+      if (parseInt(productTypeValue) === 38) {
+        titleElement.textContent = "Bất động sản theo địa điểm";
+        console.log(
+          "productTypeValue === 38, thay đổi class cho tất cả các link..."
+        );
+
+        buyLinks.forEach((buyLink) => {
+          console.log(
+            "Trước khi thay đổi buyLink classList: ",
+            buyLink.classList
+          );
+          buyLink.classList.remove("rent-info", "re__place-info-sold");
+          buyLink.classList.add("buy-info", "re__place-info-sold");
+          console.log(
+            "Sau khi thay đổi buyLink classList: ",
+            buyLink.classList
+          );
+        });
+
+        rentLinks.forEach((rentLink) => {
+          console.log(
+            "Trước khi thay đổi rentLink classList: ",
+            rentLink.classList
+          );
+          rentLink.classList.remove("buy-info", "re__place-info-rent");
+          rentLink.classList.add("rent-info", "re__place-info-rent");
+          console.log(
+            "Sau khi thay đổi rentLink classList: ",
+            rentLink.classList
+          );
+        });
+      } else {
+        titleElement.textContent = "Cho thuê theo địa điểm";
+
+        buyLinks.forEach((buyLink) => {
+          console.log(
+            "Trước khi thay đổi buyLink classList: ",
+            buyLink.classList
+          );
+          buyLink.classList.remove("buy-info", "re__place-info-sold");
+          buyLink.classList.add("rent-info", "re__place-info-sold");
+          console.log(
+            "Sau khi thay đổi buyLink classList: ",
+            buyLink.classList
+          );
+        });
+
+        rentLinks.forEach((rentLink) => {
+          console.log(
+            "Trước khi thay đổi rentLink classList: ",
+            rentLink.classList
+          );
+          rentLink.classList.remove("rent-info", "re__place-info-rent");
+          rentLink.classList.add("buy-info", "re__place-info-rent");
+          console.log(
+            "Sau khi thay đổi rentLink classList: ",
+            rentLink.classList
+          );
+        });
+      }
+    }
+
+    const categoryHeaderText = document.querySelector(".loaiNhaDatText");
+    const priceHeaderText = document.querySelector(".PriceText");
+    const areaHeaderText = document.querySelector(".AreaText");
+    const categoryHiddenInput = document.getElementById("CategoryIdsAsString");
+    const priceHiddenInput = document.getElementById("PriceAsString");
+    const areaHiddenInput = document.getElementById("AreaAsString");
+    const locationSearchInput = document.getElementById("LocationSearch");
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const urlCategory = urlParams.get("CategoryIdsAsString");
+    const urlPrice = urlParams.get("PriceAsString");
+    const urlArea = urlParams.get("AreaAsString");
+
+    if (urlCategory) {
+      selectedCategoryValue = urlCategory;
+      categoryHeaderText.textContent = decodeURIComponent(urlCategory);
+      document
+        .querySelectorAll(
+          ".re__listing-search-select-dropdown-category .js__option "
+        )
+        .forEach((option) => {
+          if (option.getAttribute("value") === urlCategory) {
+            option.classList.add("selected");
+          }
+        });
+    }
+
+    if (urlPrice) {
+      selectedPriceValue = urlPrice;
+      priceHeaderText.textContent = priceMapping[urlPrice] || "Mức giá";
+      document
+        .querySelectorAll(
+          ".re__listing-search-select-dropdown-price .js__option"
+        )
+        .forEach((option) => {
+          if (option.getAttribute("value") === urlPrice) {
+            option.classList.add("selected");
+          }
+        });
+    }
+
+    if (urlArea) {
+      selectedAreaValue = urlArea;
+      areaHeaderText.textContent = areaMapping[urlArea] || "Diện tích";
+      document
+        .querySelectorAll(
+          ".re__listing-search-select-dropdown-area .js__option"
+        )
+        .forEach((option) => {
+          if (option.getAttribute("value") === urlArea) {
+            option.classList.add("selected");
+          }
+        });
+    }
+
+    document
+      .querySelectorAll(
+        ".re__listing-search-select-dropdown-category .js__option"
+      )
+      .forEach((option) => {
+        option.addEventListener("click", function () {
+          document
+            .querySelectorAll(
+              ".re__listing-search-select-dropdown-category .js__option"
+            )
+            .forEach((opt) => opt.classList.remove("selected"));
+          option.classList.add("selected");
+          selectedCategoryValue = option.getAttribute("value") || "";
+          console.log("Đã chọn Loại nhà đất:", selectedCategoryValue);
+
+          categoryHeaderText.textContent = option.textContent.trim();
+          categoryHiddenInput.value = selectedCategoryValue;
+        });
+      });
+
+    document
+      .querySelectorAll(".re__listing-search-select-dropdown-price .js__option")
+      .forEach((option) => {
+        option.addEventListener("click", function () {
+          document
+            .querySelectorAll(
+              ".re__listing-search-select-dropdown-price .js__option"
+            )
+            .forEach((opt) => opt.classList.remove("selected"));
+          option.classList.add("selected");
+          selectedPriceValue = option.getAttribute("value") || "";
+          console.log("Đã chọn Mức giá:", selectedPriceValue);
+
+          priceHeaderText.textContent = option.textContent.trim();
+          priceHiddenInput.value = selectedCategoryValue;
+        });
+      });
+
+    document
+      .querySelectorAll(".re__listing-search-select-dropdown-area .js__option")
+      .forEach((option) => {
+        option.addEventListener("click", function () {
+          document
+            .querySelectorAll(
+              ".re__listing-search-select-dropdown-area .js__option"
+            )
+            .forEach((opt) => opt.classList.remove("selected"));
+          option.classList.add("selected");
+          selectedAreaValue = option.getAttribute("value") || "";
+          console.log("Đã chọn Diện tích:", selectedAreaValue);
+
+          areaHeaderText.textContent = option.textContent.trim();
+          areaHiddenInput.value = selectedAreaValue;
+        });
+      });
+
+    locationSearchInput.addEventListener("input", function () {
+      locationSearchValue = locationSearchInput.value;
+    });
+  }
+
+  const categoryHeaderText = document.querySelector(".loaiNhaDatText");
+  const priceHeaderText = document.querySelector(".PriceText");
+  const areaHeaderText = document.querySelector(".AreaText");
+  const categoryHiddenInput = document.getElementById("CategoryIdsAsString");
+  const priceHiddenInput = document.getElementById("PriceAsString");
+  const areaHiddenInput = document.getElementById("AreaAsString");
+
+  const urlParams = new URLSearchParams(window.location.search);
+  const urlCategory = urlParams.get("CategoryIdsAsString");
+  const urlPrice = urlParams.get("PriceAsString");
+  const urlArea = urlParams.get("AreaAsString");
+
+  if (urlCategory) {
+    selectedCategoryValue = urlCategory;
+    categoryHeaderText.textContent = decodeURIComponent(urlCategory);
+    document
+      .querySelectorAll(
+        ".re__listing-search-select-dropdown-category .js__option "
+      )
+      .forEach((option) => {
+        if (option.getAttribute("value") === urlCategory) {
+          option.classList.add("selected");
+        }
+      });
+  }
+
+  if (urlPrice) {
+    selectedPriceValue = urlPrice;
+    priceHeaderText.textContent = priceMapping[urlPrice] || "Mức giá";
+    document
+      .querySelectorAll(".re__listing-search-select-dropdown-price .js__option")
+      .forEach((option) => {
+        if (option.getAttribute("value") === urlPrice) {
+          option.classList.add("selected");
+        }
+      });
+  }
+
+  if (urlArea) {
+    selectedAreaValue = urlArea;
+    areaHeaderText.textContent = areaMapping[urlArea] || "Diện tích";
+    document
+      .querySelectorAll(".re__listing-search-select-dropdown-area .js__option")
+      .forEach((option) => {
+        if (option.getAttribute("value") === urlArea) {
+          option.classList.add("selected");
+        }
+      });
+  }
+
+  document
+    .querySelectorAll(
+      ".re__listing-search-select-dropdown-category .js__option"
+    )
+    .forEach((option) => {
+      option.addEventListener("click", function () {
+        document
+          .querySelectorAll(
+            ".re__listing-search-select-dropdown-category .js__option"
+          )
+          .forEach((opt) => opt.classList.remove("selected"));
+        option.classList.add("selected");
+        selectedCategoryValue = option.getAttribute("value") || "";
+        console.log("Đã chọn Loại nhà đất:", selectedCategoryValue);
+
+        categoryHeaderText.textContent = option.textContent.trim();
+        categoryHiddenInput.value = selectedCategoryValue;
+      });
+    });
+
+  document
+    .querySelectorAll(".re__listing-search-select-dropdown-price .js__option")
+    .forEach((option) => {
+      option.addEventListener("click", function () {
+        document
+          .querySelectorAll(
+            ".re__listing-search-select-dropdown-price .js__option"
+          )
+          .forEach((opt) => opt.classList.remove("selected"));
+        option.classList.add("selected");
+        selectedPriceValue = option.getAttribute("value") || "";
+        console.log("Đã chọn Mức giá:", selectedPriceValue);
+
+        priceHeaderText.textContent = option.textContent.trim();
+        priceHiddenInput.value = selectedCategoryValue;
+      });
+    });
+
+  document
+    .querySelectorAll(".re__listing-search-select-dropdown-area .js__option")
+    .forEach((option) => {
+      option.addEventListener("click", function () {
+        document
+          .querySelectorAll(
+            ".re__listing-search-select-dropdown-area .js__option"
+          )
+          .forEach((opt) => opt.classList.remove("selected"));
+        option.classList.add("selected");
+        selectedAreaValue = option.getAttribute("value") || "";
+        console.log("Đã chọn Diện tích:", selectedAreaValue);
+
+        areaHeaderText.textContent = option.textContent.trim();
+        areaHiddenInput.value = selectedAreaValue;
+      });
+    });
+
+  const targetNode = document.getElementById("ProductType");
+  const city = document.getElementById("CityCode");
+
+  const config = { attributes: true, attributeFilter: ["value"] };
+
+  const observer = new MutationObserver(() => {
+    logProductTypeChange();
+  });
+
+  observer.observe(targetNode, config);
+  observer.observe(city, config);
+
+  document
+    .getElementById("btnSearch")
+    .addEventListener("click", function (event) {
+      event.preventDefault();
+
+      let ischeck = productTypeValue !== "49";
+
+      const form = document.getElementById("boxSearchForm");
+
+      let actionUrl = ischeck
+        ? "/nha-dat-ban?page=1"
+        : "/nha-dat-cho-thue?page=1";
+
+      if (selectedCategoryValue) {
+        actionUrl += `&CategoryIdsAsString=${encodeURIComponent(
+          selectedCategoryValue
+        )}`;
+      }
+
+      if (selectedPriceValue) {
+        actionUrl += `&PriceAsString=${encodeURIComponent(selectedPriceValue)}`;
+      }
+
+      if (selectedAreaValue) {
+        actionUrl += `&AreaAsString=${encodeURIComponent(selectedAreaValue)}`;
+      }
+
+      if (cityCode) {
+        actionUrl += `&province=${encodeURIComponent(cityCode)}`;
+      }
+
+      if (locationSearchValue) {
+        actionUrl += `&district=${encodeURIComponent(locationSearchValue)}`;
+      }
+
+      form.action = actionUrl;
+
+      form.submit();
+    });
+</script>

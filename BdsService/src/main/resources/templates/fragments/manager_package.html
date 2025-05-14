@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Thêm Gói Tin</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        background: linear-gradient(135deg, #f5f7fa 0%, #e4e7eb 100%);
+        min-height: 100vh;
+        color: #2d3748;
+        line-height: 1.6;
+      }
+
+      h1, h2 {
+        text-align: center;
+        color:rgb(45, 182, 17);
+        font-weight: 700;
+        margin-bottom: 25px;
+      }
+
+      h1 {
+        font-size: 2.5rem;
+        letter-spacing: -0.5px;
+        text-transform: uppercase;
+        background: linear-gradient(to right, #4a90e2, #63b3ed);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      h2 {
+        font-size: 1.75rem;
+        border-bottom: 2px solid #e2e8f0;
+        padding-bottom: 10px;
+      }
+
+      .container {
+        max-width: 900px;
+        margin: 0 auto;
+      }
+
+      form {
+        background: #ffffff;
+        padding: 25px;
+        border-radius: 12px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        max-width: 500px;
+        margin: 0 auto 40px;
+        transition: transform 0.2s ease;
+      }
+
+      form:hover {
+        transform: translateY(-3px);
+      }
+
+      form div {
+        margin-bottom: 20px;
+      }
+
+      label {
+        display: block;
+        font-weight: 600;
+        font-size: 0.95rem;
+        color: #4a5568;
+        margin-bottom: 8px;
+        letter-spacing: 0.3px;
+      }
+
+      input {
+        width: 100%;
+        padding: 12px 15px;
+        font-size: 1rem;
+        border: 2px solid #e2e8f0;
+        border-radius: 8px;
+        background: #f7fafc;
+        transition: all 0.3s ease;
+        outline: none;
+      }
+
+      input:focus {
+        border-color: #4a90e2;
+        background: #ffffff;
+        box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.1);
+      }
+
+      button {
+        color: #ffffff;
+        border: none;
+        padding: 12px;
+        font-size: 1.1rem;
+        font-weight: 600;
+        border-radius: 8px;
+        cursor: pointer;
+        width: 100%;
+        transition: all 0.3s ease;
+      }
+
+      button:hover:not(:disabled) {
+        background: linear-gradient(90deg, #3b82f6, #5aa9fa);
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(74, 144, 226, 0.3);
+      }
+
+      button:disabled {
+        background: #a0aec0;
+        cursor: not-allowed;
+        opacity: 0.6;
+      }
+
+      table {
+        width: 100%;
+        border-spacing: 0;
+        margin: 30px 0;
+        background: #ffffff;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        
+      }
+
+      th, td {
+        padding: 15px 20px;
+        text-align: left;
+        border-bottom: 1px solid #edf2f7;
+      }
+
+      th {
+        background: linear-gradient(90deg, #4a90e2, #63b3ed);
+        color: #ffffff;
+        font-weight: 700;
+        text-transform: uppercase;
+        font-size: 0.9rem;
+        letter-spacing: 0.5px;
+      }
+
+      td {
+        font-size: 0.95rem;
+        color: #2d3748;
+      }
+
+      tr:last-child td {
+        border-bottom: none;
+      }
+
+      tr:nth-child(even) {
+        background: #f7fafc;
+      }
+
+      tr:hover {
+        background: #e6f0fa;
+        transition: background 0.2s ease;
+      }
+
+      .expired {
+        background: #fff5f5;
+        color: #e53e3e;
+        font-weight: 500;
+      }
+
+      @media (max-width: 600px) {
+        h1 {
+          font-size: 2rem;
+        }
+
+        h2 {
+          font-size: 1.5rem;
+        }
+
+        form {
+          padding: 20px;
+          max-width: 100%;
+        }
+
+        table {
+          font-size: 0.9rem;
+        }
+
+        th, td {
+          padding: 10px;
+        }
+      }
+    </style>
+  </head>
+   <body>
+
+    <h2>Danh Sách Gói Tin</h2>
+    <table border="1">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Tên Gói</th>
+            <th>Giá</th>
+            <th>Số Lượng</th>
+            <th>Hạn Sử Dụng</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr
+            th:each="package : ${packageList}"
+            th:class="${T(java.time.LocalDateTime).parse(package.formattedExpiry, T(java.time.format.DateTimeFormatter).ofPattern('mm:HH dd-MM-yyyy')).isBefore(T(java.time.LocalDateTime).now())} ? 'expired' : ''"
+          >
+            <td th:text="${package.id}"></td>
+            <td th:text="${package.name}"></td>
+            <td class="money" th:text="${package.price}"></td>
+            <td th:text="${package.quantity}"></td>
+            <td th:text="${package.formattedExpiry}"></td>
+          </tr>
+        </tbody>
+    </table>
+
+    <h2>Thêm Gói Tin Mới</h2>
+    <!-- Form thêm gói tin -->
+    <form id="addPackageForm" novalidate onsubmit="return handleSubmit(event)">
+      <div>
+        <label for="name">Tên Gói:</label>
+        <input type="text" id="name" name="name" required />
+      </div>
+      <div>
+        <label for="price">Giá:</label>
+        <input type="number" id="price" name="price" step="0.01" required />
+      </div>
+      <div>
+        <label for="quantity">Số Lượng:</label>
+        <input type="number" id="quantity" name="quantity" required />
+      </div>
+      <div>
+        <label for="expiry">Hạn Sử Dụng:</label>
+        <input
+          type="datetime-local"
+          id="expiry"
+          name="expiry"
+          required
+        />
+      </div>
+      <!-- Đổi type thành submit và thêm id để JS dễ find -->
+      <button type="submit" id="submitBtn" disabled>Thêm Gói</button>
+    </form>
+
+    
+
+    <script>
+      const form = document.getElementById("addPackageForm");
+      const submitBtn = document.getElementById("submitBtn");
+      const inputs = Array.from(form.querySelectorAll("input[required]"));
+
+      // 1) Bật/tắt nút submit dựa trên việc các ô đã có value
+      function updateSubmitState() {
+        const allFilled = inputs.every(i => i.value.trim() !== "");
+        submitBtn.disabled = !allFilled;
+      }
+      inputs.forEach(i => i.addEventListener("input", updateSubmitState));
+      // gọi lần đầu để kiểm tra ngay khi load (nếu có sẵn giá trị)
+      updateSubmitState();
+
+      // 2) Xử lý khi submit
+      function handleSubmit(event) {
+        event.preventDefault();
+        // HTML5 validation: nếu có ô invalid thì show báo lỗi
+        if (!form.checkValidity()) {
+          form.reportValidity();
+          return false;
+        }
+        // Kiểm tra thêm: expiry phải > now
+        const expiryValue = document.getElementById("expiry").value;
+        if (new Date(expiryValue) <= new Date()) {
+          alert("Hạn sử dụng phải lớn hơn thời điểm hiện tại");
+          return false;
+        }
+        // hết lỗi thì gửi lên server
+        submitForm();
+        return false;
+      }
+
+      function submitForm() {
+        const formData = new FormData(form);
+        const jsonData = {};
+        formData.forEach((v, k) => jsonData[k] = v);
+        fetch("/manager-package/add", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(jsonData)
+        })
+        .then(res => {
+          if (res.ok) window.location.href = "/manager-package";
+          else console.error("Error submitting form");
+        })
+        .catch(err => console.error("Error:", err));
+      }
+    </script>
+
+    <script>
+      // Phần định dạng tiền, giữ nguyên
+      function formatCurrency(value) {
+        return new Intl.NumberFormat("vi-VN", {
+          style: "currency", currency: "VND",
+        }).format(value);
+      }
+      document.querySelectorAll(".money").forEach(cell => {
+        const raw = parseFloat(cell.textContent);
+        if (!isNaN(raw)) cell.textContent = formatCurrency(raw);
+      });
+    </script>
+  </body>
+</html>

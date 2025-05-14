@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8"/>
+  <title>Sửa Tin Tức</title>
+  <style>
+    /* Reset và box-sizing */
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Font và nền chung */
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f5f5f5;
+      color: #333;
+      padding: 20px;
+      line-height: 1.5;
+    }
+
+    /* Tiêu đề trang */
+    h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #2c3e50;
+      font-size: 1.8rem;
+    }
+
+    /* Container form */
+    form {
+      max-width: 700px;
+      margin: 0 auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    /* Nhãn */
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 600;
+      color: #2c3e50;
+    }
+
+    /* Input và textarea */
+    input[type="text"],
+    textarea {
+      width: 100%;
+      padding: 10px 12px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 1rem;
+      transition: border-color 0.2s;
+      resize: vertical;
+    }
+
+    input[type="text"]:focus,
+    textarea:focus {
+      outline: none;
+      border-color: #1abc9c;
+    }
+
+    textarea {
+      min-height: 120px;
+    }
+
+    /* Button */
+    button[type="submit"] {
+      display: block;
+      width: 100%;
+      background: #1abc9c;
+      color: #fff;
+      border: none;
+      padding: 12px;
+      font-size: 1rem;
+      font-weight: 600;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.1s;
+    }
+
+    button[type="submit"]:hover {
+      background: #16a085;
+      transform: translateY(-1px);
+    }
+
+    button[type="submit"]:active {
+      transform: translateY(1px);
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      form {
+        padding: 20px;
+      }
+      h2 {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h2>Sửa Tin Tức</h2>
+  <form th:action="@{/edit-news/{id}(id=${news.id})}" method="post">
+    <input type="hidden" th:value="${news.id}"/>
+
+    <label for="title">Tiêu đề:</label>
+    <input id="title" type="text" name="title" th:value="${news.title}" required/>
+
+    <label for="summaryOfContent">Tóm tắt:</label>
+    <textarea id="summaryOfContent" name="summaryOfContent" required
+              th:text="${news.summaryOfContent}"></textarea>
+
+    <label for="content">Nội dung:</label>
+    <textarea id="content" name="content" required th:text="${news.content}"></textarea>
+
+    <button type="submit">Lưu thay đổi</button>
+  </form>
+</body>
+</html>

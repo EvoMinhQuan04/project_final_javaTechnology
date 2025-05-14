@@ -1,0 +1,111 @@
+<div xmlns:th="http://www.w3.org/1999/xhtml">
+  <!-- Inline CSS -->
+  <style>
+    :root {
+      --card-bg: #ffffff;
+      --bg-light: #f4f6fb;
+      --card-radius: 12px;
+      --card-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+      --label-color: #333333;
+      --value-color: #2c2c2c;
+      --accent: #6C5DD3;
+      --gap: 1rem;
+      --font: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: var(--bg-light);
+      font-family: var(--font);
+      margin: 0;
+      color: var(--value-color);
+    }
+
+    .user-info {
+      background: var(--card-bg);
+      border-radius: var(--card-radius);
+      box-shadow: var(--card-shadow);
+      padding: calc(var(--gap) * 2);
+      max-width: 1150px;
+      margin: calc(var(--gap) * 2) auto;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .user-info:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+    }
+
+    .user-info h2 {
+      text-align: center;
+      color: var(--accent);
+      font-size: 1.6rem;
+      margin-bottom: var(--gap);
+      font-weight: 600;
+    }
+
+    .user-info p {
+      display: grid;
+      grid-template-columns: max-content 1fr;
+      align-items: center;
+      padding: 0.5rem 0;
+      border-bottom: 1px solid #eee;
+      font-size: 1rem;
+    }
+    .user-info p:last-child {
+      border-bottom: none;
+    }
+
+    .user-info strong {
+      color:rgb(99, 100, 12);
+      font-weight: 500;
+      padding-right: var(--gap);
+      text-align: right;
+    }
+
+    .user-info span {
+      color: var(--value-color);
+      font-weight: 400;
+    }
+
+    @media (max-width: 480px) {
+      .user-info {
+        padding: var(--gap);
+      }
+      .user-info p {
+        grid-template-columns: 1fr;
+        row-gap: 0.25rem;
+      }
+      .user-info strong {
+        text-align: left;
+      }
+    }
+  </style>
+
+  <!-- Content -->
+  <div class="user-info">
+    <h2>Thông tin tài khoản</h2>
+    <p>
+      <strong>Họ và tên:</strong>
+      <span th:text="${name}"></span>
+    </p>
+    <p>
+      <strong>Tên đăng nhập:</strong>
+      <span th:text="${username}"></span>
+    </p>
+    <p>
+      <strong>Vai trò:</strong>
+      <span th:text="${role}"></span>
+    </p>
+    <p>
+      <strong>Địa chỉ:</strong>
+      <span th:text="${address}"></span>
+    </p>
+    <p>
+      <strong>Email:</strong>
+      <span th:text="${email}"></span>
+    </p>
+    <p>
+      <strong>Số điện thoại:</strong>
+      <span th:text="${phone}"></span>
+    </p>
+  </div>
+</div>

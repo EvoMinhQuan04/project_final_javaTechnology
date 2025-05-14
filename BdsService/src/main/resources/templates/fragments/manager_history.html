@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Danh Sách Gói Tin</title>
+    <style>
+      body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        margin: 0;
+        background: linear-gradient(135deg, #e0f7fa 0%, #b2ebf2 100%);
+        min-height: 100vh;
+      }
+
+      h2 {
+        text-align: center;
+        color: #00695c;
+        font-size: 1.9em;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        margin-bottom: 30px;
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+      }
+
+      table {
+        width: 100%; /* Increased width to prevent wrapping */
+        border-collapse: separate;
+        border-spacing: 0;
+        margin: 20px auto;
+        background: #ffffff;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        max-width: 1000px; /* Adjusted max-width for wider table */
+      }
+
+      th, td {
+        padding: 15px 20px;
+        text-align: left;
+        border-bottom: 1px solid #e0f2f7;
+        transition: all 0.3s ease;
+        white-space: nowrap; /* Prevent text wrapping */
+      }
+
+      th {
+        background: linear-gradient(90deg, #00acc1, #0097a7);
+        color: #fff;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      tr {
+        background-color: #fff;
+      }
+
+      tr:hover {
+        background: #e0f7fa;
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      tr:nth-child(even) {
+        background: #f0f9fb;
+      }
+
+      .container {
+        max-width: 1000px;
+        margin: auto;
+      }
+      .expired {
+        background-color: #ffebee;
+        color: #d32f2f;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Danh Sách Gói Tin Của Người Dùng</h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Hoá đơn</th>
+          <th>Tình trạng</th>
+          <th>Ngày mua</th>
+          <th>Số lượng khả dụng</th>
+          <th>Tổng tiền</th>
+          <th>Ngày hết hạn</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr th:each="available : ${availableList}">
+          <td th:text="${available.orderId}"></td>
+          <td th:text="${available.statusPayment}"></td>
+
+          <td th:text="${available.formattedPurchase}"></td>
+          <td th:text="${available.quantityAvailable}"></td>
+          <td th:text="${available.total}"></td>
+
+          <td th:text="${available.formattedExpiry}"></td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+</html>

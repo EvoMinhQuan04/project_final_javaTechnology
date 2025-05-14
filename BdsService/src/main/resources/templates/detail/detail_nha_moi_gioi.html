@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html>
+<head th:insert="fragments/head_detail_nhamoigioi"></head>
+
+<body class="re__body re__body- re__new-search-location-focus  " itemscope itemtype="https://schema.org/WebPage" onpageshow='hideLoading()'>
+
+<noscript>
+    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MMVJT5G"
+            height="0" width="0" style="display:none;visibility:hidden"></iframe>
+</noscript>
+
+<span class="pivot-menu"></span>
+
+<span class="pivot-banner"></span>
+
+<div class="form-content">
+    <div class="js__tracking-configs"
+         data-sign-out-tracking-id="sign-out"
+         data-sign-out-tracking-label-page-group="consumer_page"
+         data-braze-close-tracking-id="click-braze-close-button"
+         data-kyc-close-popup-tracking-id="kyc-close-popup"
+         data-kyc-validate-otp-result="kyc-validate-otp-result"
+         data-access-sellernet-homepage-from-overview-btn-id="access-sellernet-homepage-from-overview-btn">
+    </div>
+    <div class="js__user-services-params"
+         data-get-bot-user-info="/Systems/Account/GetBotUserById"
+         data-get-current-user-info="/Systems/Account/GetCurrentUserInfo"
+         data-refresh-token="/Systems/Account/RefreshToken"
+         data-get-notification-count="/Systems/Account/GetNotificationCount"
+         data-get-refresh-token="/api/v1/User/RefreshToken"
+         data-logout="/Systems/Account/Logout"
+         data-refresh-token-new-flow="True"
+         data-user-api-version="True"></div>
+    <div id="staticDomain"
+         statsDomain="https://statistic.batdongsan.com.vn"
+         data-is-mobile="false"
+         data-fileimg="https://file4.batdongsan.com.vn"
+         data-web="https://batdongsan.com.vn"
+         data-wap="https://batdongsan.com.vn"
+         data-api-router="/api"
+         data-msvrouter="/microservice-architecture-router"
+         data-msvrouter-personal="/microservice-architecture-router-personal"
+         data-cssServer="https://staticfile.batdongsan.com.vn"
+         data-oldsystem="https://batdongsan.com.vn"
+         data-content="https://batdongsan.com.vn"
+         data-domainorigin="batdongsan.com.vn"
+         data-sug-api-consumer="https://suggestions.batdongsan.com.vn/suggest"
+         data-sug-api-b2b="https://suggestions.batdongsan.com.vn/suggest"
+         data-verify-token="c7a93640e1acd35ed4e6956e6f48f29c"
+         data-appidforfb="302507473246792"
+         data-new-api-suggestion="False"
+         data-use-kong-gw="False"
+         data-kong-gw-domain="https://kgw.batdongsan.com.vn/consumer/frontend"
+         data-user-api="https://sellernetapi.batdongsan.com.vn"
+         data-seller-api="https://batdongsan.com.vn/user-management-service"
+         class="hide"></div>
+    <div id="page-params" data-page-hint=""></div>
+    <div id="addonImage" addon-image="https://staticfile.batdongsan.com.vn/images/no-image.png"></div>
+    <div id="featureConfig" data-disable-write-db="false" data-enable-new-label-verified="false"></div>
+    <div class="re__bg-header">
+        <div th:insert="fragments/header :: header"></div>
+    </div>
+</div>
+
+<div class="re__banner-container js__banner-left">
+</div>
+
+<div class="re__banner-container js__banner-right">
+</div>
+
+<div class="popupMarking  save" style="display: none">
+    <i class="re__icon-heart-pressed"></i>
+    <span> L&#x1B0;u tin th&#xE0;nh c&#xF4;ng</span>
+</div>
+<div class="popupMarking  unsave" style="display: none">
+    <i class="re__icon-heart"></i>
+    <span> &#x110;&#xE3; b&#x1ECF; l&#x1B0;u tin</span>
+</div>
+
+
+
+<div class="re__google-one-tap-login">
+    <div id="g_id_onload"
+         data-client_id="1068346628874-m61vcgh5vsv0p4f7j1sp2tcmvaq4ssgj.apps.googleusercontent.com"
+         data-login_uri="https://batdongsan.com.vn/user-management-service/api/v1/User/LoginByGoogleOpenId"
+         data-callback="onSubmit_GoogleOneTap"
+         data-skip_prompt_cookie="userinfo"
+         data-subscribe="false"
+         data-use_fedcm_for_prompt="true">
+    </div>
+    <div class="js__google-one-tap" tracking-id="user-login-seller" tracking-label="type=GoogleOneTap"></div>
+    <div class="g_id_signin"
+         data-type="standard"
+         data-size="large"
+         data-theme="outline"
+         data-text="sign_in_with"
+         data-shape="rectangular"
+         data-logo_alignment="left"
+         data-width="348"
+         data-locale="vi_VN"
+         tracking-id="user-login-seller"
+         tracking-label="type=GoogleOneTap">
+    </div>
+</div>
+<script src="https://accounts.google.com/gsi/client"></script>
+<script type="text/javascript" src="https://staticfile.batdongsan.com.vn/js/GoogleOneTap/filestatic.ver3eb9ae29.msvbds.GoogleOneTap.min.js"></script>
+<script type="text/javascript">
+    function onSubmit_GoogleOneTap(response) {
+        var isSubscribe = $("#g_id_onload").attr("data-subscribe");
+        if (window.GoogleOneTap) {
+            GoogleOneTap.HandleCredentialResponse(response,"https://batdongsan.com.vn/user-management-service/api/v1/User/LoginByGoogleOpenId","1068346628874-m61vcgh5vsv0p4f7j1sp2tcmvaq4ssgj.apps.googleusercontent.com", isSubscribe, false);
+        } else {
+            setTimeout(callFunction, 100);
+        }
+    }
+    (function callFunction() {
+        if (window.GoogleOneTap && window.FrontEnd && window.FrontEnd.Product) {
+            var g1tDisable = "True";
+            if(g1tDisable.toLowerCase()==="true"){
+                waitForElementToExist('#credential_picker_container').then(element => {
+                    google.accounts.id.cancel();
+                });
+            }
+        } else {
+            setTimeout(callFunction, 100);
+        }
+    })();
+
+    function waitForElementToExist(selector) {
+        return new Promise(resolve => {
+            if (document.querySelector(selector)) {
+                return resolve(document.querySelector(selector));
+            }
+
+            const observer = new MutationObserver(() => {
+                if (document.querySelector(selector)) {
+                    resolve(document.querySelector(selector));
+                    observer.disconnect();
+                }
+            });
+
+            observer.observe(document.body, {
+                subtree: true,
+                childList: true,
+            });
+        });
+    }
+
+</script>
+
+<div th:insert="main/main_detail_nha_moi_gioi"></div>
+
+<div class="js__boxLinkFooter">
+
+
+    <div id="boxLink" class="re__footer-link re__box-link-footer">
+        <div class="content-box-link">
+            <ul class="content-link">
+                <li><a href="https://batdongsan.com.vn/ban-can-ho-chung-cu-rivera-park-ha-noi" class="re__link-se-gray" title="Chung c&#x1B0; Rivera Park H&#xE0; N&#x1ED9;i">Chung c&#x1B0; Rivera Park H&#xE0; N&#x1ED9;i</a></li>
+                <li><a href="https://batdongsan.com.vn/ban-can-ho-chung-cu-chung-cu-c1-c2-xuan-dinh" class="re__link-se-gray" title="Chung c&#x1B0; C1 C2 Xu&#xE2;n &#x110;&#x1EC9;nh">Chung c&#x1B0; C1 C2 Xu&#xE2;n &#x110;&#x1EC9;nh</a></li>
+                <li><a href="https://batdongsan.com.vn/ban-can-ho-chung-cu-anland-nam-cuong" class="re__link-se-gray" title="Chung c&#x1B0; Anland Nam C&#x1B0;&#x1EDD;ng">Chung c&#x1B0; Anland Nam C&#x1B0;&#x1EDD;ng</a></li>
+                <li><a href="https://batdongsan.com.vn/ban-can-ho-chung-cu-hanhud-hoang-quoc-viet" class="re__link-se-gray" title="Chung c&#x1B0; Hanhud Ho&#xE0;ng Qu&#x1ED1;c Vi&#x1EC7;t">Chung c&#x1B0; Hanhud Ho&#xE0;ng Qu&#x1ED1;c Vi&#x1EC7;t</a></li>
+                <li><a href="https://batdongsan.com.vn/ban-can-ho-chung-cu-sunshine-center" class="re__link-se-gray" title="Sunshine Center">Sunshine Center</a></li>
+                <li><a href="https://batdongsan.com.vn/ban-nha-biet-thu-lien-ke-khu-do-thi-lakeview-city" class="re__link-se-gray" title="B&#xE1;n bi&#x1EC7;t th&#x1EF1; Lakeview City">B&#xE1;n bi&#x1EC7;t th&#x1EF1; Lakeview City</a></li>
+                <li><a href="https://batdongsan.com.vn/ban-nha-biet-thu-lien-ke-ha-do-756-sai-gon" class="re__link-se-gray" title="B&#xE1;n bi&#x1EC7;t th&#x1EF1; H&#xE0; &#x110;&#xF4; 756 S&#xE0;i G&#xF2;n">B&#xE1;n bi&#x1EC7;t th&#x1EF1; H&#xE0; &#x110;&#xF4; 756 S&#xE0;i G&#xF2;n</a></li>
+                <li><a href="https://batdongsan.com.vn/ban-can-ho-chung-cu-park-12-park-hill-times-city" class="re__link-se-gray" title="B&#xE1;n chung c&#x1B0; Park 12 Park Hill Times City">B&#xE1;n chung c&#x1B0; Park 12 Park Hill Times City</a></li>
+                <li><a href="https://batdongsan.com.vn/ban-can-ho-chung-cu-vinpearl-condotel-da-nang" class="re__link-se-gray" title="B&#xE1;n c&#x103;n h&#x1ED9; Vinpearl Condotel &#x110;&#xE0; N&#x1EB5;ng">B&#xE1;n c&#x103;n h&#x1ED9; Vinpearl Condotel &#x110;&#xE0; N&#x1EB5;ng</a></li>
+                <li><a href="https://batdongsan.com.vn/ban-can-ho-chung-cu-soho-premier" class="re__link-se-gray" title="B&#xE1;n c&#x103;n h&#x1ED9; Soho Premier">B&#xE1;n c&#x103;n h&#x1ED9; Soho Premier</a></li>
+                <li><a href="https://batdongsan.com.vn/ban-can-ho-chung-cu-duc-long-golden-land" class="re__link-se-gray" title="B&#xE1;n c&#x103;n h&#x1ED9; &#x110;&#x1EE9;c Long Golden Land">B&#xE1;n c&#x103;n h&#x1ED9; &#x110;&#x1EE9;c Long Golden Land</a></li>
+                <li><a href="https://batdongsan.com.vn/ban-can-ho-chung-cu-hung-phat-golden-star" class="re__link-se-gray" title="B&#xE1;n c&#x103;n h&#x1ED9; H&#x1B0;ng Ph&#xE1;t Golden Star">B&#xE1;n c&#x103;n h&#x1ED9; H&#x1B0;ng Ph&#xE1;t Golden Star</a></li>
+                <li><a href="https://batdongsan.com.vn/ban-can-ho-chung-cu-chung-cu-129d-truong-dinh" class="re__link-se-gray" title="B&#xE1;n chung c&#x1B0; 129D Tr&#x1B0;&#x1A1;ng &#x110;&#x1ECB;nh">B&#xE1;n chung c&#x1B0; 129D Tr&#x1B0;&#x1A1;ng &#x110;&#x1ECB;nh</a></li>
+                <li><a href="https://batdongsan.com.vn/ban-can-ho-chung-cu-e4-tower" class="re__link-se-gray" title="B&#xE1;n chung c&#x1B0; E4 Tower">B&#xE1;n chung c&#x1B0; E4 Tower</a></li>
+                <li><a href="https://batdongsan.com.vn/ban-nha-rieng-duong-nguyen-trung-truc-66" class="re__link-se-gray" title="B&#xE1;n nh&#xE0; Nguy&#x1EC5;n Trung Tr&#x1EF1;c B&#xEC;nh Th&#x1EA1;nh">B&#xE1;n nh&#xE0; Nguy&#x1EC5;n Trung Tr&#x1EF1;c B&#xEC;nh Th&#x1EA1;nh</a></li>
+                <li><a href="https://batdongsan.com.vn/nha-dat-ban-bac-ninh" class="re__link-se-gray" title="Nh&#xE0; &#x111;&#x1EA5;t B&#x1EAF;c Ninh">Nh&#xE0; &#x111;&#x1EA5;t B&#x1EAF;c Ninh</a></li>
+                <li><a href="https://batdongsan.com.vn/ban-can-ho-chung-cu-n03-t3-t4-ngoai-giao-doan" class="re__link-se-gray" title="B&#xE1;n chung c&#x1B0; N03 T3 T4 Ngo&#x1EA1;i Giao &#x110;o&#xE0;n">B&#xE1;n chung c&#x1B0; N03 T3 T4 Ngo&#x1EA1;i Giao &#x110;o&#xE0;n</a></li>
+                <li><a href="https://batdongsan.com.vn/ban-can-ho-chung-cu-valeo-dam-sen" class="re__link-se-gray" title="B&#xE1;n c&#x103;n h&#x1ED9; Valeo &#x110;&#x1EA7;m Sen">B&#xE1;n c&#x103;n h&#x1ED9; Valeo &#x110;&#x1EA7;m Sen</a></li>
+                <li><a href="https://batdongsan.com.vn/ban-dat-nen-du-an-khu-do-thi-an-thinh" class="re__link-se-gray" title="B&#xE1;n &#x111;&#x1EA5;t n&#x1EC1;n Khu &#x111;&#xF4; th&#x1ECB; An Th&#x1ECB;nh">B&#xE1;n &#x111;&#x1EA5;t n&#x1EC1;n Khu &#x111;&#xF4; th&#x1ECB; An Th&#x1ECB;nh</a></li>
+                <li><a href="https://batdongsan.com.vn/ban-can-ho-chung-cu-golden-land" class="re__link-se-gray" title="Chung c&#x1B0; Golden Land">Chung c&#x1B0; Golden Land</a></li>
+                <li><a href="https://batdongsan.com.vn/ban-can-ho-chung-cu-happy-star-tower" class="re__link-se-gray" title="B&#xE1;n chung c&#x1B0; Happy Star Tower">B&#xE1;n chung c&#x1B0; Happy Star Tower</a></li>
+                <li><a href="https://batdongsan.com.vn/ban-can-ho-chung-cu-sunrise-city" class="re__link-se-gray" title="C&#x103;n h&#x1ED9; Sunrise City">C&#x103;n h&#x1ED9; Sunrise City</a></li>
+                <li><a href="https://batdongsan.com.vn/nha-dat-ban-thai-nguyen" class="re__link-se-gray" title="Nh&#xE0; &#x111;&#x1EA5;t Th&#xE1;i Nguy&#xEA;n">Nh&#xE0; &#x111;&#x1EA5;t Th&#xE1;i Nguy&#xEA;n</a></li>
+                <li><a href="https://batdongsan.com.vn/du-an-trung-tam-thuong-mai-long-bien/vincom-center-long-bien-pj994" class="re__link-se-gray" title="Vincom Long Bien">Vincom Long Bien</a></li>
+                <li><a href="https://batdongsan.com.vn/ban-can-ho-chung-cu-sunview-1-2" class="re__link-se-gray" title="Sunview Town">Sunview Town</a></li>
+                <li><a href="https://batdongsan.com.vn/ban-can-ho-chung-cu-times-city" class="re__link-se-gray" title="Chung c&#x1B0; Times City">Chung c&#x1B0; Times City</a></li>
+                <li><a href="https://batdongsan.com.vn/ban-can-ho-chung-cu-chung-cu-golden-west-le-van-thiem" class="re__link-se-gray" title="Chung c&#x1B0; Golden West">Chung c&#x1B0; Golden West</a></li>
+                <li><a href="https://batdongsan.com.vn/ban-can-ho-chung-cu-alphanam-luxury-apartment" class="re__link-se-gray" title="B&#xE1;n c&#x103;n h&#x1ED9; Alphanam Luxury Apartment">B&#xE1;n c&#x103;n h&#x1ED9; Alphanam Luxury Apartment</a></li>
+                <li><a href="https://batdongsan.com.vn/ban-can-ho-chung-cu-ecolife-tay-ho" class="re__link-se-gray" title="B&#xE1;n chung c&#x1B0; Ecolife T&#xE2;y H&#x1ED3;">B&#xE1;n chung c&#x1B0; Ecolife T&#xE2;y H&#x1ED3;</a></li>
+                <li><a href="https://batdongsan.com.vn/nha-dat-ban-nam-dinh" class="re__link-se-gray" title="Nh&#xE0; &#x111;&#x1EA5;t Nam &#x110;&#x1ECB;nh">Nh&#xE0; &#x111;&#x1EA5;t Nam &#x110;&#x1ECB;nh</a></li>
+                <li><a href="https://batdongsan.com.vn/nha-dat-ban-hai-phong" class="re__link-se-gray" title="Nh&#xE0; &#x111;&#x1EA5;t H&#x1EA3;i Ph&#xF2;ng">Nh&#xE0; &#x111;&#x1EA5;t H&#x1EA3;i Ph&#xF2;ng</a></li>
+                <li><a href="https://batdongsan.com.vn/nha-dat-ban-hai-duong" class="re__link-se-gray" title="Nh&#xE0; &#x111;&#x1EA5;t H&#x1EA3;i D&#x1B0;&#x1A1;ng">Nh&#xE0; &#x111;&#x1EA5;t H&#x1EA3;i D&#x1B0;&#x1A1;ng</a></li>
+                <li><a href="https://batdongsan.com.vn/nha-dat-ban-can-tho" class="re__link-se-gray" title="Nh&#xE0; &#x111;&#x1EA5;t C&#x1EA7;n Th&#x1A1;">Nh&#xE0; &#x111;&#x1EA5;t C&#x1EA7;n Th&#x1A1;</a></li>
+                <li><a href="https://batdongsan.com.vn/ban-can-ho-chung-cu-centara-thu-thiem" class="re__link-se-gray" title="C&#x103;n h&#x1ED9; Centara Th&#x1EE7; Thi&#xEA;m">C&#x103;n h&#x1ED9; Centara Th&#x1EE7; Thi&#xEA;m</a></li>
+                <li><a href="https://batdongsan.com.vn/ban-can-ho-chung-cu-athena-complex" class="re__link-se-gray" title="Chung c&#x1B0; Athena Complex">Chung c&#x1B0; Athena Complex</a></li>
+                <li><a href="https://batdongsan.com.vn/ban-can-ho-chung-cu-tu-hiep-plaza" class="re__link-se-gray" title="Chung c&#x1B0; T&#x1EE9; Hi&#x1EC7;p Plaza">Chung c&#x1B0; T&#x1EE9; Hi&#x1EC7;p Plaza</a></li>
+                <li><a href="https://batdongsan.com.vn/tags/cho-thue/Sang-quan-cafe" class="re__link-se-gray" title="Sang qu&#xE1;n caf&#xE9;">Sang qu&#xE1;n caf&#xE9;</a></li>
+                <li><a href="https://batdongsan.com.vn/ban-can-ho-chung-cu-gemek-premium" class="re__link-se-gray" title="Chung c&#x1B0; Gemek Premium">Chung c&#x1B0; Gemek Premium</a></li>
+                <li><a href="https://batdongsan.com.vn/ban-can-ho-chung-cu-vinpearl-condotel-nha-trang" class="re__link-se-gray" title="C&#x103;n h&#x1ED9; Vinpearl Condotel Nha Trang">C&#x103;n h&#x1ED9; Vinpearl Condotel Nha Trang</a></li>
+                <li><a href="https://batdongsan.com.vn/ban-dat-lam-dong" class="re__link-se-gray" title="B&#xE1;n &#x111;&#x1EA5;t L&#xE2;m &#x110;&#x1ED3;ng">B&#xE1;n &#x111;&#x1EA5;t L&#xE2;m &#x110;&#x1ED3;ng</a></li>
+                <li><a href="https://batdongsan.com.vn/ban-dat-lao-cai" class="re__link-se-gray" title="B&#xE1;n &#x111;&#x1EA5;t L&#xE0;o Cai">B&#xE1;n &#x111;&#x1EA5;t L&#xE0;o Cai</a></li>
+                <li><a href="https://batdongsan.com.vn/nha-dat-ban-quy-nhon-bdd" class="re__link-se-gray" title="B&#xE1;n nh&#xE0; Quy Nh&#x1A1;n">B&#xE1;n nh&#xE0; Quy Nh&#x1A1;n</a></li>
+                <li><a href="https://batdongsan.com.vn/nha-dat-ban-trang-bom-dna" class="re__link-se-gray" title="B&#xE1;n nh&#xE0; Tr&#x1EA3;ng Bom">B&#xE1;n nh&#xE0; Tr&#x1EA3;ng Bom</a></li>
+                <li><a href="https://batdongsan.com.vn/nha-dat-ban-phuong-gia-thuy" class="re__link-se-gray" title="B&#xE1;n nh&#xE0; Gia Th&#x1EE5;y">B&#xE1;n nh&#xE0; Gia Th&#x1EE5;y</a></li>
+                <li><a href="https://batdongsan.com.vn/ban-dat-phuong-my-an" class="re__link-se-gray" title="B&#xE1;n &#x111;&#x1EA5;t M&#x1EF9; An">B&#xE1;n &#x111;&#x1EA5;t M&#x1EF9; An</a></li>
+                <li><a href="https://batdongsan.com.vn/ban-dat-phuong-tan-bien-1" class="re__link-se-gray" title="B&#xE1;n &#x111;&#x1EA5;t T&#xE2;n Bi&#xEA;n">B&#xE1;n &#x111;&#x1EA5;t T&#xE2;n Bi&#xEA;n</a></li>
+                <li><a href="https://batdongsan.com.vn/nha-dat-ban-thi-tran-nha-be" class="re__link-se-gray" title="B&#xE1;n nh&#xE0; Nh&#xE0; B&#xE8;">B&#xE1;n nh&#xE0; Nh&#xE0; B&#xE8;</a></li>
+                <li><a href="https://batdongsan.com.vn/nha-dat-ban-xa-cua-can" class="re__link-se-gray" title="B&#xE1;n nh&#xE0; C&#x1EED;a C&#x1EA1;n">B&#xE1;n nh&#xE0; C&#x1EED;a C&#x1EA1;n</a></li>
+                <li><a href="https://batdongsan.com.vn/nha-dat-ban-xa-trung-chanh" class="re__link-se-gray" title="B&#xE1;n nh&#xE0; Trung Ch&#xE1;nh">B&#xE1;n nh&#xE0; Trung Ch&#xE1;nh</a></li>
+            </ul>
+        </div>
+    </div>
+
+
+</div>
+
+
+<div th:insert="fragments/footer :: footer"></div>
+
+<div class="modal fade" id="dialogPopup" role="dialog">
+    <div class="nomodal"></div>
+    <div class="modal-dialog">
+        <div class="modal-content ">
+        </div>
+    </div>
+</div>
+<div class="ob-popup js__ob-popup">
+    <div class="ob-modal">
+        <div class="ob-modal-close">
+            <span class="ob-close js__ob-modal-close" data-step="1"></span>
+        </div>
+        <div class="ob-modal-content">
+            <div class="ob-col-left js__ob-modal-left">
+                <h3>${optionOnboarding[pStep - 1].title}</h3>
+                <p>${optionOnboarding[pStep - 1].content}</p>
+            </div>
+            <div class="ob-col-right js__ob-modal-right"></div>
+        </div>
+        <div class="ob-button-welcome welcome">
+            <a href="javascript:void(0);" class="re__btn re__btn-pr-ghost-inverted--sm js__ob-btn-link-later"
+               tracking-id="onboarding-tip-start-later">Để sau</a>
+            <a href="javascript:void(0);" class="re__btn re__btn-pr-solid--sm js__ob-btn-link-start fright"
+               tracking-id="onboarding-tip-start-now">Bắt đầu tìm hiểu</a>
+        </div>
+        <div class="ob-button">
+            <a href="" class="re__btn re__btn-pr-solid--sm js__ob-btn-link">Xem danh sách tin</a>
+        </div>
+    </div>
+</div>
+<div class="loading-full-page">
+    <img src="https://staticfile.batdongsan.com.vn/images/loading/loading-buffering_v2.svg" />
+</div>
+
+<div class="hide" id="domainUserInfo" data-value="https://batdongsan.com.vn"></div>
+<div class="hide" id="domainWeb" data-value="https://batdongsan.com.vn"></div>
+<div class="hide" id="domainStatistic" data-value="https://statistic.batdongsan.com.vn"></div>
+<div class="popup-content ">
+</div>
+<div class="lg-backdrop in" id="dialog-backdrop" style="transition-duration: 150ms;display: none;" onclick="account.CloseAccountPopup()"></div>
+<div id="gototop" class="floating--right" title="Go to top">
+    <i class="re__icon-top--xl">
+        <span class="path1"></span><span class="path2"></span>
+    </i>
+</div>
+<div style="display: none"
+     class="searching-histories-configs"
+     max-searching-histories-length="20"
+     sync-time-searching-histories="5"
+     sync-searching-histories-url="/Product/ProductSearch/SyncSearchingHistories"
+     remove-searching-histories-url="/Product/ProductSearch/RemoveSearchingHistory">
+</div>
+<div id="ContentCardTest"></div>
+
+<div class="re__live-chat-container re__btn re__btn-green-solid--sm floating--right js__live-chat-container" onclick="triggerLiveChat();">
+    <i class="re__icon-message-pressed--sm">
+        <span class="path1"></span>
+        <span class="path2"></span>
+        <span class="path3"></span>
+        <span class="path4"></span>
+    </i>
+    <span>Chat</span>
+</div>
+
+<noscript>
+    <a href="https://www.livechatinc.com/chat-with/12942498/" rel="nofollow">Chat with us</a>, powered by
+    <a href="https://www.livechatinc.com/?welcome" rel="noopener nofollow" target="_blank">LiveChat</a>
+</noscript>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script type="text/javascript">
+    function triggerLiveChat() {
+        if (!window.LiveChatWidget) {
+            initLiveChat();
+        }
+
+        window.LiveChatWidget.call('maximize');
+    }
+
+    function initLiveChat() {
+        setLiveChatLoading(true);
+        injectLiveChatLib();
+        window.LiveChatWidget.on('ready', onLiveChatReady);
+    }
+
+    function injectLiveChatLib() {
+        window.__lc = window.__lc || {};
+        window.__lc.license = 12942498;
+        ; (function (n, t, c) { function i(n) { return e._h ? e._h.apply(null, n) : e._q.push(n) } var e = { _q: [], _h: null, _v: "2.0", on: function () { i(["on", c.call(arguments)]) }, once: function () { i(["once", c.call(arguments)]) }, off: function () { i(["off", c.call(arguments)]) }, get: function () { if (!e._h) throw new Error("[LiveChatWidget] You can't use getters before load."); return i(["get", c.call(arguments)]) }, call: function () { i(["call", c.call(arguments)]) }, init: function () { var n = t.createElement("script"); n.async = !0, n.type = "text/javascript", n.src = "https://cdn.livechatinc.com/tracking.js", t.head.appendChild(n) } }; !n.__lc.asyncInit && e.init(), n.LiveChatWidget = n.LiveChatWidget || e }(window, document, [].slice));
+
+    }
+
+    function onLiveChatReady() {
+        setLiveChatLoading(false);
+    }
+
+    function setLiveChatLoading(isLoading) {
+        var trigger = document.getElementsByClassName("js__live-chat-container");
+        if (trigger.length == 0)
+            return;
+
+        trigger = trigger[0];
+        var loadingClass= "loading";
+        if (isLoading) {
+            trigger.classList.add(loadingClass);
+        } else {
+            trigger.classList.remove(loadingClass);
+        }
+    }
+
+    setTimeout(() => {
+        if (!window.LiveChatWidget) {
+            initLiveChat();
+        }
+    }, 30000);
+</script>
+
+<script info-params={&quot;detailsProduct&quot;:&quot;pr-details&quot;,&quot;containerProduct&quot;:&quot;pr-container&quot;,&quot;imgProduct&quot;:&quot;pr-img&quot;,&quot;titleProduct&quot;:&quot;pr-title&quot;,&quot;cssServer&quot;:&quot;https://staticfile.batdongsan.com.vn&quot;,&quot;prefixClass&quot;:&quot;re__&quot;,&quot;errorImageWap&quot;:&quot;https://staticfile.batdongsan.com.vn/images/Product/error-image/card-error-image-wap.svg&quot;,&quot;errorImageSmallWap&quot;:&quot;https://staticfile.batdongsan.com.vn/images/Product/error-image/card-error-image-small-wap.svg&quot;,&quot;errorImageCompactWap&quot;:&quot;https://staticfile.batdongsan.com.vn/images/Product/error-image/card-compact-error-image-wap.svg&quot;,&quot;noImageWap&quot;:&quot;https://staticfile.batdongsan.com.vn/images/Product/no-image/sisu/card-no-image-wap.svg&quot;,&quot;noImageSmallWap&quot;:&quot;https://staticfile.batdongsan.com.vn/images/Product/no-image/sisu/card-no-images-small-wap.svg&quot;,&quot;noImageCompactWap&quot;:&quot;https://staticfile.batdongsan.com.vn/images/Product/no-image/sisu/card-compact-no-image-wap.svg&quot;,&quot;errorAvatar&quot;:&quot;https://staticfile.batdongsan.com.vn/images/avatar/default-user-avatar-blue.jpg&quot;,&quot;noImagesSystems&quot;:&quot;https://staticfile.batdongsan.com.vn/images/avatar/no-image.svg&quot;,&quot;noImagesSystemsBackup&quot;:&quot;https://staticfile.batdongsan.com.vn/images/avatar/no-image.png&quot;,&quot;noImagesSystems_Wap&quot;:&quot;https://staticfile.batdongsan.com.vn/images/avatar/no-image_wap.svg&quot;,&quot;noImagesSystemsBackup_Wap&quot;:&quot;https://staticfile.batdongsan.com.vn/images/avatar/no-image_wap.png&quot;,&quot;logoPopupWeb&quot;:&quot;https://staticfile.batdongsan.com.vn/images/logo/standard/red/logo.svg&quot;} marking-product-service-params={&quot;markProductUrl&quot;:&quot;/Product/MarkedProducts/MarkProduct&quot;,&quot;unmarkProductUrl&quot;:&quot;/Product/MarkedProducts/UnmarkProduct&quot;,&quot;getCardsByIdsUrl&quot;:&quot;/Product/MarkedProducts/GetCardsByIds&quot;,&quot;getNotificationObjectsUrl&quot;:&quot;/Product/MarkedProducts/GetNotificationObjects&quot;,&quot;syncMarkedProductsUrl&quot;:&quot;/Product/MarkedProducts/SyncMarkedProducts&quot;,&quot;listingLimit&quot;:50}></script>
+
+<script type="text/javascript" src="https://staticfile.batdongsan.com.vn/js/Common/HelperControllers/filestatic.ver11.msvbds.FrontEnd.BdsSelectController.min.js"></script>
+<script type="text/javascript" src="https://staticfile.batdongsan.com.vn/js/Common/filestatic.ver1.msvbds.Common.min.js"></script>
+<script type="text/javascript" src="https://staticfile.batdongsan.com.vn/js/Common/filestatic.ver1.msvbds.Common.State.min.js"></script>
+<script type="text/javascript" src="https://staticfile.batdongsan.com.vn/js/Tracking/filestatic.ver2.msvbds.Tracking.min.js"></script>
+<script type="text/javascript" src="https://staticfile.batdongsan.com.vn/js/Tracking/filestatic.ver10.msvbds.Tracking.Google.min.js"></script>
+<script type="text/javascript" src="https://staticfile.batdongsan.com.vn/js/Common/filestatic.ver4.msvbds.Common.Img.min.js"></script>
+<script type="text/javascript" src="https://staticfile.batdongsan.com.vn/js/jquery/jQuery.atob.min.js"></script>
+<script type="text/javascript" src="https://staticfile.batdongsan.com.vn/js/jquery/filestatic.ver1.msvbds.jquery.common.min.js"></script>
+<script type="text/javascript" src="https://staticfile.batdongsan.com.vn/js/jquery/jQuery.PassiveScrollEventHandlers.min.js"></script>
+<script type="text/javascript" src="https://staticfile.batdongsan.com.vn/js/jquery/jQuery.XDomainRequest.min.js"></script>
+<script type="text/javascript" src="https://staticfile.batdongsan.com.vn/js/filestatic.ver1.msvbds.site.min.js"></script>
+<script type="text/javascript" src="https://staticfile.batdongsan.com.vn/js/fancy2.0/source/jquery.fancybox.min.js"></script>
+<script type="text/javascript" src="https://staticfile.batdongsan.com.vn/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+<script type="text/javascript" src="https://staticfile.batdongsan.com.vn/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+<script type="text/javascript" src="https://staticfile.batdongsan.com.vn/lib/jquery-validation-unobtrusive/jquery.unobtrusive-ajax.min.js"></script>
+<script type="text/javascript" src="https://staticfile.batdongsan.com.vn/js/Common/jquery.bt.min.js"></script>
+<script type="text/javascript" src="https://staticfile.batdongsan.com.vn/js/Utilities/filestatic.ver1.msvbds.HandlerCookie.min.js"></script>
+<script type="text/javascript" src="https://staticfile.batdongsan.com.vn/js/Common/filestatic.ver76.msvbds.FrontEnd.Common.min.js"></script>
+<script type="text/javascript" src="https://staticfile.batdongsan.com.vn/js/Common/Services/filestatic.ver3eb9ae29.msvbds.FrontEnd.MarkingProductsServices.min.js"></script>
+<script type="text/javascript" src="https://staticfile.batdongsan.com.vn/js/Search/filestatic.ver3eb9ae29.msvbds.FrontEnd.Search.min.js"></script>
+<script type="text/javascript" src="https://staticfile.batdongsan.com.vn/js/Captcha/filestatic.ver1.msvbds.Captcha.min.js"></script>
+<script type="text/javascript" src="https://staticfile.batdongsan.com.vn/js/Common/Services/filestatic.ver3eb9ae29.msvbds.FrontEnd.LeadManagementServices.min.js"></script>
+<script type="text/javascript" src="https://staticfile.batdongsan.com.vn/js/Product/filestatic.ver3eb9ae29.msvbds.ProductHiddenMobile-server.min.js"></script>
+<script type="text/javascript" src="https://staticfile.batdongsan.com.vn/js/binnova/filestatic.ver3eb9ae29.msvbds.menu.min.js"></script>
+<script type="text/javascript" src="https://staticfile.batdongsan.com.vn/js/Login/filestatic.ver3eb9ae29.msvbds.FrontEnd.SellerAccount.min.js"></script>
+<script type="text/javascript" src="https://staticfile.batdongsan.com.vn/js/filestatic.ver1.msvbds.statisticapi.min.js"></script>
+<script type="text/javascript" src="https://staticfile.batdongsan.com.vn/js/Box/filestatic.ver3eb9ae29.msvbds.FrontEnd.BoxRight.min.js"></script>
+<script type="text/javascript" src="https://staticfile.batdongsan.com.vn/js/Carousellite/jcarousellite.min.js"></script>
+<script type="text/javascript" src="https://staticfile.batdongsan.com.vn/js/jquery.mousewheel.min.js"></script>
+<script type="text/javascript" src="https://staticfile.batdongsan.com.vn/js/Mobile/Origins/Binnova/filestatic.ver3eb9ae29.msvbds.jquery.ui.touch-punch.min.js"></script>
+<script type="text/javascript" src="https://staticfile.batdongsan.com.vn/js/Braze/filestatic.ver3eb9ae29.msvbds.Braze.min.js"></script>
+<script type="text/javascript" src="https://staticfile.batdongsan.com.vn/lib/jquery-swiper/js/filestatic.ver1.msvbds.swiper.min.js"></script>
+<script type="text/javascript" src="https://staticfile.batdongsan.com.vn/lib/jquery-swiper/js/jquery.touchSwipe.min.js"></script>
+<script type="text/javascript">
+    var newsLetterRegister = new newsLetterRegister.NewsLetterRegister();
+    newsLetterRegister.InitializeLoad();
+
+    var paramAccount = {
+        urlListLogin: '/Systems/Account/Login',
+        urlListRegister: '/Systems/Account/Register',
+        urlListForgetPass: '/Systems/Account/ForgetPassword',
+        urlListCity: '/Contacts/CommonData/GetCityList',
+        urlListDistrict: '/Contacts/CommonData/GetListDistrictByCity',
+        urlListWard: '/Contacts/CommonData/GetWardList',
+    };
+
+    var account = new account.Content();
+    account.Initialize(paramAccount);
+
+    var menu = new menu.Menu();
+    menu.Initialize();
+    function hideLoading() {
+        $("body").removeClass("loading-body");
+        $("body").removeClass("submit");
+    }
+</script>
+<script type="text/javascript" src="https://staticfile.batdongsan.com.vn/js/Common/UIHelpers/filestatic.ver3eb9ae29.msvbds.FrontEnd.KycFormHelper.min.js"></script>
+
+<div sync-marked-products-url="/Product/MarkedProducts/SyncMarkedProducts"
+     sync-marked-products-with-json-url="/Product/MarkedProducts/SyncMarkedProductsWithJson"
+     unmarked-product-url="/Product/MarkedProducts/UnmarkProduct"></div>
+<div class="js__kyc-form-helper"
+     data-kyc-bookmark-listing="1"
+     data-form-rcb="/Product/ProductDetail/ContactToBroker"
+     data-form-path="/Systems/Account/KycLoginForm"
+     data-login-form-path="/Systems/Account/Login"
+     data-pricing-history-form-path="/Product/Kyc/FormPricingHistory"
+     data-login-gate-form-path="/Product/Kyc/FormLoginGate"
+     data-send-otp-path="/Systems/Account/RegisterOrLogin"
+     data-validate-otp-path="/Systems/Account/VerifyOtp"
+     data-validate-otp="/api/v1/Consumer/verifyOtp"
+     data-select-user-type-path="/Systems/Account/ChooseAccount"
+     data-select-user-type="/api/v1/User/ChooseAccount"
+     data-is-password-change-path="/Systems/Account/IsUserPasswordChange"
+     data-is-kyc-gate="True"
+     data-pwd-flow="False"
+     data-send-otp-tracking-id="send-otp-error-message"
+     data-send-otp-success-message="success"
+     data-send-otp-max-otp-request-message="maxOtpRequest"
+     data-send-otp-invalid-phone-message="invalidPhoneNum"
+     data-send-otp-blocked-user-message="blockedUser"
+     data-send-otp-locked-login-message="lockedLogin"
+     data-send-otp-secondary-phone-message="secondaryPhoneNum"
+     data-send-otp-unknown-message="unknownError"></div>
+
+
+
+
+<script src="https://staticfile.batdongsan.com.vn/js/BDS.Contacts/filestatic.ver3eb9ae29.msvbds.FrontEnd.Broker.FormSearchBroker.min.js"></script>
+<script src="https://staticfile.batdongsan.com.vn/js/BDS.Contacts/filestatic.ver3eb9ae29.msvbds.FrontEnd.Broker.BrokerCity.min.js"></script>
+<script src="https://staticfile.batdongsan.com.vn/js/BDS.Contacts/filestatic.ver3eb9ae29.msvbds.FrontEnd.Broker.TypicalBroker.min.js"></script>
+<script type="text/javascript" src="https://staticfile.batdongsan.com.vn/js/BDS.Contacts/filestatic.ver3eb9ae29.msvbds.FrontEnd.Broker.Detail.BrokerProducts.min.js"></script>
+<script src="https://staticfile.batdongsan.com.vn/js/BDS.Contacts/filestatic.ver3eb9ae29.msvbds.FrontEnd.Broker.SendMail.min.js"></script>
+
+<script type="text/javascript">
+    var brokerCity = new brokerCity.BrokerCity();
+    brokerCity.Initialize();
+
+    var typicalBroker = new typicalBroker.TypicalBroker();
+    typicalBroker.Initialize();
+
+    var paramsSearchBroker = {
+        txtKeyword: '#txtKeyword',
+        btnSearch: '#btnSearch',
+        urlListSubCate: '/Contacts/CommonData/GetListSubCateByCate',
+        urlListDistrict: '/Contacts/CommonData/GetListDistrictByCity',
+        urlListProject: '/Contacts/CommonData/GetListProjectByDistrict',
+    };
+
+    var contactFormSearch = new contactsFormSearch.FormSearchBroker();
+    contactFormSearch.Initialize(paramsSearchBroker);
+
+    var brokerProductInfo = new brokerProductInfo.BrokerProducts();
+    brokerProductInfo.Initialize();
+
+    var paramsSendMail = {
+        lnkSendEmail: '#lnkSendEmail',
+        btnSendMail: '#btnSendMail',
+        formSubmitSendMail: '#formSubmitSendMail',
+        urlSendMail: '/Contacts/SendMail/Send',
+    };
+    var contactSendMail = new contactSendMail.ContactSendMail();
+    contactSendMail.Initialize(paramsSendMail);
+</script>
+
+
+
+
+<script type="text/javascript">
+    localStorage.setItem('AdbutlerConfig', JSON.stringify({
+        MID: parseInt("183272"),
+        API: "https://promote.batdongsan.com.vn/"
+    }));
+</script>
+
+
+
+<script type="text/javascript">
+    (function callJQueryBraze() {
+        if (window.braze) {
+            if (window.braze.isPushSupported()) {
+                braze.requestPushPermission();
+            } else {
+                setTimeout(callJQueryBraze, 100)
+            }
+        } else {
+            setTimeout(callJQueryBraze, 100)
+        }
+    })();
+</script>
+
+
+<link rel="stylesheet" href="https://staticfile.batdongsan.com.vn/css/web/filestatic.ver10.msvbds.survey.min.css" />
+<script type="text/javascript" src="https://staticfile.batdongsan.com.vn/js/Survey/filestatic.ver23.msvbds.Survey.min.js"></script>
+
+
+
+
+<div class="re__survey-body re__survey-listing-verified re__survey-template js__survey-ux-listing-verified" sid="listing-verified" surl="https://surveys.hotjar.com/9dbd38b5-a4e5-49b4-bb20-1fb132cfc187">
+    Bạn thấy thế nào về <strong>Tin xác thực</strong> của Batdongsan.com.vn? <br> Hãy chia sẻ trải nghiệm của bạn cho chúng tôi nhé!
+</div>
+
+
+<script type="text/javascript">
+    Survey.init({"lv":true});
+</script>
+
+
+
+<script>
+    window.unlFeatures = [{"f":"cplus-6142_remove_google_one_tap_login_on_srp_web","v":"cplus-6142_remove_google_one_tap_login_on_srp_web_disable","s":"1"},{"f":"cplus-7377_new-search-location-focus","v":"cplus-7377_new-search-location-focus_onboarding","s":"1"},{"f":"cplus-8842_new-label-verified-listing","v":"disabled","s":"0"},{"f":"cplus-8127-move-seo-controller-to-seo-listing-service","v":"","s":"1"},{"f":"cplus-5680_survey-user-experience-q4","v":"","s":"0"},{"f":"cplus-6007_kyc-ui-login-gate","v":"","s":"1"},{"f":"BDSMON2-PIVOT-ENTRY-TOP-MENU-CONSUMER","v":"","s":"1"},{"f":"cplus-5820_survey-user-experience-with-listing-verified","v":"","s":"1"},{"f":"cplus-7974-braze-integration","v":"","s":"1"},{"f":"cplus-7839_apply-dynamic-serving-all-category-location","v":"","s":"1"},{"f":"cplus-7959-refreshToken-new-flow","v":"","s":"1"},{"f":"cplus-8597_Label-cate-mini-apartment","v":"","s":"1"},{"f":"ppp-impression-tracking","v":"","s":"0"},{"f":"cplus-7385-segment-integration","v":"","s":"1"},{"f":"cplus-7639-kyc-flow-to-save-cost","v":"","s":"0"},{"f":"cplus-7406_new-api-suggestion","v":"","s":"0"},{"f":"cplus-8478_KYC-bookmark-listing","v":"","s":"1"},{"f":"cloudflare-turnstile","v":"","s":"0"},{"f":"cplus-8431-braze-web-push","v":"","s":"1"},{"f":"cplus-7839_apply-dynamic-serving","v":"","s":"0"},{"f":"BDSMON2-PIVOT-CONSUMER","v":"","s":"1"},{"f":"cplus-7677-kong-api-gateway-integration","v":"","s":"0"},{"f":"cplus-8105_change-got-to-fedid","v":"","s":"1"},{"f":"cplus_7964-js-optimize","v":"","s":"0"},{"f":"cplus-8350_new-categories-mini-apartment","v":"","s":"1"},{"f":"cplus-5344_google-one-tap-login","v":"","s":"1"},{"f":"cplus-7974-braze-in-app-message","v":"","s":"0"}];
+</script>
+
+
+<script type="text/javascript">
+    window.Tracking && window.Tracking.init && window.Tracking.init();
+    (function waitKycLoadingHelper(time) {
+        if (window.FrontEnd && window.FrontEnd.KycLoadingHelper) {
+            new window.FrontEnd.KycLoadingHelper();
+        }
+        else if (time) {
+            setTimeout(function () {
+                waitKycLoadingHelper(time - 1);
+            }, 500);
+        }
+    })(20);
+</script>
+
+
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"rayId":"8dccc3a8fe4344bf","serverTiming":{"name":{"cfExtPri":true,"cfL4":true,"cfSpeedBrain":true,"cfCacheStatus":true}},"version":"2024.10.4","token":"2559dc66ad8646d0be1eff7b03983020"}' crossorigin="anonymous"></script>
+</body>
+</html>

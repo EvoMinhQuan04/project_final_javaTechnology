@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Danh Sách Người Dùng</title>
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --primary: #6C5DD3;
+      --bg: #F7F8FC;
+      --card-bg: #FFFFFF;
+      --text: #333333;
+      --border: #E0E0E0;
+      --radius: 12px;
+      --shadow: rgba(0, 0, 0, 0.08);
+      --gap: 1rem;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0; padding: 0;
+    }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 2rem;
+      font-weight: 600;
+      color: var(--primary);
+      margin-bottom: calc(var(--gap)*1.5);
+    }
+
+    .card {
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      box-shadow: 0 8px 24px var(--shadow);
+      padding: calc(var(--gap)*1.5);
+    }
+
+    .table-responsive {
+      overflow-x: auto;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      background: var(--card-bg);
+      margin-top: var(--gap);
+    }
+
+    thead {
+      background: var(--primary);
+      color: #fff;
+    }
+
+    th, td {
+      padding: 0.75rem 1rem;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+    }
+
+    th {
+      font-weight: 600;
+      text-transform: uppercase;
+      font-size: 0.9rem;
+    }
+
+    /* Bo góc cho header */
+    th:first-child {
+      border-top-left-radius: var(--radius);
+    }
+    th:last-child {
+      border-top-right-radius: var(--radius);
+    }
+
+    tbody tr:nth-child(even) {
+      background: #f2f2f2;
+    }
+    tbody tr:hover {
+      background: rgba(108, 93, 211, 0.05);
+    }
+
+    /* Bo góc cho footer row */
+    tbody tr:last-child td:first-child {
+      border-bottom-left-radius: var(--radius);
+    }
+    tbody tr:last-child td:last-child {
+      border-bottom-right-radius: var(--radius);
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 1.5rem;
+      }
+      .card {
+        padding: var(--gap);
+      }
+      th, td {
+        padding: 0.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Danh Sách Người Dùng</h1>
+    <div class="card">
+      <div class="table-responsive">
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Tên Người Dùng</th>
+              <th>Tên</th>
+              <th>Địa Chỉ</th>
+              <th>Email</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr th:each="user : ${users}">
+              <td th:text="${user.id}"></td>
+              <td th:text="${user.username}"></td>
+              <td th:text="${user.name}"></td>
+              <td th:text="${user.address}"></td>
+              <td th:text="${user.email}"></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

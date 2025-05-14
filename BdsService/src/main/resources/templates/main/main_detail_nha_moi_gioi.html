@@ -1,0 +1,653 @@
+<div class="re__nlcc-main-layout">
+
+
+    <div id="MiddleSubMenu">
+
+        <div class="re__broker-search">
+            <div class="re__broker-control">
+                <div class="re__first-col">
+                    <div class="re__search-title">Tìm kiếm môi giới</div>
+                </div>
+                <div class="re__second-col">
+                    <div class="re__kw-search">
+                        <!--                        <div class="re__input&#45;&#45;sm re__input-icon-right&#45;&#45;sm re__icon-search"><input onkeyup="if (event.target.value && event.target === document.activeElement){    event.target.nextSibling.parentElement.getElementsByClassName('re__input-icon-close')[0].classList.remove('re__hidden-icon');   event.target.classList.add('re__input-focus');}else {   event.target.parentElement.getElementsByClassName('re__input-icon-close')[0].classList.add('re__hidden-icon');   event.target.classList.remove('re__input-focus');}" onfocus="if (event.target.value && event.target === document.activeElement){    event.target.nextSibling.parentElement.getElementsByClassName('re__input-icon-close')[0].classList.remove('re__hidden-icon');   event.target.classList.add('re__input-focus');}else {   event.target.parentElement.getElementsByClassName('re__input-icon-close')[0].classList.add('re__hidden-icon');   event.target.classList.remove('re__input-focus');}" onfocusout="setTimeout(function(){ event.target.parentElement.getElementsByClassName('re__input-icon-close')[0].classList.add('re__hidden-icon'); }, 200)"  re__input-icon-right&#45;&#45;sm re__icon-search" id="txtKeyword" maxlength="100" name="txtKeyword" placeholder="Nh&#x1EAD;p t&#x1EEB; kh&#xF3;a t&#xEC;m ki&#x1EBF;m" type="text" value="" /><span onclick="this.parentElement.querySelector('input[onkeyup]').value = ''; this.parentElement.querySelector('input[onkeyup]').dispatchEvent(new Event('blur')); this.parentElement.querySelector('input[onkeyup]').classList.remove('re__input-focus'); this.classList.add('re__hidden-icon');" class="re__input-icon-close re__hidden-icon"><span class="path1"></span><span class="path2"></span></span><div class="re__error-message " ><span class="field-validation-valid" data-valmsg-for="txtKeyword" data-valmsg-replace="true"></span></div><div class="re__info-message"></div></div>-->
+                    </div>
+                </div>
+            </div>
+            <div id="searchcontrol" class="re__broker-control">
+                <div class="re__first-col">
+                    <div class="re__select--sm js__bds-select-container" style="" tabindex="0">   <span class="re__filter-label select-text hasvalue js__bds-select-button">       <span class="select-text-content js__bds-select-button-current-text">Loại giao dịch</span>   </span><input id="hdBrCategory" name="hdBrCategory" type="hidden" value="" />  <div class="re__select-dropdown advance-select-options js__bds-select-dropdown mCustomScrollBox mCS-light mCSB_vertical">      <ul class="re__dropdown-no-art--sm advance-options js__bds-select-list"><li vl="0" class="advance-options  js__option">Loại giao dịch</li>      </ul>  </div></div>
+                    <div id="divBrCategoryOptions" style="display: none">
+                        <ul class="re__dropdown-no-art--sm advance-options">
+                            <li vl="0" class="advance-options js__option">Loại giao dịch</li>
+                            <li vl="38" class="advance-options js__option" data-value="nha-dat-ban">Nhà đất bán</li>
+                            <li vl="49" class="advance-options js__option" data-value="nha-dat-cho-thue">Nhà đất cho thuê</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="re__second-col">
+                    <div class="re__select--sm re__subcategory-select js__bds-select-container" style="" tabindex="0">   <span class="re__filter-label select-text hasvalue js__bds-select-button">       <span class="select-text-content js__bds-select-button-current-text">Loại nhà đất</span>   </span><input id="hdSubCategory" name="hdSubCategory" type="hidden" value="" />  <div class="re__select-dropdown advance-select-options js__bds-select-dropdown mCustomScrollBox mCS-light mCSB_vertical">      <ul class="re__dropdown-no-art--sm re__subcategory-dropdown-no-art advance-options js__bds-select-list"><li vl="0" class="advance-options  js__option">Loại nhà đất </li>      </ul>  </div></div>
+                    <div class="re__select--sm js__bds-select-container" style="" tabindex="0">   <span class="re__filter-label select-text hasvalue js__bds-select-button">       <span class="select-text-content js__bds-select-button-current-text">Tỉnh/Thành phố</span>   </span><input id="hdBrCity" name="hdBrCity" type="hidden" value="" />  <div class="re__select-dropdown advance-select-options js__bds-select-dropdown mCustomScrollBox mCS-light mCSB_vertical">      <ul class="re__dropdown-no-art--sm advance-options js__bds-select-list"><li vl="0" class="advance-options  js__option">Tỉnh/Thành phố</li>      </ul>  </div></div>
+                    <div id="divBrCityOptions" style="display: none">
+                        <ul class="re__dropdown-no-art--sm advance-options">
+                            <li vl="" class="advance-options js__option">Tỉnh/Thành phố</li>
+                            <li vl="SG" data-value="tp-hcm" class="advance-options js__option">H&#x1ED3; Ch&#xED; Minh</li>
+                            <li vl="HN" data-value="ha-noi" class="advance-options js__option">H&#xE0; N&#x1ED9;i</li>
+                            <li vl="DDN" data-value="da-nang" class="advance-options js__option">&#x110;&#xE0; N&#x1EB5;ng</li>
+                            <li vl="BD" data-value="binh-duong" class="advance-options js__option">B&#xEC;nh D&#x1B0;&#x1A1;ng</li>
+                            <li vl="DNA" data-value="dong-nai" class="advance-options js__option">&#x110;&#x1ED3;ng Nai</li>
+                            <li vl="KH" data-value="khanh-hoa" class="advance-options js__option">Kh&#xE1;nh H&#xF2;a</li>
+                            <li vl="HP" data-value="hai-phong" class="advance-options js__option">H&#x1EA3;i Ph&#xF2;ng</li>
+                            <li vl="LA" data-value="long-an" class="advance-options js__option">Long An</li>
+                            <li vl="QNA" data-value="quang-nam" class="advance-options js__option">Qu&#x1EA3;ng Nam</li>
+                            <li vl="VT" data-value="ba-ria-vung-tau" class="advance-options js__option">B&#xE0; R&#x1ECB;a V&#x169;ng T&#xE0;u</li>
+                            <li vl="DDL" data-value="dak-lak" class="advance-options js__option">&#x110;&#x1EAF;k L&#x1EAF;k</li>
+                            <li vl="CT" data-value="can-tho" class="advance-options js__option">C&#x1EA7;n Th&#x1A1;</li>
+                            <li vl="BTH" data-value="binh-thuan" class="advance-options js__option">B&#xEC;nh Thu&#x1EAD;n  </li>
+                            <li vl="LDD" data-value="lam-dong" class="advance-options js__option">L&#xE2;m &#x110;&#x1ED3;ng</li>
+                            <li vl="TTH" data-value="thua-thien-hue" class="advance-options js__option">Th&#x1EEB;a Thi&#xEA;n Hu&#x1EBF;</li>
+                            <li vl="KG" data-value="kien-giang" class="advance-options js__option">Ki&#xEA;n Giang</li>
+                            <li vl="BN" data-value="bac-ninh" class="advance-options js__option">B&#x1EAF;c Ninh</li>
+                            <li vl="QNI" data-value="quang-ninh" class="advance-options js__option">Qu&#x1EA3;ng Ninh</li>
+                            <li vl="TH" data-value="thanh-hoa" class="advance-options js__option">Thanh H&#xF3;a</li>
+                            <li vl="NA" data-value="nghe-an" class="advance-options js__option">Ngh&#x1EC7; An</li>
+                            <li vl="HD" data-value="hai-duong" class="advance-options js__option">H&#x1EA3;i D&#x1B0;&#x1A1;ng</li>
+                            <li vl="GL" data-value="gia-lai" class="advance-options js__option">Gia Lai</li>
+                            <li vl="BP" data-value="binh-phuoc" class="advance-options js__option">B&#xEC;nh Ph&#x1B0;&#x1EDB;c</li>
+                            <li vl="HY" data-value="hung-yen" class="advance-options js__option">H&#x1B0;ng Y&#xEA;n</li>
+                            <li vl="BDD" data-value="binh-dinh" class="advance-options js__option">B&#xEC;nh &#x110;&#x1ECB;nh</li>
+                            <li vl="TG" data-value="tien-giang" class="advance-options js__option">Ti&#x1EC1;n Giang</li>
+                            <li vl="TB" data-value="thai-binh" class="advance-options js__option">Th&#xE1;i B&#xEC;nh</li>
+                            <li vl="BG" data-value="bac-giang" class="advance-options js__option">B&#x1EAF;c Giang</li>
+                            <li vl="HB" data-value="hoa-binh" class="advance-options js__option">H&#xF2;a B&#xEC;nh</li>
+                            <li vl="AG" data-value="an-giang" class="advance-options js__option">An Giang</li>
+                            <li vl="VP" data-value="vinh-phuc" class="advance-options js__option">V&#x129;nh Ph&#xFA;c</li>
+                            <li vl="TNI" data-value="tay-ninh" class="advance-options js__option">T&#xE2;y Ninh</li>
+                            <li vl="TN" data-value="thai-nguyen" class="advance-options js__option">Th&#xE1;i Nguy&#xEA;n</li>
+                            <li vl="LCA" data-value="lao-cai" class="advance-options js__option">L&#xE0;o Cai</li>
+                            <li vl="NDD" data-value="nam-dinh" class="advance-options js__option">Nam &#x110;&#x1ECB;nh</li>
+                            <li vl="QNG" data-value="quang-ngai" class="advance-options js__option">Qu&#x1EA3;ng Ng&#xE3;i</li>
+                            <li vl="BTR" data-value="ben-tre" class="advance-options js__option">B&#x1EBF;n Tre</li>
+                            <li vl="DNO" data-value="dak-nong" class="advance-options js__option">&#x110;&#x1EAF;k N&#xF4;ng</li>
+                            <li vl="CM" data-value="ca-mau" class="advance-options js__option">C&#xE0; Mau</li>
+                            <li vl="VL" data-value="vinh-long" class="advance-options js__option">V&#x129;nh Long</li>
+                            <li vl="NB" data-value="ninh-binh" class="advance-options js__option">Ninh B&#xEC;nh</li>
+                            <li vl="PT" data-value="phu-tho" class="advance-options js__option">Ph&#xFA; Th&#x1ECD;</li>
+                            <li vl="NT" data-value="ninh-thuan" class="advance-options js__option">Ninh Thu&#x1EAD;n</li>
+                            <li vl="PY" data-value="phu-yen" class="advance-options js__option">Ph&#xFA; Y&#xEA;n</li>
+                            <li vl="HNA" data-value="ha-nam" class="advance-options js__option">H&#xE0; Nam</li>
+                            <li vl="HT" data-value="ha-tinh" class="advance-options js__option">H&#xE0; T&#x129;nh</li>
+                            <li vl="DDT" data-value="dong-thap" class="advance-options js__option">&#x110;&#x1ED3;ng Th&#xE1;p</li>
+                            <li vl="ST" data-value="soc-trang" class="advance-options js__option">S&#xF3;c Tr&#x103;ng</li>
+                            <li vl="KT" data-value="kon-tum" class="advance-options js__option">Kon Tum</li>
+                            <li vl="QB" data-value="quang-binh" class="advance-options js__option">Qu&#x1EA3;ng B&#xEC;nh</li>
+                            <li vl="QT" data-value="quang-tri" class="advance-options js__option">Qu&#x1EA3;ng Tr&#x1ECB;</li>
+                            <li vl="TV" data-value="tra-vinh" class="advance-options js__option">Tr&#xE0; Vinh</li>
+                            <li vl="HGI" data-value="hau-giang" class="advance-options js__option">H&#x1EAD;u Giang</li>
+                            <li vl="SL" data-value="son-la" class="advance-options js__option">S&#x1A1;n La</li>
+                            <li vl="BL" data-value="bac-lieu" class="advance-options js__option">B&#x1EA1;c Li&#xEA;u</li>
+                            <li vl="YB" data-value="yen-bai" class="advance-options js__option">Y&#xEA;n B&#xE1;i</li>
+                            <li vl="TQ" data-value="tuyen-quang" class="advance-options js__option">Tuy&#xEA;n Quang</li>
+                            <li vl="DDB" data-value="dien-bien" class="advance-options js__option">&#x110;i&#x1EC7;n Bi&#xEA;n</li>
+                            <li vl="LCH" data-value="lai-chau" class="advance-options js__option">Lai Ch&#xE2;u</li>
+                            <li vl="LS" data-value="lang-son" class="advance-options js__option">L&#x1EA1;ng S&#x1A1;n</li>
+                            <li vl="HG" data-value="ha-giang" class="advance-options js__option">H&#xE0; Giang</li>
+                            <li vl="BK" data-value="bac-kan" class="advance-options js__option">B&#x1EAF;c K&#x1EA1;n</li>
+                            <li vl="CB" data-value="cao-bang" class="advance-options js__option">Cao B&#x1EB1;ng</li>
+                        </ul>
+                    </div>
+                    <div class="re__select--sm js__bds-select-container" style="" tabindex="0">   <span class="re__filter-label select-text hasvalue js__bds-select-button">       <span class="select-text-content js__bds-select-button-current-text">Quận/Huyện</span>   </span><input id="hdBrDistrict" name="hdBrDistrict" type="hidden" value="" />  <div class="re__select-dropdown advance-select-options js__bds-select-dropdown mCustomScrollBox mCS-light mCSB_vertical">      <ul class="re__dropdown-no-art--sm advance-options js__bds-select-list"><li vl="" class="advance-options current js__option">Quận/Huyện</li>      </ul>  </div></div>
+                    <div class="re__select--sm re__project-select js__bds-select-container" style="" tabindex="0">   <span class="re__filter-label select-text hasvalue js__bds-select-button">       <span class="select-text-content js__bds-select-button-current-text">Dự án</span>   </span><input id="hdBrProject" name="hdBrProject" type="hidden" value="" />  <div class="re__select-dropdown advance-select-options js__bds-select-dropdown mCustomScrollBox mCS-light mCSB_vertical">      <ul class="re__dropdown-no-art--sm re__project-dropdown-no-art advance-options js__bds-select-list"><li vl="" class="advance-options current js__option">Dự án</li>      </ul>  </div></div>
+                    <span class="re__btn re__btn-pr-solid--sm" id="btnSearch">Tìm kiếm</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div id="MainContent">
+    </div>
+
+    <div class="re__nlcc-main-left">
+        <div id="inforPageBroker" data-keyword=""
+             data-cate="0"
+             data-subcate="0"
+             data-city="SG"
+             data-district="0"
+             data-project="0"></div>
+
+
+        <div class="re__broker-detail-info">
+            <div class="re__broker-avatar re__enterprise">
+                <span></span><img class="img_detail childbox" title="C&#xD4;NG TY C&#x1ED4; PH&#x1EA6;N B&#x1EA4;T &#x110;&#x1ED8;NG S&#x1EA2;N GIGAREAL" src="https://file4.batdongsan.com.vn/resize/200x200/2020/11/03/PGsxuI1y/20201103162145-4ff8.jpg">
+            </div>
+            <div class="re__broker-contact">
+                <h1 class="re__broker-name">
+                    C&#xD4;NG TY C&#x1ED4; PH&#x1EA6;N B&#x1EA4;T &#x110;&#x1ED8;NG S&#x1EA2;N GIGAREAL
+                </h1>
+                <div class="re__broker-address"><i class="re__icon-location--sm"></i><span>402 Hu&#x1EF3;nh V&#x103;n B&#xE1;nh, Ph&#x1B0;&#x1EDD;ng 13, Qu&#x1EAD;n Ph&#xFA; Nhu&#x1EAD;n, H&#x1ED3; Ch&#xED; Minh, Vi&#x1EC7;t Nam</span></div>
+                <div class="re__broker-address">
+                    <div><i class="re__icon-mobile--sm"></i><span>0769969928</span></div>
+                    <div><i class="re__icon-phone--sm"></i><span>&#x110;ang c&#x1EAD;p nh&#x1EAD;t</span></div>
+                </div>
+                <div class="re__broker-address"><i class="re__icon-mail--sm"></i><span><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="355854475e50415c5b521b525c525447505459755258545c591b565a58">[email&#160;protected]</a></span></div>
+                <div class="re__broker-address">
+                    <i class="re__icon-world--sm"></i>
+                    <a href='https://chothuenha.com.vn' target='_blank' rel='nofollow' class='re__link-se-gray'>https://chothuenha.com.vn</a>
+                </div>
+                <div class="re__broker-email">
+                    <a id="lnkSendEmail" class="re__btn re__btn-pr-border--sm" data-email="marketing.gigareal@gmail.com" data-type="" data-typeemail="0">Gửi Email</a>
+                </div>
+            </div>
+        </div>
+        <div class="re__broker-detail-intro">
+            <div class="re__broker-title">
+                Giới thiệu
+            </div>
+            <div class="re__broker-area">
+                <h2 class="re__broker-title--xs">
+                    Lĩnh vực công ty môi giới
+                </h2>
+                <div>C&#xD4;NG TY C&#x1ED4; PH&#x1EA6;N B&#x1EA4;T &#x110;&#x1ED8;NG S&#x1EA2;N GIGAREAL môi giới ở những khu vực sau:</div>
+                <ul>
+                    <li><span>Cho thu&#xEA; nh&#xE0; m&#x1EB7;t ph&#x1ED1; &#x1EDF; Qu&#x1EAD;n 3, H&#x1ED3; Ch&#xED; Minh</span></li>
+                    <li><span>Cho thu&#xEA; nh&#xE0; m&#x1EB7;t ph&#x1ED1; &#x1EDF; Qu&#x1EAD;n 10, H&#x1ED3; Ch&#xED; Minh</span></li>
+                    <li><span>Cho thu&#xEA; nh&#xE0; m&#x1EB7;t ph&#x1ED1; &#x1EDF; Ph&#xFA; Nhu&#x1EAD;n, H&#x1ED3; Ch&#xED; Minh</span></li>
+                </ul>
+            </div>
+            <div class="re__broker-intro">
+                <h2 class="re__broker-title--xs">Về chúng tôi</h2>
+                <div class="re__broker-content">
+                    <p>
+                        C&ocirc;ng ty ch&uacute;ng t&ocirc;i hoạt động trong lĩnh vực dịch vụ m&ocirc;i giới Bất động sản cho thu&ecirc;, được điều h&agrave;nh bởi đội ngũ d&agrave;y dặn kinh nghiệm trong nhiều năm v&agrave; lu&ocirc;n thấu hiểu được sự trăn trở của kh&aacute;ch h&agrave;ng.</p>
+                    <p>
+                        Với hơn 10,000 căn nh&agrave; cho thu&ecirc; khắp khu vực TP. Hồ Ch&iacute; Minh v&agrave; nguồn dữ liệu kh&aacute;ch h&agrave;ng tin cậy v&agrave; h&ugrave;ng hậu. Được sự t&iacute;n nhiệm v&agrave; trao cơ hội ch&uacute;ng t&ocirc;i đang ng&agrave;y c&agrave;ng nắm bắt thị trường v&agrave; cố gắng đem đến ch&uacute; Q&uacute;y Kh&aacute;ch h&agrave;ng một sự chọn lựa dịch vụ hiệu quả nhất.</p>
+                    <p>
+                        V&igrave; vậy GiGa Real lu&ocirc;n n&ecirc;u cao khẩu hiệu &ldquo;ĐỐI T&Aacute;C CHUY&Ecirc;N NGHIỆP&rdquo; với mục ti&ecirc;u l&agrave; một đối t&aacute;c tin cậy mang lại cho kh&aacute;ch h&agrave;ng những dịch vụ m&ocirc;i giới tốt nhất, sản phẩm ph&ugrave; hợp nhất một c&aacute;ch nhanh ch&oacute;ng v&agrave; ch&iacute;nh x&aacute;c, đảm bảo t&iacute;nh ph&aacute;p l&yacute;, r&otilde; r&agrave;ng, minh bạch.</p>
+                    <p>
+                        Tr&acirc;n trọng cảm ơn qu&yacute; kh&aacute;ch v&agrave; hy vọng sự hợp t&aacute;c tốt đẹp!</p>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+        <div class="re__broker-other" id="plOtherBrokers">
+            <div class="re__broker-title">Các nhà môi giới khác</div>
+
+            <a class="re__link-pr re__view-more" rel="nofollow" href="/moi-gioi-cho-thue-nha-mat-pho" target="_blank">Xem thêm nhà môi giới khác</a>
+
+            <div class="re__broker-other-list">
+                <ul>
+                    <li>
+                        <div>
+                            <a href="/cho-thue-nha-mat-pho/cong-ty-co-phan-dau-tu-va-quan-ly-bat-dong-san-phuc-thai-eb2175" rel="nofollow"  class="re__verticalbox">
+                                <img class="img childbox" src="https://file4.batdongsan.com.vn/resize/105x77/2019/04/23/3ZsSL6gy/20190423094233-6aa0.jpg" alt="C&#xD4;NG TY C&#x1ED4; PH&#x1EA6;N &#x110;&#x1EA6;U T&#x1AF; V&#xC0; QU&#x1EA2;N L&#xDD; B&#x1EA4;T &#x110;&#x1ED8;NG S&#x1EA2;N PH&#xDA;C TH&#xC1;I">
+                            </a>
+                        </div>
+                        <a title="C&#xD4;NG TY C&#x1ED4; PH&#x1EA6;N &#x110;&#x1EA6;U T&#x1AF; V&#xC0; QU&#x1EA2;N L&#xDD; B&#x1EA4;T &#x110;&#x1ED8;NG S&#x1EA2;N PH&#xDA;C TH&#xC1;I" href="/cho-thue-nha-mat-pho/cong-ty-co-phan-dau-tu-va-quan-ly-bat-dong-san-phuc-thai-eb2175" rel="nofollow" class="re__link-se">C&#xD4;NG TY C&#x1ED4; PH&#x1EA6;N &#x110;&#x1EA6;U T&#x1AF; V&#xC0; QU&#x1EA2;N L&#xDD; B&#x1EA4;T &#x110;&#x1ED8;NG S&#x1EA2;N PH&#xDA;C TH&#xC1;I</a>
+                    </li>
+                    <li>
+                        <div>
+                            <a href="/cho-thue-nha-mat-pho/san-giao-dich-bat-dong-san-hong-gia-eb2945" rel="nofollow"  class="re__verticalbox">
+                                <img class="img childbox" src="https://file4.batdongsan.com.vn/resize/105x77/2022/05/10/U8pqhXd9/20220510172109-4578.jpg" alt="S&#xE0;n Giao d&#x1ECB;ch B&#x1EA5;t &#x110;&#x1ED9;ng S&#x1EA3;n H&#x1ED3;ng Gia">
+                            </a>
+                        </div>
+                        <a title="S&#xE0;n Giao d&#x1ECB;ch B&#x1EA5;t &#x110;&#x1ED9;ng S&#x1EA3;n H&#x1ED3;ng Gia" href="/cho-thue-nha-mat-pho/san-giao-dich-bat-dong-san-hong-gia-eb2945" rel="nofollow" class="re__link-se">S&#xE0;n Giao d&#x1ECB;ch B&#x1EA5;t &#x110;&#x1ED9;ng S&#x1EA3;n H&#x1ED3;ng Gia</a>
+                    </li>
+                    <li>
+                        <div>
+                            <a href="/cho-thue-nha-mat-pho/cong-ty-tnhh-thuong-mai-dau-tu-xay-dung-dich-vu-bat-dong-san-viet-home-eb2909" rel="nofollow"  class="re__verticalbox">
+                                <img class="img childbox" src="https://file4.batdongsan.com.vn/resize/105x77/2021/11/29/U8pqhXd9/20211129153310-e768.jpg" alt="C&#xD4;NG TY TNHH TH&#x1AF;&#x1A0;NG M&#x1EA0;I &#x110;&#x1EA6;U T&#x1AF; X&#xC2;Y D&#x1EF0;NG D&#x1ECA;CH V&#x1EE4; B&#x1EA4;T &#x110;&#x1ED8;NG S&#x1EA2;N VI&#x1EC6;T HOME ">
+                            </a>
+                        </div>
+                        <a title="C&#xD4;NG TY TNHH TH&#x1AF;&#x1A0;NG M&#x1EA0;I &#x110;&#x1EA6;U T&#x1AF; X&#xC2;Y D&#x1EF0;NG D&#x1ECA;CH V&#x1EE4; B&#x1EA4;T &#x110;&#x1ED8;NG S&#x1EA2;N VI&#x1EC6;T HOME " href="/cho-thue-nha-mat-pho/cong-ty-tnhh-thuong-mai-dau-tu-xay-dung-dich-vu-bat-dong-san-viet-home-eb2909" rel="nofollow" class="re__link-se">C&#xD4;NG TY TNHH TH&#x1AF;&#x1A0;NG M&#x1EA0;I &#x110;&#x1EA6;U T&#x1AF; X&#xC2;Y D&#x1EF0;NG D&#x1ECA;CH V&#x1EE4; B&#x1EA4;T &#x110;&#x1ED8;NG S&#x1EA2;N VI&#x1EC6;T HOME </a>
+                    </li>
+                    <li>
+                        <div>
+                            <a href="/cho-thue-nha-mat-pho/cong-ty-co-phan-tap-doan-kang-nam-eb2892" rel="nofollow"  class="re__verticalbox">
+                                <img class="img childbox" src="https://file4.batdongsan.com.vn/resize/105x77/2021/09/29/PGsxuI1y/20210929093403-8db6.jpg" alt="C&#xF4;ng Ty C&#x1ED5; Ph&#x1EA7;n T&#x1EAD;p &#x110;o&#xE0;n Kang Nam&#x9;">
+                            </a>
+                        </div>
+                        <a title="C&#xF4;ng Ty C&#x1ED5; Ph&#x1EA7;n T&#x1EAD;p &#x110;o&#xE0;n Kang Nam&#x9;" href="/cho-thue-nha-mat-pho/cong-ty-co-phan-tap-doan-kang-nam-eb2892" rel="nofollow" class="re__link-se">C&#xF4;ng Ty C&#x1ED5; Ph&#x1EA7;n T&#x1EAD;p &#x110;o&#xE0;n Kang Nam&#x9;</a>
+                    </li>
+                    <li>
+                        <div>
+                            <a href="/cho-thue-nha-mat-pho/cong-ty-tnhh-phat-trien-bat-dong-san-quang-minh-eb2780" rel="nofollow"  class="re__verticalbox">
+                                <img class="img childbox" src="https://file4.batdongsan.com.vn/resize/105x77/2020/02/28/3ZsSL6gy/20200228144525-7c78.jpg" alt=" C&#xD4;NG TY TNHH PH&#xC1;T TRI&#x1EC2;N B&#x1EA4;T &#x110;&#x1ED8;NG S&#x1EA2;N QUANG MINH ">
+                            </a>
+                        </div>
+                        <a title=" C&#xD4;NG TY TNHH PH&#xC1;T TRI&#x1EC2;N B&#x1EA4;T &#x110;&#x1ED8;NG S&#x1EA2;N QUANG MINH " href="/cho-thue-nha-mat-pho/cong-ty-tnhh-phat-trien-bat-dong-san-quang-minh-eb2780" rel="nofollow" class="re__link-se"> C&#xD4;NG TY TNHH PH&#xC1;T TRI&#x1EC2;N B&#x1EA4;T &#x110;&#x1ED8;NG S&#x1EA2;N QUANG MINH </a>
+                    </li>
+                    <li>
+                        <div>
+                            <a href="/cho-thue-nha-mat-pho/cong-ty-co-phan-hoaland-eb2734" rel="nofollow"  class="re__verticalbox">
+                                <img class="img childbox" src="https://file4.batdongsan.com.vn/resize/105x77/2019/08/22/PGsxuI1y/20190822155228-8f6d.jpg" alt="C&#xF4;ng ty c&#x1ED5; ph&#x1EA7;n HoaLand">
+                            </a>
+                        </div>
+                        <a title="C&#xF4;ng ty c&#x1ED5; ph&#x1EA7;n HoaLand" href="/cho-thue-nha-mat-pho/cong-ty-co-phan-hoaland-eb2734" rel="nofollow" class="re__link-se">C&#xF4;ng ty c&#x1ED5; ph&#x1EA7;n HoaLand</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="re__nlcc-main-right">
+
+        <div class="re__box-newsletter-mini">
+            <div class="re__newsletter-title">
+                <img src="https://file4.batdongsan.com.vn/images/icon-newsletter-small.jpg">
+                <span>Nhận bản tin từ Batdongsan.com.vn</span>
+            </div>
+            <div class="re__newsletter-bound">
+                <div class="re__input--sm">
+                    <input type="text" id="email" placeholder="Nhập email">
+                </div>
+                <a href="javascript:void(0);" class="re__btn re__btn-pr-solid--sm" id="newsletterRegister">Đăng ký</a>
+                <div id="emailValid"></div>
+            </div>
+        </div>
+
+        <!--info menu##-->
+
+
+
+        <div id="broker-by-city" class="re__box-with-border">
+            <div class="re__box-header-full re__header-center">
+                <h2 class="re__header-text">CÁC NHÀ MÔI GIỚI Ở H&#x1ED3; Ch&#xED; Minh THEO QUẬN HUYỆN</h2>
+            </div>
+            <div class="re__box-border re__box-broker">
+                <div class="re__box-listing re__box-pad-16">
+                    <ul>
+                        <li>
+                            <a class="re__link-se" href="/nha-moi-gioi-quan-3" title="Qu&#x1EAD;n 3">Qu&#x1EAD;n 3 (229)</a>
+                        </li>
+                        <li>
+                            <a class="re__link-se" href="/nha-moi-gioi-quan-5" title="Qu&#x1EAD;n 5">Qu&#x1EAD;n 5 (83)</a>
+                        </li>
+                        <li>
+                            <a class="re__link-se" href="/nha-moi-gioi-quan-6" title="Qu&#x1EAD;n 6">Qu&#x1EAD;n 6 (54)</a>
+                        </li>
+                        <li>
+                            <a class="re__link-se" href="/nha-moi-gioi-quan-8" title="Qu&#x1EAD;n 8">Qu&#x1EAD;n 8 (141)</a>
+                        </li>
+                        <li>
+                            <a class="re__link-se" href="/nha-moi-gioi-quan-9" title="Qu&#x1EAD;n 9">Qu&#x1EAD;n 9 (479)</a>
+                        </li>
+                        <li>
+                            <a class="re__link-se" href="/nha-moi-gioi-quan-10" title="Qu&#x1EAD;n 10">Qu&#x1EAD;n 10 (150)</a>
+                        </li>
+                        <li>
+                            <a class="re__link-se" href="/nha-moi-gioi-quan-12" title="Qu&#x1EAD;n 12">Qu&#x1EAD;n 12 (155)</a>
+                        </li>
+                        <li>
+                            <a class="re__link-se" href="/nha-moi-gioi-binh-tan" title="B&#xEC;nh T&#xE2;n">B&#xEC;nh T&#xE2;n (187)</a>
+                        </li>
+                        <li>
+                            <a class="re__link-se" href="/nha-moi-gioi-go-vap" title="G&#xF2; V&#x1EA5;p">G&#xF2; V&#x1EA5;p (172)</a>
+                        </li>
+                        <li>
+                            <a class="re__link-se" href="/nha-moi-gioi-tan-phu" title="T&#xE2;n Ph&#xFA;">T&#xE2;n Ph&#xFA; (204)</a>
+                        </li>
+                        <li>
+                            <a class="re__link-se" href="/nha-moi-gioi-binh-chanh" title="B&#xEC;nh Ch&#xE1;nh">B&#xEC;nh Ch&#xE1;nh (207)</a>
+                        </li>
+                        <li>
+                            <a class="re__link-se" href="/nha-moi-gioi-hoc-mon" title="H&#xF3;c M&#xF4;n">H&#xF3;c M&#xF4;n (85)</a>
+                        </li>
+                        <li>
+                            <a class="re__link-se" href="/nha-moi-gioi-quan-2" title="Qu&#x1EAD;n 2">Qu&#x1EAD;n 2 (421)</a>
+                        </li>
+                        <li>
+                            <a class="re__link-se" href="/nha-moi-gioi-thu-duc" title="Th&#x1EE7; &#x110;&#x1EE9;c">Th&#x1EE7; &#x110;&#x1EE9;c (275)</a>
+                        </li>
+                        <li>
+                            <a class="re__link-se" href="/nha-moi-gioi-cu-chi" title="C&#x1EE7; Chi">C&#x1EE7; Chi (46)</a>
+                        </li>
+                        <li>
+                            <a class="re__link-se" href="/nha-moi-gioi-phu-nhuan" title="Ph&#xFA; Nhu&#x1EAD;n">Ph&#xFA; Nhu&#x1EAD;n (143)</a>
+                        </li>
+                        <li>
+                            <a class="re__link-se" href="/nha-moi-gioi-quan-7" title="Qu&#x1EAD;n 7">Qu&#x1EAD;n 7 (650)</a>
+                        </li>
+                        <li>
+                            <a class="re__link-se" href="/nha-moi-gioi-quan-4" title="Qu&#x1EAD;n 4">Qu&#x1EAD;n 4 (99)</a>
+                        </li>
+                        <li>
+                            <a class="re__link-se" href="/nha-moi-gioi-nha-be" title="Nh&#xE0; B&#xE8;">Nh&#xE0; B&#xE8; (135)</a>
+                        </li>
+                        <li>
+                            <a class="re__link-se" href="/nha-moi-gioi-quan-1" title="Qu&#x1EAD;n 1">Qu&#x1EAD;n 1 (314)</a>
+                        </li>
+                        <li>
+                            <a class="re__link-se" href="/nha-moi-gioi-can-gio" title="C&#x1EA7;n Gi&#x1EDD;">C&#x1EA7;n Gi&#x1EDD; (11)</a>
+                        </li>
+                        <li>
+                            <a class="re__link-se" href="/nha-moi-gioi-quan-11" title="Qu&#x1EAD;n 11">Qu&#x1EAD;n 11 (56)</a>
+                        </li>
+                        <li>
+                            <a class="re__link-se" href="/nha-moi-gioi-binh-thanh" title="B&#xEC;nh Th&#x1EA1;nh">B&#xEC;nh Th&#x1EA1;nh (333)</a>
+                        </li>
+                        <li>
+                            <a class="re__link-se" href="/nha-moi-gioi-tan-binh" title="T&#xE2;n B&#xEC;nh">T&#xE2;n B&#xEC;nh (249)</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="re__link-more">
+                    <a href="javascript:void(0)" rel="nofollow" class="re__link-pr re__vmore">
+                        <span>Xem thêm</span><i class="re__icon-chevron-down--sm"></i>
+                    </a>
+                    <a href="javascript:void(0)" rel="nofollow" class="re__link-pr re__vless re__hide-item">
+                        <span>Ẩn</span><i class="re__icon-chevron-up--sm"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+
+        <!--district menu##-->
+        <!--##broker typical-->
+
+
+
+        <div id="broker-typical" class="re__box-with-border re__broker-typical">
+            <div class="re__box-header-full re__header-center"><h2 class="re__header-text">Nhà môi giới tiêu biểu</h2></div>
+            <div class="re__box-border">
+                <div id="dntb" class="re__box-thumbnail">
+                    <div class="re__item-wrap">
+                        <div class="re__item-thumb">
+                            <a href="/ban-dat/bat-dong-san-duc-phat-eb2729" rel="nofollow" class="re__verticalbox">
+                                <img class="" alt="B&#x1EA4;T &#x110;&#x1ED8;NG S&#x1EA2;N &#x110;&#x1EE8;C PH&#xC1;T" src="https://file4.batdongsan.com.vn/resize/200x200/2019/07/18/3ZsSL6gy/20190718101137-51a6.jpg" />
+                            </a>
+                        </div>
+                        <div class="re__item-title">
+                            <a class="re__link-se" href="/ban-dat/bat-dong-san-duc-phat-eb2729" rel="nofollow">B&#x1EA4;T &#x110;&#x1ED8;NG S&#x1EA2;N &#x110;&#x1EE8;C PH&#xC1;T</a>
+                            <div class="re__typical-phone"></div>
+                            <div class="re__typical-intro"></div>
+                        </div>
+                    </div>
+                    <div class="re__item-wrap">
+                        <div class="re__item-thumb">
+                            <a href="/ban-dat/cong-ty-co-phan-bat-dong-san-ct-eb3058" rel="nofollow" class="re__verticalbox">
+                                <img class="" alt="C&#xF4;ng ty C&#x1ED5; ph&#x1EA7;n B&#x1EA5;t &#x111;&#x1ED9;ng s&#x1EA3;n CT" src="https://file4.batdongsan.com.vn/resize/200x200/2024/01/25/wyRdB1q5/20240125163001-260f.jpg" />
+                            </a>
+                        </div>
+                        <div class="re__item-title">
+                            <a class="re__link-se" href="/ban-dat/cong-ty-co-phan-bat-dong-san-ct-eb3058" rel="nofollow">C&#xF4;ng ty C&#x1ED5; ph&#x1EA7;n B&#x1EA5;t &#x111;&#x1ED9;ng s&#x1EA3;n CT</a>
+                            <div class="re__typical-phone"></div>
+                            <div class="re__typical-intro"></div>
+                        </div>
+                    </div>
+                    <div class="re__item-wrap">
+                        <div class="re__item-thumb">
+                            <a href="/cho-thue-nha-mat-pho/cong-ty-co-phan-bat-dong-san-gigareal-eb2825" rel="nofollow" class="re__verticalbox">
+                                <img class="" alt="C&#xD4;NG TY C&#x1ED4; PH&#x1EA6;N B&#x1EA4;T &#x110;&#x1ED8;NG S&#x1EA2;N GIGAREAL" src="https://file4.batdongsan.com.vn/resize/200x200/2020/11/03/PGsxuI1y/20201103162145-4ff8.jpg" />
+                            </a>
+                        </div>
+                        <div class="re__item-title">
+                            <a class="re__link-se" href="/cho-thue-nha-mat-pho/cong-ty-co-phan-bat-dong-san-gigareal-eb2825" rel="nofollow">C&#xD4;NG TY C&#x1ED4; PH&#x1EA6;N B&#x1EA4;T &#x110;&#x1ED8;NG S&#x1EA2;N GIGAREAL</a>
+                            <div class="re__typical-phone"></div>
+                            <div class="re__typical-intro"></div>
+                        </div>
+                    </div>
+                    <div class="re__item-wrap">
+                        <div class="re__item-thumb">
+                            <a href="/ban-dat/ly-minh-chau-ib1515066" rel="nofollow" class="re__verticalbox">
+                                <img class="" alt="L&#xFD; Minh Ch&#xE2;u" src="https://file4.batdongsan.com.vn/resize/200x200/2022/10/07/20221007093659-ba92.jpg" />
+                            </a>
+                        </div>
+                        <div class="re__item-title">
+                            <a class="re__link-se" href="/ban-dat/ly-minh-chau-ib1515066" rel="nofollow">L&#xFD; Minh Ch&#xE2;u</a>
+                            <div class="re__typical-phone">0862594780</div>
+                            <div class="re__typical-intro"></div>
+                        </div>
+                    </div>
+                    <div class="re__item-wrap">
+                        <div class="re__item-thumb">
+                            <a href="/ban-can-ho-chung-cu/can-ho-gia-tot-ib1531465" rel="nofollow" class="re__verticalbox">
+                                <img class="" alt="C&#x103;n H&#x1ED9; Gi&#xE1; T&#x1ED1;t" src="https://file4.batdongsan.com.vn/resize/200x200/2022/08/20/20220820135434-4e01.jpg" />
+                            </a>
+                        </div>
+                        <div class="re__item-title">
+                            <a class="re__link-se" href="/ban-can-ho-chung-cu/can-ho-gia-tot-ib1531465" rel="nofollow">C&#x103;n H&#x1ED9; Gi&#xE1; T&#x1ED1;t</a>
+                            <div class="re__typical-phone">0907278386</div>
+                            <div class="re__typical-intro"></div>
+                        </div>
+                    </div>
+                    <div class="re__item-wrap">
+                        <div class="re__item-thumb">
+                            <a href="/ban-nha-biet-thu-lien-ke/ta-huu-huy-ib1148162" rel="nofollow" class="re__verticalbox">
+                                <img class="" alt="T&#x1EA1; H&#x1EEF;u Huy" src="https://file4.batdongsan.com.vn/resize/200x200/2024/04/10/20240410064331-50f2.jpg" />
+                            </a>
+                        </div>
+                        <div class="re__item-title">
+                            <a class="re__link-se" href="/ban-nha-biet-thu-lien-ke/ta-huu-huy-ib1148162" rel="nofollow">T&#x1EA1; H&#x1EEF;u Huy</a>
+                            <div class="re__typical-phone">0987866398</div>
+                            <div class="re__typical-intro"></div>
+                        </div>
+                    </div>
+                    <div class="re__item-wrap">
+                        <div class="re__item-thumb">
+                            <a href="/ban-can-ho-chung-cu/cong-ty-co-phan-bat-dong-san-sehouse-eb3046" rel="nofollow" class="re__verticalbox">
+                                <img class="" alt="C&#xD4;NG TY C&#x1ED4; PH&#x1EA6;N B&#x1EA4;T &#x110;&#x1ED8;NG S&#x1EA2;N SEHOUSE " src="https://file4.batdongsan.com.vn/resize/200x200/2023/09/11/wyRdB1q5/20230911165137-716a.jpg" />
+                            </a>
+                        </div>
+                        <div class="re__item-title">
+                            <a class="re__link-se" href="/ban-can-ho-chung-cu/cong-ty-co-phan-bat-dong-san-sehouse-eb3046" rel="nofollow">C&#xD4;NG TY C&#x1ED4; PH&#x1EA6;N B&#x1EA4;T &#x110;&#x1ED8;NG S&#x1EA2;N SEHOUSE </a>
+                            <div class="re__typical-phone"></div>
+                            <div class="re__typical-intro"></div>
+                        </div>
+                    </div>
+                    <div class="re__item-wrap">
+                        <div class="re__item-thumb">
+                            <a href="/ban-dat-nen-du-an/cong-ty-co-phan-dai-dat-viet-eb3071" rel="nofollow" class="re__verticalbox">
+                                <img class="" alt="C&#xD4;NG TY C&#x1ED4; PH&#x1EA6;N &#x110;&#x1EA0;I &#x110;&#x1EA4;T VI&#x1EC6;T" src="https://file4.batdongsan.com.vn/resize/200x200/2024/09/16/20240916141517-02bf.jpg" />
+                            </a>
+                        </div>
+                        <div class="re__item-title">
+                            <a class="re__link-se" href="/ban-dat-nen-du-an/cong-ty-co-phan-dai-dat-viet-eb3071" rel="nofollow">C&#xD4;NG TY C&#x1ED4; PH&#x1EA6;N &#x110;&#x1EA0;I &#x110;&#x1EA4;T VI&#x1EC6;T</a>
+                            <div class="re__typical-phone"></div>
+                            <div class="re__typical-intro"></div>
+                        </div>
+                    </div>
+                    <div class="re__item-wrap">
+                        <div class="re__item-thumb">
+                            <a href="/ban-can-ho-chung-cu/cong-ty-co-phan-dau-tu-dia-oc-bighomes-eb2774" rel="nofollow" class="re__verticalbox">
+                                <img class="no-photo" alt="C&#xD4;NG TY C&#x1ED4; PH&#x1EA6;N &#x110;&#x1EA6;U T&#x1AF; &#x110;&#x1ECA;A &#x1ED0;C BIGHOMES" src="https://staticfile.batdongsan.com.vn/images/contacts/broker-no-photo-500_285_rebranding.png" />
+                            </a>
+                        </div>
+                        <div class="re__item-title">
+                            <a class="re__link-se" href="/ban-can-ho-chung-cu/cong-ty-co-phan-dau-tu-dia-oc-bighomes-eb2774" rel="nofollow">C&#xD4;NG TY C&#x1ED4; PH&#x1EA6;N &#x110;&#x1EA6;U T&#x1AF; &#x110;&#x1ECA;A &#x1ED0;C BIGHOMES</a>
+                            <div class="re__typical-phone"></div>
+                            <div class="re__typical-intro"></div>
+                        </div>
+                    </div>
+                    <div class="re__item-wrap">
+                        <div class="re__item-thumb">
+                            <a href="/ban-dat/hoang-phuc-ib1559646" rel="nofollow" class="re__verticalbox">
+                                <img class="" alt="Ho&#xE0;ng Ph&#xFA;c" src="https://file4.batdongsan.com.vn/resize/200x200/2024/07/27/20240727102521-95e6.jpg" />
+                            </a>
+                        </div>
+                        <div class="re__item-title">
+                            <a class="re__link-se" href="/ban-dat/hoang-phuc-ib1559646" rel="nofollow">Ho&#xE0;ng Ph&#xFA;c</a>
+                            <div class="re__typical-phone">0948032255</div>
+                            <div class="re__typical-intro"></div>
+                        </div>
+                    </div>
+                    <div class="re__item-wrap">
+                        <div class="re__item-thumb">
+                            <a href="/ban-nha-rieng/nha-dat-thanh-hien-ib40115" rel="nofollow" class="re__verticalbox">
+                                <img class="" alt="Nh&#xE0; &#x111;&#x1EA5;t Thanh Hi&#x1EC1;n" src="https://file4.batdongsan.com.vn/resize/200x200/2016/03/09/eCGLjNi5/20160309162137-a122.jpg" />
+                            </a>
+                        </div>
+                        <div class="re__item-title">
+                            <a class="re__link-se" href="/ban-nha-rieng/nha-dat-thanh-hien-ib40115" rel="nofollow">Nh&#xE0; &#x111;&#x1EA5;t Thanh Hi&#x1EC1;n</a>
+                            <div class="re__typical-phone">0909677159</div>
+                            <div class="re__typical-intro">Chuyên môi giới và nhận ký gửi Bất Động Sản tại TP.Hồ Chí Minh</div>
+                        </div>
+                    </div>
+                    <div class="re__item-wrap">
+                        <div class="re__item-thumb">
+                            <a href="/ban-dat-nen-du-an/thanh-wado-mr-ib556158" rel="nofollow" class="re__verticalbox">
+                                <img class="" alt="Thanh Wado (Mr.)" src="https://file4.batdongsan.com.vn/resize/200x200/2017/03/25/eCGLjNi5/20170325092203-ecb0.jpg" />
+                            </a>
+                        </div>
+                        <div class="re__item-title">
+                            <a class="re__link-se" href="/ban-dat-nen-du-an/thanh-wado-mr-ib556158" rel="nofollow">Thanh Wado (Mr.)</a>
+                            <div class="re__typical-phone">0909743354</div>
+                            <div class="re__typical-intro"></div>
+                        </div>
+                    </div>
+                    <div class="re__item-wrap">
+                        <div class="re__item-thumb">
+                            <a href="/ban-dat-nen-du-an/cong-ty-co-phan-dau-tu-dia-oc-tati-eb2478" rel="nofollow" class="re__verticalbox">
+                                <img class="" alt="C&#xD4;NG TY C&#x1ED4; PH&#x1EA6;N &#x110;&#x1EA6;U T&#x1AF; &#x110;&#x1ECA;A &#x1ED0;C TATI" src="https://file4.batdongsan.com.vn/resize/200x200/2023/12/01/wyRdB1q5/20231201114750-3925.jpg" />
+                            </a>
+                        </div>
+                        <div class="re__item-title">
+                            <a class="re__link-se" href="/ban-dat-nen-du-an/cong-ty-co-phan-dau-tu-dia-oc-tati-eb2478" rel="nofollow">C&#xD4;NG TY C&#x1ED4; PH&#x1EA6;N &#x110;&#x1EA6;U T&#x1AF; &#x110;&#x1ECA;A &#x1ED0;C TATI</a>
+                            <div class="re__typical-phone"></div>
+                            <div class="re__typical-intro"></div>
+                        </div>
+                    </div>
+                    <div class="re__item-wrap">
+                        <div class="re__item-thumb">
+                            <a href="/ban-can-ho-chung-cu/cong-ty-co-phan-dau-tu-ngoc-mai-land-eb2758" rel="nofollow" class="re__verticalbox">
+                                <img class="" alt="C&#xD4;NG TY C&#x1ED4; PH&#x1EA6;N &#x110;&#x1EA6;U T&#x1AF; NG&#x1ECC;C MAI LAND" src="https://file4.batdongsan.com.vn/resize/200x200/2019/11/18/3ZsSL6gy/20191118151335-0aea.jpg" />
+                            </a>
+                        </div>
+                        <div class="re__item-title">
+                            <a class="re__link-se" href="/ban-can-ho-chung-cu/cong-ty-co-phan-dau-tu-ngoc-mai-land-eb2758" rel="nofollow">C&#xD4;NG TY C&#x1ED4; PH&#x1EA6;N &#x110;&#x1EA6;U T&#x1AF; NG&#x1ECC;C MAI LAND</a>
+                            <div class="re__typical-phone"></div>
+                            <div class="re__typical-intro"></div>
+                        </div>
+                    </div>
+                    <div class="re__item-wrap">
+                        <div class="re__item-thumb">
+                            <a href="/cho-thue-van-phong/cong-ty-co-phan-dau-tu-s4s-eb3032" rel="nofollow" class="re__verticalbox">
+                                <img class="" alt="C&#xD4;NG TY C&#x1ED4; PH&#x1EA6;N &#x110;&#x1EA6;U T&#x1AF; S4S" src="https://file4.batdongsan.com.vn/resize/200x200/2023/05/19/wyRdB1q5/20230519164107-1aea.jpg" />
+                            </a>
+                        </div>
+                        <div class="re__item-title">
+                            <a class="re__link-se" href="/cho-thue-van-phong/cong-ty-co-phan-dau-tu-s4s-eb3032" rel="nofollow">C&#xD4;NG TY C&#x1ED4; PH&#x1EA6;N &#x110;&#x1EA6;U T&#x1AF; S4S</a>
+                            <div class="re__typical-phone"></div>
+                            <div class="re__typical-intro"></div>
+                        </div>
+                    </div>
+                    <div class="re__item-wrap">
+                        <div class="re__item-thumb">
+                            <a href="/ban-dat-nen-du-an/cong-ty-co-phan-dau-tu-va-kinh-doanh-bat-dong-san-gia-hung-eb3030" rel="nofollow" class="re__verticalbox">
+                                <img class="" alt="C&#xF4;ng ty c&#x1ED5; ph&#x1EA7;n &#x111;&#x1EA7;u t&#x1B0; v&#xE0; kinh doanh B&#x1EA5;t &#x111;&#x1ED9;ng s&#x1EA3;n Gia H&#x1B0;ng" src="https://file4.batdongsan.com.vn/resize/200x200/2023/05/18/wyRdB1q5/20230518100914-7187.jpg" />
+                            </a>
+                        </div>
+                        <div class="re__item-title">
+                            <a class="re__link-se" href="/ban-dat-nen-du-an/cong-ty-co-phan-dau-tu-va-kinh-doanh-bat-dong-san-gia-hung-eb3030" rel="nofollow">C&#xF4;ng ty c&#x1ED5; ph&#x1EA7;n &#x111;&#x1EA7;u t&#x1B0; v&#xE0; kinh doanh B&#x1EA5;t &#x111;&#x1ED9;ng s&#x1EA3;n Gia H&#x1B0;ng</a>
+                            <div class="re__typical-phone"></div>
+                            <div class="re__typical-intro"></div>
+                        </div>
+                    </div>
+                    <div class="re__item-wrap">
+                        <div class="re__item-thumb">
+                            <a href="/cho-thue-van-phong/cong-ty-co-phan-dau-tu-va-quan-ly-bat-dong-san-phuc-thai-eb2175" rel="nofollow" class="re__verticalbox">
+                                <img class="" alt="C&#xD4;NG TY C&#x1ED4; PH&#x1EA6;N &#x110;&#x1EA6;U T&#x1AF; V&#xC0; QU&#x1EA2;N L&#xDD; B&#x1EA4;T &#x110;&#x1ED8;NG S&#x1EA2;N PH&#xDA;C TH&#xC1;I" src="https://file4.batdongsan.com.vn/resize/200x200/2019/04/23/3ZsSL6gy/20190423094233-6aa0.jpg" />
+                            </a>
+                        </div>
+                        <div class="re__item-title">
+                            <a class="re__link-se" href="/cho-thue-van-phong/cong-ty-co-phan-dau-tu-va-quan-ly-bat-dong-san-phuc-thai-eb2175" rel="nofollow">C&#xD4;NG TY C&#x1ED4; PH&#x1EA6;N &#x110;&#x1EA6;U T&#x1AF; V&#xC0; QU&#x1EA2;N L&#xDD; B&#x1EA4;T &#x110;&#x1ED8;NG S&#x1EA2;N PH&#xDA;C TH&#xC1;I</a>
+                            <div class="re__typical-phone"></div>
+                            <div class="re__typical-intro"></div>
+                        </div>
+                    </div>
+                    <div class="re__item-wrap">
+                        <div class="re__item-thumb">
+                            <a href="/ban-dat-nen-du-an/cong-ty-co-phan-dia-oc-le-long-eb3010" rel="nofollow" class="re__verticalbox">
+                                <img class="" alt="C&#xD4;NG TY C&#x1ED4; PH&#x1EA6;N &#x110;&#x1ECA;A &#x1ED0;C L&#xCA; LONG " src="https://file4.batdongsan.com.vn/resize/200x200/2023/03/10/wyRdB1q5/20230310153209-10d2.jpg" />
+                            </a>
+                        </div>
+                        <div class="re__item-title">
+                            <a class="re__link-se" href="/ban-dat-nen-du-an/cong-ty-co-phan-dia-oc-le-long-eb3010" rel="nofollow">C&#xD4;NG TY C&#x1ED4; PH&#x1EA6;N &#x110;&#x1ECA;A &#x1ED0;C L&#xCA; LONG </a>
+                            <div class="re__typical-phone"></div>
+                            <div class="re__typical-intro"></div>
+                        </div>
+                    </div>
+                </div>
+                <a href="/nha-moi-gioi" rel="nofollow" class="re__link-all re__link-pr">Xem tất cả</a>
+            </div>
+        </div>
+
+
+        <!--broker typical##-->
+        <!--##news-->
+        <div class="re__box-with-border">
+            <div class="re__box-header-full re__header-center"><h2 class="re__header-text">Lời khuyên</h2></div>
+            <div class="re__box-border re__box-broker">
+                <div class="re__box-listing re__box-pad-16">
+
+
+                    <ul>
+                        <li>
+                            <a class="re__link-se" title="T&#xEC;m Nh&#xE0; Tr&#x1ECD; B&#xEC;nh Th&#x1EA1;nh Cho Sinh Vi&#xEA;n C&#xF3; Kh&#xF3; Kh&#xF4;ng? C&#x1EA7;n L&#x1B0;u &#xDD; Nh&#x1EEF;ng G&#xEC;?" href="/loi-khuyen-cho-nguoi-thue/nha-tro-binh-thanh-cho-sinh-vien-cd-hcm-ar110508">
+                                T&#xEC;m Nh&#xE0; Tr&#x1ECD; B&#xEC;nh Th&#x1EA1;nh Cho Sinh Vi&#xEA;n C&#xF3; Kh&#xF3; Kh&#xF4;ng? C&#x1EA7;n L&#x1B0;u &#xDD; Nh&#x1EEF;ng G&#xEC;?
+                            </a>
+                        </li>
+                        <li>
+                            <a class="re__link-se" title="Thu&#xEA; Ph&#xF2;ng Tr&#x1ECD; Gi&#xE1; M&#x1EC1;m T&#x1EA1;i Th&#x1EE7; &#x110;&#x1EE9;c D&#x1EC5; Hay Kh&#xF3;?" href="/loi-khuyen-cho-nguoi-thue/thue-phong-tro-thu-duc-cd-hcm-ar110476">
+                                Thu&#xEA; Ph&#xF2;ng Tr&#x1ECD; Gi&#xE1; M&#x1EC1;m T&#x1EA1;i Th&#x1EE7; &#x110;&#x1EE9;c D&#x1EC5; Hay Kh&#xF3;?
+                            </a>
+                        </li>
+                        <li>
+                            <a class="re__link-se" title="T&#xEC;m C&#x103;n H&#x1ED9; Cho Thu&#xEA; Qu&#x1EAD;n 2 Gi&#xE1; 10 Tri&#x1EC7;u &#x1EDE; &#x110;&#xE2;u?" href="/loi-khuyen-cho-nguoi-cho-thue/can-ho-cho-thue-quan-2-cd-hcm-ar110471">
+                                T&#xEC;m C&#x103;n H&#x1ED9; Cho Thu&#xEA; Qu&#x1EAD;n 2 Gi&#xE1; 10 Tri&#x1EC7;u &#x1EDE; &#x110;&#xE2;u?
+                            </a>
+                        </li>
+                        <li>
+                            <a class="re__link-se" title="C&#xF3; Kh&#xF3; Ki&#x1EBF;m Nh&#xE0; Tr&#x1ECD; Qu&#x1EAD;n 10 V&#x1EDB;i T&#x1EA7;m Gi&#xE1; Sinh Vi&#xEA;n?" href="/loi-khuyen-cho-nguoi-thue/thue-nha-tro-quan-10-gia-sinh-vien-cd-hcm-ar110399">
+                                C&#xF3; Kh&#xF3; Ki&#x1EBF;m Nh&#xE0; Tr&#x1ECD; Qu&#x1EAD;n 10 V&#x1EDB;i T&#x1EA7;m Gi&#xE1; Sinh Vi&#xEA;n?
+                            </a>
+                        </li>
+                        <li>
+                            <a class="re__link-se" title="3 Khu V&#x1EF1;c C&#xF3; Nhi&#x1EC1;u Ph&#xF2;ng Tr&#x1ECD; Cho Thu&#xEA; Nh&#x1EA5;t Qu&#x1EAD;n 7" href="/loi-khuyen-cho-nguoi-thue/3-khu-vuc-co-nhieu-phong-tro-cho-thue-nhat-quan-7-cd-hcm-ar110451">
+                                3 Khu V&#x1EF1;c C&#xF3; Nhi&#x1EC1;u Ph&#xF2;ng Tr&#x1ECD; Cho Thu&#xEA; Nh&#x1EA5;t Qu&#x1EAD;n 7
+                            </a>
+                        </li>
+                        <li>
+                            <a class="re__link-se" title="Qu&#x1EAD;n B&#x1EAF;c T&#x1EEB; Li&#xEA;m H&#xE0; N&#x1ED9;i - T&#x1ED5;ng Quan Th&#xF4;ng Tin Cho Ng&#x1B0;&#x1EDD;i Mua Nh&#xE0; 2023" href="/loi-khuyen-cho-nguoi-mua/quan-bac-tu-liem-thong-tin-tong-quan-ar109015">
+                                Qu&#x1EAD;n B&#x1EAF;c T&#x1EEB; Li&#xEA;m H&#xE0; N&#x1ED9;i - T&#x1ED5;ng Quan Th&#xF4;ng Tin Cho Ng&#x1B0;&#x1EDD;i Mua Nh&#xE0; 2023
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="re__fb-fanpage">
+            <div id="fb-root"></div>
+            <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+            (function (d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) return;
+                js = d.createElement(s); js.id = id;
+                js.src = "//connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.9&appId=302507473246792";
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));</script>
+
+            <div class="fb-page" data-href="https://www.facebook.com/Batdongsandv/" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true">
+                <blockquote cite="https://www.facebook.com/Batdongsandv/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/Batdongsandv/">Batdongsan.com.vn</a></blockquote>
+            </div>
+        </div>
+
+
+    </div>
+
+
+    <div class="banner-bottom">
+        <div style="float: left; width: 560px"></div>
+        <div style="float: left; width: 430px; margin-left: 5px"></div>
+    </div>
+    <div class="clearfix"></div>
+</div>

@@ -1,0 +1,82 @@
+<nav
+  class="sidebar sidebar-offcanvas"
+  id="sidebar"
+  xmlns:th="http://www.w3.org/1999/xhtml"
+>
+  <ul class="nav">
+    <li class="nav-item">
+      <a class="nav-link" href="/customer">
+        <span class="menu-title">Trang chủ</span>
+        <i class="mdi mdi-home menu-icon"></i>
+      </a>
+    </li>
+
+    <li class="nav-item">
+      <a
+        class="nav-link"
+        data-bs-toggle="collapse"
+        href="#icons"
+        aria-expanded="false"
+        aria-controls="icons"
+      >
+        <span class="menu-title">Quản lý tài chính</span>
+        <i class="mdi mdi-contacts menu-icon"></i>
+      </a>
+      <div class="collapse" id="icons">
+        <ul class="nav flex-column sub-menu">
+          <li class="nav-item">
+            <a class="nav-link" href="customer-deposit"
+              >Ví tiền :  <span th:text="${money}"></span
+            ></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="customer-history">Lịch sử giao dịch</a>
+          </li>
+        </ul>
+      </div>
+    </li>
+
+    <li class="nav-item">
+      <a
+        class="nav-link"
+        data-bs-toggle="collapse"
+        href="#ui-basic"
+        aria-expanded="false"
+        aria-controls="ui-basic"
+      >
+        <span class="menu-title">Quản lý tin đăng</span>
+        <i class="menu-arrow"></i>
+        <i class="mdi mdi-crosshairs-gps menu-icon"></i>
+      </a>
+      <div class="collapse" id="ui-basic">
+        <ul class="nav flex-column sub-menu">
+          <li class="nav-item">
+            <a class="nav-link" href="customer-dangtin">Đăng tin mới</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="customer-history-list">Danh sách tin đã đăng</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="customer-package">Gói tin</a>
+          </li>
+        </ul>
+      </div>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-link" href="customer-account">
+        <span class="menu-title">Quản lý tài khoản</span>
+        <i class="mdi mdi-file-document-box menu-icon"></i>
+      </a>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-link" href="customer-change">
+        <span class="menu-title">Đổi mật khẩu</span>
+        <i class="mdi mdi-file-document-box menu-icon"></i>
+      </a>
+    </li>
+
+  </ul>
+</nav>

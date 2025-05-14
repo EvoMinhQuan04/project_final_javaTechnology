@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Khôi phục mật khẩu</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <script>
+      async function recoverPassword(event) {
+        event.preventDefault(); // Ngăn chặn hành vi gửi form mặc định
+
+        // Lấy giá trị từ input email
+        const email = document.getElementById("email").value;
+
+        // Tạo object request
+        const recoveryRequest = { email: email };
+
+        try {
+          // Gửi yêu cầu khôi phục mật khẩu tới API
+          const response = await fetch("/forgot", {
+            // Đảm bảo gọi đúng API
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(recoveryRequest),
+          });
+
+          const result = await response.text();
+          if (response.ok) {
+            alert(result); // Hiển thị thông báo thành công
+          } else {
+            alert(`Khôi phục mật khẩu thất bại: ${result}`); // Hiển thị thông báo lỗi
+          }
+        } catch (error) {
+          console.error("Lỗi:", error);
+          alert("Đã xảy ra lỗi, vui lòng thử lại!");
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div class="login-container">
+      <div class="left-panel">
+        <img src="images/login.png" alt="Illustration" class="illustration" />
+      </div>
+      <div class="right-panel">
+        <h2>Khôi phục mật khẩu</h2>
+        <h3>Nhập email của bạn để khôi phục mật khẩu</h3>
+        <form onsubmit="recoverPassword(event)">
+          <div class="input-group">
+            <input type="email" id="email" placeholder="Email" required />
+          </div>
+
+          <button type="submit" class="login-btn">Khôi phục mật khẩu</button>
+
+          <p class="login-link">
+            Đã nhớ mật khẩu? <a href="/login">Đăng nhập tại đây</a>
+          </p>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

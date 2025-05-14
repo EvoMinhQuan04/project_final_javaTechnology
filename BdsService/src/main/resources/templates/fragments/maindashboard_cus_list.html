@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Danh Sách Gói Tin</title>
+    <link rel="stylesheet" href="styles.css" />
+    <!-- Thêm file CSS nếu cần -->
+    <style>
+      :root {
+        --bg-dark: #1e1e2e;
+        --card-bg: #29293f;
+        --accent: #9b51e0;
+        --accent-light: #b76eff;
+        --text-primary: #edf0f9;
+        --text-secondary: #b8b9c4;
+        --hover-row: #3a3a55;
+      }
+      .dashboard-list-container {
+        max-width: 1200px;
+        padding: 0 20px 40px;
+        border-radius: 17px;
+        padding-top: 25px;
+        background:rgb(232, 233, 235);
+      }
+      .dashboard-section {
+        margin-bottom: 50px;
+      }
+      .dashboard-section h2 {
+        font-size: 2rem;
+        color: var(--accent);
+        text-align: center;
+        margin-bottom: 20px;
+      }
+      .card {
+        background: var(--card-bg);
+        border-radius: 12px;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+        overflow: hidden;
+      }
+      .card .table-wrapper {
+        overflow-x: auto;
+      }
+      .premium-table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+      .premium-table thead {
+        position: sticky;
+        top: 0;
+        background: linear-gradient(90deg, var(--accent) 0%, var(--accent-light) 100%);
+        z-index: 1;
+      }
+      .premium-table thead th {
+        padding: 12px 16px;
+        color: #fff;
+        font-weight: 500;
+        font-size: 0.9rem;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        text-align: left;
+      }
+      .premium-table tbody tr {
+        transition: background 0.3s;
+      }
+      .premium-table tbody tr:hover {
+        background: var(--hover-row);
+      }
+      .premium-table tbody td {
+        padding: 12px 16px;
+        color: var(--text-secondary);
+        border-bottom: 1px solid #3a3a55;
+        vertical-align: middle;
+      }
+      .images-list {
+        list-style: none;
+        display: flex;
+        gap: 8px;
+        padding: 0;
+        margin: 0;
+      }
+      .images-list li img {
+        width: 80px;
+        height: 80px;
+        object-fit: cover;
+        border-radius: 4px;
+      }
+      .action-link {
+        color: var(--accent-light);
+        font-weight: 500;
+        text-decoration: none;
+        margin-right: 12px;
+        transition: color 0.3s;
+      }
+      .action-link:hover {
+        color: var(--text-primary);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="dashboard-list-container">
+      <!-- HIỂN THỊ THÔNG BÁO NẾU CÓ -->
+      <div th:if="${message}" class="alert alert-success" th:text="${message}"></div>
+      <!-- ==== DANH SÁCH TIN BÁN ==== -->
+      <div class="dashboard-section">
+        <h2>Danh Sách Tin Nhà Đất Bán</h2>
+        <div class="card">
+          <div class="table-wrapper">
+            <table class="premium-table">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Tên Tin</th>
+                  <th>Giá</th>
+                  <th>Diện Tích</th>
+                  <th>Tỉnh/Thành Phố</th>
+                  <th>Quận/Huyện</th>
+                  <th>Phường/Xã</th>
+                  <th>PNgủ</th>
+                  <th>Nội Thất</th>
+                  <th>PTắm</th>
+                  <th>Mô Tả</th>
+                  <th>Ngày Đăng</th>
+                  <th>Loại Tin</th>
+                  <th>Pháp Lý</th>
+                  <th>Loại Nhà</th>
+                  <th>Ảnh</th>
+                  <th>Tùy Chọn</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr th:each="land : ${landForSales}">
+                  <td th:text="${land.id}"></td>
+                  <td th:text="${land.name}"></td>
+                  <td th:text="${#numbers.formatInteger(land.price.longValue(), 3)} + ' ₫'"></td>
+                  <td th:text="${land.area} + ' m²'"></td>
+                  <td th:text="${land.province}"></td>
+                  <td th:text="${land.district}"></td>
+                  <td th:text="${land.ward}"></td>
+                  <td th:text="${land.numberOfBedRooms}"></td>
+                  <td th:text="${land.interior}"></td>
+                  <td th:text="${land.numberOfToilets}"></td>
+                  <td th:utext="${land.description}"></td>
+                  <td th:text="${land.datePosted}"></td>
+                  <td th:text="${land.type}"></td>
+                  <td th:text="${land.legal}"></td>
+                  <td th:text="${land.propertyType}"></td>
+                  <td>
+                    <ul class="images-list">
+                      <li th:each="image : ${land.images}">
+                        <img th:src="@{${image.imageLink}}" alt="Ảnh tin" />
+                      </li>
+                    </ul>
+                  </td>
+                  <td>
+                    <a th:href="@{/edit/{id}(id=${land.id})}" class="action-link">Sửa</a>
+                    <a th:href="@{/delete/{id}(id=${land.id})}"
+                       onclick="return confirm('Bạn có muốn xóa tin này?')"
+                       class="action-link">Xóa</a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+  
+      <!-- ==== DANH SÁCH TIN CHO THUÊ ==== -->
+      <div class="dashboard-section">
+        <h2>Danh Sách Tin Nhà Đất Cho Thuê</h2>
+        <div class="card">
+          <div class="table-wrapper">
+            <table class="premium-table">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Tên Tin</th>
+                  <th>Giá</th>
+                  <th>Diện Tích</th>
+                  <th>Tỉnh/Thành Phố</th>
+                  <th>Quận/Huyện</th>
+                  <th>Phường/Xã</th>
+                  <th>PNgủ</th>
+                  <th>Nội Thất</th>
+                  <th>PTắm</th>
+                  <th>Mô Tả</th>
+                  <th>Ngày Đăng</th>
+                  <th>Loại Tin</th>
+                  <th>Pháp Lý</th>
+                  <th>Loại Nhà</th>
+                  <th>Ảnh</th>
+                  <th>Tùy Chọn</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr th:each="land : ${landForRents}">
+                  <td th:text="${land.id}"></td>
+                  <td th:text="${land.name}"></td>
+                  <td th:text="${#numbers.formatInteger(land.price.longValue(), 3)} + ' ₫'"></td>
+                  <td th:text="${land.area} + ' m²'"></td>
+                  <td th:text="${land.province}"></td>
+                  <td th:text="${land.district}"></td>
+                  <td th:text="${land.ward}"></td>
+                  <td th:text="${land.numberOfBedRooms}"></td>
+                  <td th:text="${land.interior}"></td>
+                  <td th:text="${land.numberOfToilets}"></td>
+                  <td th:utext="${land.description}"></td>
+                  <td th:text="${land.datePosted}"></td>
+                  <td th:text="${land.type}"></td>
+                  <td th:text="${land.legal}"></td>
+                  <td th:text="${land.propertyType}"></td>
+                  <td>
+                    <ul class="images-list">
+                      <li th:each="image : ${land.images}">
+                        <img th:src="@{${image.imageLink}}" alt="Ảnh tin" />
+                      </li>
+                    </ul>
+                  </td>
+                  <td>
+                    <a th:href="@{/edit/{id}(id=${land.id})}" class="action-link">Sửa</a>
+                    <a th:href="@{/delete/{id}(id=${land.id})}"
+                       onclick="return confirm('Bạn có muốn xóa tin này?')"
+                       class="action-link">Xóa</a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+  
+      <!-- ==== DANH SÁCH BÀI ĐĂNG TIN TỨC ==== -->
+      <div class="dashboard-section">
+        <h2>Danh Sách Bài Đăng Tin Tức</h2>
+        <div class="card">
+          <div class="table-wrapper">
+            <table class="premium-table">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Tiêu đề</th>
+                  <th>Nội dung chính</th>
+                  <th>Nội dung</th>
+                  <th>Ảnh</th>
+                  <th>Tùy Chọn</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr th:each="news : ${news}">
+                  <td th:text="${news.id}"></td>
+                  <td th:text="${news.title}"></td>
+                  <td th:text="${news.summaryOfContent}"></td>
+                  <td th:utext="${news.content}"></td>
+                  <td>
+                    <ul class="images-list">
+                      <li th:each="image : ${news.images}">
+                        <img th:src="@{${image.imageLink}}" alt="Ảnh tin" />
+                      </li>
+                    </ul>
+                  </td>
+                  <td>
+                    <a th:href="@{/edit-news/{id}(id=${news.id})}" class="action-link">Sửa</a>
+                    <a th:href="@{/delete/news/{id}(id=${news.id})}"
+                       onclick="return confirm('Bạn có muốn xóa tin tức này?')"
+                       class="action-link">Xóa</a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

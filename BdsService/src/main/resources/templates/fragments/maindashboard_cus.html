@@ -1,0 +1,117 @@
+<div th:fragment="content">
+  <!-- Nhúng CSS ngay trong file -->
+  <style>
+    :root {
+      --card-bg: #ffffff;
+      --bg-light: #f2f4f8;
+      --card-radius: 16px;
+      --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+      --label-color: #4a4a4a;
+      --value-color: #2c2c2c;
+      --accent-color: #6C5DD3;
+      --gap: 1.5rem;
+      --font-family: 'Poppins', sans-serif;
+      --border-color: #e0e0e0;
+    }
+
+    body {
+      background: var(--bg-light);
+      font-family: var(--font-family);
+      color: var(--value-color);
+      margin: 0;
+      padding: 0;
+    }
+
+    .user-details {
+      background: var(--card-bg);
+      border-radius: var(--card-radius);
+      box-shadow: var(--card-shadow);
+      padding: var(--gap);
+      display: grid;
+      grid-template-columns: 1fr;
+      row-gap: var(--gap);
+      max-width: 800px;
+      margin: var(--gap) auto;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .user-details:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 14px 40px rgba(0, 0, 0, 0.08);
+    }
+
+    .user-details::before {
+      content: "Thông Tin Người Dùng";
+      grid-column: 1 / -1;
+      font-size: 1.75rem;
+      font-weight: 600;
+      color: var(--accent-color);
+      text-align: center;
+      margin-bottom: var(--gap);
+    }
+
+    .detail-row {
+      display: grid;
+      grid-template-columns: max-content 1fr;
+      align-items: center;
+      padding: 0.75rem 0;
+      border-bottom: 1px solid var(--border-color);
+    }
+    .detail-row:last-child {
+      border-bottom: none;
+    }
+    .detail-row strong {
+      color: var(--label-color);
+      font-weight: 500;
+      font-size: 1rem;
+      text-align: right;
+      padding-right: 1rem;
+      color:rgb(66, 46, 3);
+    }
+    .detail-row span {
+      color: var(--value-color);
+      font-size: 1rem;
+    }
+
+    @media (max-width: 600px) {
+      .user-details {
+        padding: calc(var(--gap)/1.5);
+      }
+      .user-details::before {
+        font-size: 1.3rem;
+      }
+      .detail-row {
+        grid-template-columns: 1fr;
+        padding: 0.5rem 0;
+      }
+      .detail-row strong,
+      .detail-row span {
+        text-align: left;
+        padding: 0;
+      }
+    }
+  </style>
+
+  <!-- HTML phần hiển thị -->
+  <div class="user-details" xmlns:th="http://www.w3.org/1999/xhtml">
+    <p class="detail-row">
+      <strong>Tên đăng nhập:</strong>
+      <span th:text="${username}"></span>
+    </p>
+    <p class="detail-row">
+      <strong>Họ và tên:</strong>
+      <span th:text="${name}"></span>
+    </p>
+    <p class="detail-row">
+      <strong>Địa chỉ:</strong>
+      <span th:text="${address}"></span>
+    </p>
+    <p class="detail-row">
+      <strong>Email:</strong>
+      <span th:text="${email}"></span>
+    </p>
+    <p class="detail-row">
+      <strong>Số điện thoại:</strong>
+      <span th:text="${phone}"></span>
+    </p>
+  </div>
+</div>

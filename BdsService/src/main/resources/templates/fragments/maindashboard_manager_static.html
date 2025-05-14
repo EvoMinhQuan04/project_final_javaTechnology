@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Thống kê Gói Tin</title>
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Plugin Zoom/Pan cho Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-zoom@2.0.1/dist/chartjs-plugin-zoom.min.js"></script>
+    <style>
+      :root {
+        --bg-light: #f5f2f8;
+        --card-bg: #ffffff;
+        --accent: #7b5fff;
+        --accent-light: #b76eff;
+        --text-dark: #333333;
+        --text-muted: #777777;
+      }
+
+      body {
+        margin: 0;
+        font-family: 'Segoe UI', sans-serif;
+        background-color: var(--bg-light);
+        color: var(--text-dark);
+      }
+
+      /* Bao quanh toàn khu vực biểu đồ */
+      .stats-card {
+        max-width: 1250px;
+        max-height: 1500px;
+        margin: 15px auto;
+        padding: 25px;
+        background: var(--card-bg);
+        border-radius: 12px;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+      }
+
+      .stats-card h2 {
+        margin: 0 0 24px;
+        text-align: center;
+        color: var(--accent-light);
+        font-size: 1.8rem;
+      }
+
+      /* Wrapper cho canvas: cho phép scroll ngang */
+      .chart-wrapper {
+        position: relative;
+        height: 400px;
+        overflow-x: auto;
+        /* Đệm dưới để nhìn rõ trục X */
+        padding-bottom: 16px;
+      }
+
+      /* Chú ý: min-width sẽ được set động bằng JS */
+      #packageChart {
+        display: block;
+        /* Nếu JS không load, cho nó tối thiểu rộng 800px */
+        min-width: 800px;
+        height: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="stats-card">
+      <h2>Biểu Đồ Thống Kê</h2>
+      <div class="chart-wrapper">
+        <canvas id="packageChart"></canvas>
+      </div>
+    </div>
+
+    <script>
+      // Đăng ký plugin zoom
+      Chart.register(ChartZoom);
+
+      fetch("/package-statistics-data")
+        .then((response) => response.json())
+        .then((data) => {
+          const labels   = data.map((item) => item.packageName);
+          const counts   = data.map((item) => item.purchaseCount);
+          const revenues = data.map((item) => item.totalRevenue);
+
+          // Tính min-width dựa trên số cột: mỗi cột 80px
+          const canvas   = document.getElementById("packageChart");
+          const minWidth = labels.length * 80;
+          canvas.style.minWidth = minWidth + "px";
+
+          const ctx = canvas.getContext("2d");
+          new Chart(ctx, {
+            type: "bar",
+            data: {
+              labels: labels,
+              datasets: [
+                {
+                  label: "Số lần bán",
+                  data: counts,
+                  backgroundColor: "rgba(75,192,192,0.3)",
+                  borderColor: "rgba(75,192,192,1)",
+                  borderWidth: 1,
+                  borderRadius: 8,        // bo tròn cho cột
+                  borderSkipped: false,
+                  barPercentage: 0.6,
+                  categoryPercentage: 0.7,
+                  yAxisID: "yCount"
+                },
+                {
+                  label: "Tổng thu (₫)",
+                  data: revenues,
+                  backgroundColor: "rgba(155,81,224,0.3)",
+                  borderColor: "rgba(155,81,224,1)",
+                  borderWidth: 1,
+                  borderRadius: 8,        // bo tròn cho cột
+                  borderSkipped: false,
+                  barPercentage: 0.6,
+                  categoryPercentage: 0.7,
+                  yAxisID: "yRev"
+                }
+              ]
+            },
+            options: {
+              maintainAspectRatio: false,
+              scales: {
+                x: {
+                  ticks: {
+                    maxRotation: 45,
+                    minRotation: 30,
+                    autoSkip: true,
+                    maxTicksLimit: 20
+                  }
+                },
+                yCount: {
+                  position: "left",
+                  title: {
+                    display: true,
+                    text: "Số lần bán"
+                  },
+                  grid: { drawOnChartArea: false }
+                },
+                yRev: {
+                  position: "right",
+                  title: {
+                    display: true,
+                    text: "Doanh thu (₫)"
+                  },
+                  grid: { color: "rgba(0,0,0,0.05)" },
+                  ticks: {
+                    callback: function(value) {
+                      return value.toLocaleString("vi-VN") + " ₫";
+                    }
+                  }
+                }
+              },
+              plugins: {
+                legend: {
+                  position: "top",
+                  labels: {
+                    boxWidth: 12,
+                    padding: 16
+                  }
+                },
+                tooltip: {
+                  mode: "index",
+                  intersect: false,
+                  callbacks: {
+                    label: function(tooltipItem) {
+                      if (tooltipItem.dataset.yAxisID === "yRev") {
+                        return tooltipItem.dataset.label + ": " +
+                          tooltipItem.parsed.y.toLocaleString("vi-VN") + " ₫";
+                      }
+                      return tooltipItem.dataset.label + ": " +
+                        tooltipItem.parsed.y;
+                    }
+                  }
+                },
+                zoom: {
+                  pan: {
+                    enabled: true,
+                    mode: "x",
+                    modifierKey: "ctrl"
+                  },
+                  zoom: {
+                    drag: true,
+                    mode: "x",
+                    wheel: {
+                      enabled: true
+                    },
+                    pinch: {
+                      enabled: true
+                    }
+                  }
+                }
+              }
+            }
+          });
+        })
+        .catch((err) => {
+          console.error("Không lấy được dữ liệu thống kê:", err);
+        });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,132 @@
+<div th:fragment="main_nha_moi_gioi" class="re__nlcc-main-layout" xmlns:th="http://www.w3.org/1999/xhtml">
+
+
+    <div id="MiddleSubMenu">
+
+
+    </div>
+    <div id="MainContent">
+    </div>
+
+    <div class="re__nlcc-main-left">
+        <div id="inforPageBroker" data-keyword=""
+             data-cate="0"
+             data-subcate="0"
+             data-city=""
+             data-district="0"
+             data-project="0"></div>
+
+        <div id="broker-page" class="re__broker-page">
+            <h1 class="re__broker-title">Danh b&#x1EA1; nh&#xE0; m&#xF4;i gi&#x1EDB;i</h1>
+
+            <div button-id="broker-top-select" class="re__tab-box-group">
+                <a data-value="1" class="re__tab-box--sm re__tab-box--actived">Công ty môi giới</a>
+                <a data-value="0" class="re__tab-box--sm ">Cá nhân môi giới</a>
+            </div>
+
+
+            <div id="contentPage">
+
+
+                <div class="re__broker-item" th:each="user : ${users}">
+                    <div class="re__broker-content">
+                        <div class="re__broker-avatar re__verticalbox">
+                            <a>
+                                <img class=""
+                                     src="https://file4.batdongsan.com.vn/resize/200x200/2019/04/23/3ZsSL6gy/20190423094233-6aa0.jpg"
+                                     alt="C&#xD4;NG TY C&#x1ED4; PH&#x1EA6;N &#x110;&#x1EA6;U T&#x1AF; V&#xC0; QU&#x1EA2;N L&#xDD; B&#x1EA4;T &#x110;&#x1ED8;NG S&#x1EA2;N PH&#xDA;C TH&#xC1;I">
+                            </a>
+                        </div>
+                        <div class="re__broker-info">
+                            <h3>
+                                <a title="C&#xD4;NG TY C&#x1ED4; PH&#x1EA6;N &#x110;&#x1EA6;U T&#x1AF; V&#xC0; QU&#x1EA2;N L&#xDD; B&#x1EA4;T &#x110;&#x1ED8;NG S&#x1EA2;N PH&#xDA;C TH&#xC1;I"
+
+                                   class="re__broker-title--xs re__link-se " th:text="${user.name}"></a>
+                            </h3>
+                            <div class="re__broker-address"><i class="re__icon-location--sm"></i><span
+                                    th:text="${user.address}"></span>
+                            </div>
+                            <div class="re__broker-address">
+                                <div><i class="re__icon-mobile--sm"></i>
+                                    <span th:if="${user.phone != null and user.phone != ''}">
+            <a th:href="'tel:' + ${user.phone}" th:text="${user.phone}"></a>
+        </span>
+                                    <span th:unless="${user.phone != null and user.phone != ''}">
+            Chưa có
+        </span>
+                                </div>
+                                <div><i class="re__icon-phone--sm"></i>
+                                    <span th:if="${user.phone != null and user.phone != ''}">
+            <a th:href="'tel:' + ${user.phone}" th:text="${user.phone}"></a>
+        </span>
+                                    <span th:unless="${user.phone != null and user.phone != ''}">
+            Chưa có
+        </span>
+                                </div>
+                            </div>
+                            <div class="re__broker-email">
+                                <a id="lnkSendEmail" button-id="broker-send-email"
+                                   th:href="'mailto:' + ${user.email} + '?subject=Liên hệ&body=Chào ' + ${user.name}"
+                                   class="re__btn re__btn-se-border--sm" th:data-email="${user.email}"
+                                   data-type="1" data-typeemail="0">Gửi Email</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="re__broker-location">
+                        <div class="re__location-header">
+                            Khu vực c&#xF4;ng ty môi giới
+                        </div>
+                        <div class="re__text-listing">
+                            <ul>
+                                <li th:text="${user.zoneking}"></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="re__news-paging">
+
+
+                <div class="re__pagination-group">
+                    <a pId="1" href="/nha-moi-gioi"
+                       class="re__pagination-number re__actived">
+                        1
+                    </a>
+                    <a pId="2" href="/nha-moi-gioi/p2"
+                       class="re__pagination-number ">
+                        2
+                    </a>
+                    <a pId="3" href="/nha-moi-gioi/p3"
+                       class="re__pagination-number ">
+                        3
+                    </a>
+                    <a pId="4" href="/nha-moi-gioi/p4"
+                       class="re__pagination-number ">
+                        4
+                    </a>
+                    <a pId="5" href="/nha-moi-gioi/p5"
+                       class="re__pagination-number ">
+                        5
+                    </a>
+                    <span class="re__pagination-icon-no-effect">
+                <i class="re__icon-browse"></i>
+            </span>
+                    <a pId="54" href="/nha-moi-gioi/p54" class="re__pagination-number">
+                        54
+                    </a>
+                    <a pId="2" href="/nha-moi-gioi/p2" class="re__pagination-icon">
+                        <i class="re__icon-chevron-right--sm"></i>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <div class="banner-bottom">
+        <div style="float: left; width: 560px"></div>
+        <div style="float: left; width: 430px; margin-left: 5px"></div>
+    </div>
+    <div class="clearfix"></div>
+</div>

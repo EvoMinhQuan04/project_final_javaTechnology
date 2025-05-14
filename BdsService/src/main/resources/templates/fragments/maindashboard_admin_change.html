@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <title>Thay đổi mật khẩu</title>
+    <style>
+      /* ----- BIẾN MÀU CHUNG ----- */
+      :root {
+        --bg-page: #f3f1fa;
+        --card-bg: #ffffff;
+        --accent: #7b5fff;
+        --accent-dark: #5a3fcc;
+        --text-primary: #333333;
+        --text-secondary: #666666;
+        --input-bg: #faf8ff;
+        --error-color: #e74c3c;
+        --radius: 12px;
+      }
+
+      /* ----- RESET CƠ BẢN ----- */
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        background-color: var(--bg-page);
+        font-family: 'Segoe UI', Tahoma, sans-serif;
+        color: var(--text-primary);
+        line-height: 1.5;
+      }
+
+      /* ----- TIÊU ĐỀ ----- */
+      h1 {
+        text-align: center;
+        font-size: 2rem;
+        color: var(--accent-dark);
+        margin-bottom: 30px;
+        letter-spacing: 1px;
+      }
+
+      /* ----- CARD CHỨA FORM ----- */
+      .change-password-card {
+        max-width: 450px;
+        background: var(--card-bg);
+        margin: 0 auto;
+        padding: 30px 25px;
+        border-radius: var(--radius);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      }
+
+      /* ----- NHÃN ----- */
+      form label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: 600;
+        color: var(--text-secondary);
+        font-size: 0.95rem;
+      }
+
+      /* ----- INPUT ----- */
+      form input[type="password"] {
+        width: 100%;
+        padding: 12px 14px;
+        margin-bottom: 20px;
+        border: 1px solid #ddd;
+        border-radius: var(--radius);
+        background-color: var(--input-bg);
+        transition: border-color 0.3s, box-shadow 0.3s;
+        font-size: 1rem;
+        color: var(--text-primary);
+      }
+      form input[type="password"]::placeholder {
+        color: #aaa;
+      }
+      form input[type="password"]:focus {
+        border-color: var(--accent);
+        box-shadow: 0 0 0 3px rgba(123, 95, 255, 0.2);
+        outline: none;
+      }
+
+      /* ----- NÚT XÁC NHẬN ----- */
+      form button {
+        width: 100%;
+        padding: 12px;
+        background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+        border: none;
+        border-radius: var(--radius);
+        color: #fff;
+        font-size: 1rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: background 0.3s, transform 0.1s;
+      }
+      form button:hover {
+        background: linear-gradient(135deg, var(--accent-dark), var(--accent));
+        transform: translateY(-2px);
+      }
+      form button:active {
+        transform: translateY(1px);
+      }
+
+      /* ----- THÔNG BÁO LỖI/THÀNH CÔNG ----- */
+      .message {
+        margin-top: 15px;
+        text-align: center;
+        font-size: 0.9rem;
+      }
+      .message.error {
+        color: var(--error-color);
+      }
+      .message.success {
+        color: #27ae60;
+      }
+
+      /* ----- Responsive nhỏ ----- */
+      @media (max-width: 480px) {
+        body {
+          padding: 20px 10px;
+        }
+        .change-password-card {
+          padding: 20px 15px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Đổi mật khẩu</h1>
+
+    <form th:action="@{/admin-change-password}" method="post">
+      <input type="hidden" name="id" th:value="${id}" />
+      <label for="currentPassword">Mật khẩu hiện tại:</label>
+      <input
+        type="password"
+        id="currentPassword"
+        name="currentPassword"
+        required
+      />
+
+      <label for="newPassword">Mật khẩu mới:</label>
+      <input type="password" id="newPassword" name="newPassword" required />
+
+      <label for="confirmPassword">Xác nhận mật khẩu mới:</label>
+      <input
+        type="password"
+        id="confirmPassword"
+        name="confirmPassword"
+        required
+      />
+
+      <button type="submit">Xác nhận</button>
+    </form>
+
+    <div th:if="${error}" style="color: red">
+      <p th:text="${error}"></p>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Danh Sách Gói Tin</title>
+    <!-- Google Font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --accent: #9b51e0;
+        --accent-bright: #b76eff;
+        --text-primary: #edf0f9;
+        --text-secondary: #b8b9c4;
+        --card-bg: #29293f;
+        --card-alt-bg: #393954;
+        --hover: #3a3a55;
+      }
+      .main-dashboard-container {
+        max-width: 1100px;
+        margin: 40px auto;
+        padding: 0 20px 60px;
+      }
+      .main-dashboard-container .section {
+        margin-bottom: 60px;
+      }
+      .main-dashboard-container .section-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 20px;
+      }
+      .main-dashboard-container .section-header h2 {
+        font-size: 2rem;
+        color:rgb(5, 36, 54);
+        font-weight: 500;
+      }
+      .main-dashboard-container .balance {
+        font-size: 1.1rem;
+        font-weight: 600;
+      }
+      .main-dashboard-container .balance span {
+        color: var(--accent-bright);
+      }
+      .main-dashboard-container .card {
+        background-color: var(--card-bg);
+        border-radius: 12px;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+        padding: 28px;
+        overflow: hidden;
+      }
+      .main-dashboard-container .card.alt-card {
+        background-color: var(--card-alt-bg);
+      }
+      .main-dashboard-container .table-responsive {
+        overflow-x: auto;
+        margin-bottom: 20px;
+      }
+      .main-dashboard-container table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+      .main-dashboard-container table thead {
+        background: linear-gradient(90deg, var(--accent) 0%, #7a2cc0 100%);
+      }
+      .main-dashboard-container table thead th {
+        padding: 16px 20px;
+        color: #fff;
+        font-weight: 500;
+        text-align: left;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        border-radius: 5px;
+      }
+      .main-dashboard-container table tbody tr:hover {
+        background-color: var(--hover);
+      }
+      .main-dashboard-container table tbody td {
+        padding: 16px 20px;
+        border-bottom: 1px solid #3a3a55;
+        color: var(--text-secondary);
+      }
+      .main-dashboard-container .btn-accent {
+        background: var(--accent-bright);
+        color: #fff;
+        border: none;
+        padding: 14px 32px;
+        border-radius: 8px;
+        font-size: 1rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: background 0.3s;
+        margin-top: 10px;
+      }
+      .main-dashboard-container .btn-accent:hover {
+        background:rgb(76, 14, 128);
+      }
+      .status-paid {
+        color: #3cb371;
+        font-weight: 600;
+      }
+      .status-expired {
+        color: #ff6347;
+        font-weight: 600;
+      }
+      @media (max-width: 768px) {
+        .main-dashboard-container .section-header {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+        .main-dashboard-container .balance {
+          margin-top: 10px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- chỉ chứa đúng nội dung cần inject, không có <html> <head> <body> -->
+    <div class="main-dashboard-container">
+      <!-- Available Packages -->
+      <div class="section">
+        <div class="section-header">
+          <h2>Danh Sách Gói Tin</h2>
+          <div class="balance">
+            Số dư hiện có: <span th:text="${money}"></span>
+            <div
+              th:if="${error}"
+              class="alert alert-danger"
+              th:text="${error}"
+            ></div>
+          </div>
+        </div>
+        <div class="card">
+          <form action="/customer-package/purchase" method="post">
+            <div class="table-responsive">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Chọn</th>
+                    <th>Gói Tin</th>
+                    <th>Giá</th>
+                    <th>Số Lượng</th>
+                    <th>Hạn Sử Dụng</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr th:each="pkg : ${packageList}">
+                    <td>
+                      <input
+                        type="radio"
+                        name="selectedPackage"
+                        th:value="${pkg.id}"
+                      />
+                    </td>
+                    <td th:text="${pkg.name}"></td>
+                    <td class="price" th:text="${pkg.price}"></td>
+                    <td th:text="${pkg.quantity}"></td>
+                    <td th:text="${pkg.formattedExpiry}"></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <button type="submit" class="btn-accent">Mua Gói Tin</button>
+          </form>
+        </div>
+      </div>
+
+      <!-- User Packages -->
+      <div class="section">
+        <div class="section-header">
+          <h2>Gói Tin Của Tôi</h2>
+        </div>
+        <div class="card alt-card">
+          <div class="table-responsive">
+            <table>
+              <thead>
+                <tr>
+                  <th>Hoá Đơn</th>
+                  <th>Trạng Thái</th>
+                  <th>Ngày Mua</th>
+                  <th>Còn Lại</th>
+                  <th>Tổng Tiền</th>
+                  <th>Ngày Hết Hạn</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr
+                  th:each="item : ${availableList}"
+                  th:classappend="${T(java.time.LocalDateTime).parse(item.formattedExpiry, T(java.time.format.DateTimeFormatter).ofPattern('mm:HH dd-MM-yyyy')).isBefore(T(java.time.LocalDateTime).now())} ? 'status-expired' : ''"
+                >
+                  <td th:text="${item.orderId}"></td>
+                  <td
+                    th:text="${item.statusPayment}"
+                    th:classappend="${item.statusPayment == 'Paid'} ? 'status-paid' : ''"
+                  ></td>
+                  <td th:text="${item.formattedPurchase}"></td>
+                  <td th:text="${item.quantityAvailable}"></td>
+                  <td class="total" th:text="${item.total}"></td>
+                  <td th:text="${item.formattedExpiry}"></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Script format tiền tệ -->
+    <script>
+      function formatCurrency(val) {
+        return new Intl.NumberFormat("vi-VN", {
+          style: "currency",
+          currency: "VND",
+        }).format(val);
+      }
+      document
+        .querySelectorAll(".price, .total, .balance span")
+        .forEach((el) => {
+          const num = parseFloat(el.textContent);
+          if (!isNaN(num)) el.textContent = formatCurrency(num);
+        });
+    </script>
+  </body>
+</html>

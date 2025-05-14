@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registration Page</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <script>
+      async function registerUser(event) {
+        event.preventDefault(); // Ngăn chặn hành vi gửi form mặc định
+
+        // Lấy giá trị từ các input
+        const username = document.getElementById("username").value;
+        const name = document.getElementById("name").value;
+        const email = document.getElementById("email").value;
+        const phone = document.getElementById("phone").value;
+        const address = document.getElementById("address").value;
+        const zoneking = document.getElementById("zoneking").value;
+        const password = document.getElementById("password").value;
+        const confirmPassword =
+          document.getElementById("confirmPassword").value;
+        const roleName = document.getElementById("roleName").value;
+
+        // Kiểm tra mật khẩu xác nhận
+        if (password !== confirmPassword) {
+          alert("Mật khẩu và xác nhận mật khẩu không khớp!");
+          return;
+        }
+
+        // Tạo object request
+        const userRequest = {
+          username: username,
+          name: name,
+          email: email,
+          phone: phone,
+          address: address,
+          zoneking: zoneking,
+          password: password,
+          roleName: roleName,
+        };
+
+        try {
+          // Gửi request tới API
+          const response = await fetch("/register", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(userRequest),
+          });
+
+          const result = await response.text();
+          if (response.ok) {
+            alert(result); // Hiển thị thông báo thành công
+          } else {
+            alert(`Đăng ký thất bại: ${result}`); // Hiển thị thông báo lỗi
+          }
+
+          if (response.ok) {
+            alert(
+              "Đăng ký thành công! Đang chuyển hướng đến trang đăng nhập..."
+            );
+            window.location.href = "/login"; // Chuyển trang về login
+          } else {
+            const errorMessage = await response.text();
+            alert(`Đăng ký thất bại: ${errorMessage}`);
+          }
+        } catch (error) {
+          console.error("Lỗi:", error);
+          alert("Đã xảy ra lỗi, vui lòng thử lại!");
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div class="login-container">
+      <div class="left-panel">
+        <img src="images/login.png" alt="Illustration" class="illustration" />
+      </div>
+      <div class="right-panel">
+        <h2>Chào mừng bạn</h2>
+        <h3>Đăng ký để tiếp tục</h3>
+        <form onsubmit="registerUser(event)">
+          <div class="close-btn" onclick="window.location.href='/'">X</div>
+
+          <div class="input-group">
+            <input
+              type="text"
+              id="username"
+              placeholder="Tên đăng nhập"
+              required
+            />
+          </div>
+          <div class="input-group">
+            <input type="text" id="name" placeholder="Họ và tên" required />
+          </div>
+          <div class="input-group">
+            <input type="email" id="email" placeholder="Email" required />
+          </div>
+          <div class="input-group">
+            <input
+              type="text"
+              id="phone"
+              placeholder="Số điện thoại"
+              required
+            />
+          </div>
+          <div class="input-group">
+            <input type="text" id="address" placeholder="Địa chỉ" required />
+          </div>
+          <div class="input-group">
+            <input
+              type="text"
+              id="zoneking"
+              placeholder="Vùng hoạt động"
+              required
+            />
+          </div>
+          <div class="input-group">
+            <input
+              type="password"
+              id="password"
+              placeholder="Mật khẩu"
+              required
+            />
+          </div>
+          <div class="input-group">
+            <input
+              type="password"
+              id="confirmPassword"
+              placeholder="Xác nhận mật khẩu"
+              required
+            />
+          </div>
+          <div class="input-group">
+            <select id="roleName" required>
+              <option value="ROLE_ADMIN">ROLE_ADMIN</option>
+              <option value="ROLE_CUSTOMER">ROLE_CUSTOMER</option>
+            </select>
+          </div>
+          <button type="submit" class="login-btn">Đăng ký</button>
+          <p class="terms">
+            Bằng việc tiếp tục, bạn đồng ý với
+            <a href="#">Điều khoản sử dụng</a>,
+            <a href="#">Chính sách bảo mật</a>, <a href="#">Quy chế</a> và
+            <a href="#">Chính sách của chúng tôi</a>.
+          </p>
+          <p class="login-link">
+            Đã là thành viên? <a href="/login">Đăng nhập tại đây</a>
+          </p>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

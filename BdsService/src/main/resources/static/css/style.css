@@ -1,0 +1,210 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f5f5f5;
+}
+
+.re__swiper-container {
+    width: 100%;
+    height: auto;
+}
+
+.swiper-slide {
+    width: auto;
+    margin-right: 15px;
+}
+
+.re__section-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.js__go-right, .js__go-left {
+    cursor: pointer;
+}
+
+.js__card {
+    display: inline-block;
+    width: 300px;
+    height: auto;
+}
+
+.re__card-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+
+
+.login-container {
+    display: flex;
+    width: 70%;
+    max-width: 1000px;
+    background: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.left-panel {
+    width: 40%;
+    background-color: #ffe6e6;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px;
+    color: #d9534f;
+    text-align: center;
+}
+
+.left-panel img.logo {
+    width: 150px;
+}
+
+.left-panel .illustration {
+    width: 100%;
+    max-width: 250px;
+    margin-top: 20px;
+}
+
+.right-panel {
+    width: 60%;
+    padding: 40px;
+    position: relative; /* Đặt thuộc tính position cho right-panel */
+}
+
+.right-panel h2 {
+    color: #333;
+}
+
+.right-panel h3 {
+    color: #888;
+    margin: 10px 0 20px;
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.login-btn {
+    width: 100%;
+    padding: 12px;
+    background-color: #d9534f;
+    color: #fff;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+/* Điều chỉnh cho đoạn văn bản terms và login link */
+.terms, .login-link {
+    font-size: 14px; /* Kích thước chữ nhỏ hơn */
+    color: #555; /* Màu chữ nhẹ hơn */
+    margin-top: 10px; /* Khoảng cách trên */
+    margin-bottom: 10px; /* Khoảng cách dưới */
+    line-height: 1.5; /* Khoảng cách giữa các dòng */
+}
+
+.terms a, .login-link a {
+    color: #d9534f; /* Màu chữ cho liên kết */
+    text-decoration: none; /* Bỏ gạch chân */
+}
+
+.terms a:hover, .login-link a:hover {
+    text-decoration: underline; /* Hiện gạch chân khi hover */
+}
+
+.options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 15px 0;
+    font-size: 14px;
+}
+
+.options a {
+    color: #d9534f;
+    text-decoration: none;
+}
+
+.or {
+    text-align: center;
+    color: #888;
+    margin: 15px 0;
+}
+
+.social-login {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 10px 0;
+}
+
+.social-login.apple {
+    background-color: #333;
+    color: #fff;
+}
+
+.social-login.facebook {
+    background-color: #3b5998;
+    color: #fff;
+}
+
+.social-login.google {
+    background-color: #db4437;
+    color: #fff;
+}
+
+.register {
+    text-align: center;
+    margin-top: 20px;
+    color: #888;
+}
+
+.register a {
+    color: #d9534f;
+    text-decoration: none;
+}
+
+.right-panel {
+    position: relative;
+}
+
+.close-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: transparent;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: black;
+}
+
+.close-btn:hover {
+    color: red;
+}

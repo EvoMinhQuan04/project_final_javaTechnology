@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8"/>
+  <title>Môi giới viên – Thông tin tài khoản</title>
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #5a67d8;
+      --primary-dark: #434190;
+      --bg: #f4f6ff;
+      --card-bg: #ffffff;
+      --text: #2d3748;
+      --gray-light: #e2e8f0;
+      --gray: #a0aec0;
+      --success: #48bb78;
+    }
+
+    /* Reset & base */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0; padding: 0;
+    }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    /* Layout */
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+    }
+    h1 {
+      text-align: center;
+      font-size: 2rem;
+      font-weight: 600;
+      color: var(--primary-dark);
+      margin-bottom: 1.5rem;
+    }
+    .card {
+      background-color: var(--card-bg);
+      border-radius: 1rem;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+      padding: 2rem;
+    }
+
+    /* Form */
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+    label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+      color: var(--text);
+    }
+    input[type="text"],
+    input[type="email"],
+    input[type="number"] {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      border: 1px solid var(--gray-light);
+      border-radius: 0.75rem;
+      background-color: #fbfcfd;
+      font-size: 1rem;
+      transition: border-color 0.3s, box-shadow 0.3s;
+    }
+    input:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(90,103,216,0.2);
+    }
+    input[readonly] {
+      background-color: #f1f5f9;
+      cursor: not-allowed;
+    }
+
+    /* Button */
+    button {
+      width: 100%;
+      padding: 0.75rem;
+      background-color: var(--primary);
+      color: #fff;
+      border: none;
+      border-radius: 0.75rem;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.1s;
+    }
+    button:hover {
+      background-color: var(--primary-dark);
+      transform: translateY(-2px);
+    }
+    button:active {
+      transform: translateY(1px);
+    }
+
+    /* Responsive */
+    @media (max-width: 400px) {
+      .card { padding: 1.5rem; }
+      h1 { font-size: 1.75rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Thông tin tài khoản</h1>
+    <div class="card">
+      <form th:action="@{/customer-account/update}" method="post">
+        <input type="hidden" th:value="${user.id}" name="id" />
+
+        <div class="form-group">
+          <label for="username">Tài khoản</label>
+          <input
+            type="text"
+            id="username"
+            name="username"
+            th:value="${user.username}"
+            readonly
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="name">Tên</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            th:value="${user.name}"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            th:value="${user.email}"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="phone">Số điện thoại</label>
+          <input
+            type="text"
+            id="phone"
+            name="phone"
+            th:value="${user.phone}"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="address">Địa chỉ</label>
+          <input
+            type="text"
+            id="address"
+            name="address"
+            th:value="${user.address}"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="zoneking">Vùng hoạt động</label>
+          <input
+            type="text"
+            id="zoneking"
+            name="zoneking"
+            th:value="${user.zoneking}"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="balance">Số dư</label>
+          <input
+            type="number"
+            id="balance"
+            name="balance"
+            th:value="${user.balance}"
+            readonly
+          />
+        </div>
+
+        <button type="submit">Lưu thay đổi</button>
+      </form>
+    </div>
+  </div>
+</body>
+</html>

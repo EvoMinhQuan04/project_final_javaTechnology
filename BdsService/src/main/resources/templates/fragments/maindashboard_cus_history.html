@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lịch Sử Giao Dịch Nạp Tiền</title>
+    <style>
+      :root {
+        --primary: #6C5DD3;
+        --primary-dark: #574DC8;
+        --bg: #F7F8FC;
+        --card-bg: #FFFFFF;
+        --text-dark: #2E2E38;
+        --text-light: #666687;
+        --border-radius: 1rem;
+        --shadow: rgba(0,0,0,0.08);
+      }
+      *, *::before, *::after {
+        box-sizing: border-box;
+        margin: 0; padding: 0;
+      }
+      body {
+        font-family: 'Poppins', sans-serif;
+        background: var(--bg);
+        color: var(--text-dark);
+        line-height: 1.6;
+      }
+      .container {
+        max-width: 900px;
+        margin: 0 auto;
+      }
+  
+      .card {
+        background: var(--card-bg);
+        border-radius: var(--border-radius);
+        box-shadow: 0 12px 24px var(--shadow);
+        overflow: hidden;
+      }
+      .card-header {
+        background: linear-gradient(90deg, var(--primary), var(--primary-dark));
+        color: #fff;
+        padding: 1.5rem 2rem;
+      }
+      .card-header h2 {
+        font-size: 1.75rem;
+        font-weight: 600;
+        margin: 0;
+      }
+      .card-body {
+        padding: 2rem;
+      }
+  
+      .table-responsive {
+        overflow-x: auto;
+        border-radius: var(--border-radius);
+      }
+      table {
+        width: 100%;
+        border-collapse: separate;  /* để bo tròn được */
+        border-spacing: 0;
+        border-radius: 14px;
+        background: var(--card-bg);
+        box-shadow: 0 4px 12px var(--shadow);
+      }
+      thead tr {
+        background: linear-gradient(90deg, var(--primary), var(--primary-dark));
+      }
+      th, td {
+        padding: 0.75rem 1rem;
+        text-align: left;
+      }
+      th {
+        color: #fff;
+        font-weight: 600;
+        text-transform: uppercase;
+        font-size: 0.9rem;
+        border-bottom: 2px solid #fff;
+      }
+      h2 {
+        text-align: center;
+        color:rgb(29, 12, 121);
+      }
+      /* Bo góc cho header */
+      th:first-child {
+        border-top-left-radius: var(--border-radius);
+      }
+      th:last-child {
+        border-top-right-radius: var(--border-radius);
+      }
+  
+      tbody tr {
+        transition: background 0.3s;
+      }
+      tbody tr:nth-child(even) {
+        background: #f3f3f7;
+      }
+      tbody tr:hover {
+        background: rgba(108,93,211,0.1);
+      }
+      /* Bo góc cho footer row nếu cần */
+      tbody tr:last-child td:first-child {
+        border-bottom-left-radius: var(--border-radius);
+      }
+      tbody tr:last-child td:last-child {
+        border-bottom-right-radius: var(--border-radius);
+      }
+  
+      @media (max-width: 600px) {
+        .card-header h2 { font-size: 1.5rem; }
+        .card-body { padding: 1.5rem; }
+        th, td { padding: 0.5rem; font-size: 0.85rem; }
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Lịch Sử Giao Dịch Nạp Tiền</h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th>ID Giao Dịch</th>
+          <th>Số Tiền</th>
+          <th>Ngày Nạp</th>
+          <th>Tình Trạng Thanh Toán</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr th:each="deposit : ${depositList}">
+          <td th:text="${deposit.id}"></td>
+          <td class="deposit-amount" th:text="${deposit.soTien}"></td>
+          <td class="deposit-date" th:text="${deposit.ngayNap}"></td>
+          <td th:text="${deposit.tinhTrangThanhToan}"></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <script>
+      // Hàm định dạng số thành tiền Việt Nam
+      function formatCurrency(value) {
+        return new Intl.NumberFormat("vi-VN", {
+          style: "currency",
+          currency: "VND",
+        }).format(value);
+      }
+
+      // Hàm chuyển đổi định dạng ngày tháng
+      function formatDate(dateString) {
+        const date = new Date(dateString);
+        const day = ("0" + date.getDate()).slice(-2); // Thêm số 0 cho ngày nhỏ hơn 10
+        const month = ("0" + (date.getMonth() + 1)).slice(-2); // Thêm số 0 cho tháng nhỏ hơn 10
+        const year = date.getFullYear();
+        const hours = ("0" + date.getHours()).slice(-2); // Thêm số 0 cho giờ nhỏ hơn 10
+        const minutes = ("0" + date.getMinutes()).slice(-2); // Thêm số 0 cho phút nhỏ hơn 10
+
+        return `${hours}:${minutes} ${day}-${month}-${year}`;
+      }
+
+      // Áp dụng định dạng cho các cột "Số Tiền" và "Ngày Nạp"
+      document.querySelectorAll(".deposit-amount").forEach((cell) => {
+        const rawValue = parseFloat(cell.textContent); // Lấy giá trị ban đầu từ nội dung thẻ
+        if (!isNaN(rawValue)) {
+          cell.textContent = formatCurrency(rawValue); // Cập nhật lại nội dung với định dạng tiền tệ
+        }
+      });
+
+      document.querySelectorAll(".deposit-date").forEach((cell) => {
+        const dateValue = cell.textContent; // Lấy giá trị ngày ban đầu
+        if (dateValue) {
+          cell.textContent = formatDate(dateValue); // Cập nhật lại nội dung với định dạng ngày
+        }
+      });
+    </script>
+  </body>
+</html>
