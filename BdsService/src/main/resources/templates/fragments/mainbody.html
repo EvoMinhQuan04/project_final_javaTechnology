@@ -1546,16 +1546,16 @@
                   <h3>
                     <a
                       title="Xu Hướng Đầu Tư Bất Động Sản Phổ Yên: Nhà Phố Lên Ngôi"
-                      th:href="@{/chitiet-tin-tuc/{id}(id=${latestNews.id})}"
+                      th:href="@{/chitiet-tin-tuc/{id}(id=${latestNews?.id})}"
                     >
-                      <img
-                        class="lazyloaded"
-                        error-image-class="error-photo"
-                        th:src="@{${latestNews.images[0].imageLink}}"
-                      />
+                      <th:block th:if="${latestNews != null and latestNews.images != null and !#lists.isEmpty(latestNews.images)}">
+                        <img class="lazyloaded"
+                             error-image-class="error-photo"
+                             th:src="@{${latestNews.images[0].imageLink}}" />
+                      </th:block>
                       <span
                         class="re__link-se article-title"
-                        th:text="${latestNews.title}"
+                        th:text="${latestNews?.title}"
                       ></span>
                     </a>
                   </h3>
