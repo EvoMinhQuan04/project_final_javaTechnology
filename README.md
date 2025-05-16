@@ -80,3 +80,4 @@ Tên chủ thẻ: NGUYEN VAN A
 Ngày phát hành: 	07/15
 Mã OTP: 123456
 ```
+### KIỂM THỬ API VỚI POSTMAN
