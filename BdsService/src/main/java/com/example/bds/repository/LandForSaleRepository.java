@@ -47,4 +47,7 @@ public interface LandForSaleRepository extends JpaRepository<LandForSale, Intege
     List<LandForSale> findByProvinceLike(@Param("province") String province,
                                          @Param("landTypes") List<String> landTypes);
 
+    @Query("SELECT l FROM LandForSale l WHERE l.province = :province AND l.district = :district")
+    List<LandForSale> findByProvinceAndDistrict(@Param("province") String province, @Param("district") String district);
+
 }

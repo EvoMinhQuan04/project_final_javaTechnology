@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.math.BigInteger;
 import java.util.List;
@@ -243,6 +244,24 @@ public class NhaDatBanController {
         model.addAttribute("landForSale", landForSale);
 
         return "detail/detail_nha_dat_ban";
+    }
+
+    // API lấy lịch sử giá trung bình theo tháng của khu vực
+    @GetMapping("/api/price-history")
+    @ResponseBody
+    public List<Double> getPriceHistory(@RequestParam String province, @RequestParam String district, @RequestParam(defaultValue = "12") int months, @RequestParam String type) {
+        if (type != null && type.equalsIgnoreCase("Bán")) {
+            return landForSaleService.getAveragePriceHistoryByDistrictAndTypeForSale(province, district, months);
+        } else {
+            return landForSaleService.getAveragePriceHistoryByDistrictAndType(province, district, type, months);
+        }
+    }
+
+    // API lấy lịch sử giá trung bình, cao nhất, thấp nhất theo tháng của khu vực
+    @GetMapping("/api/price-stats-history")
+    @ResponseBody
+    public List<List<Double>> getPriceStatsHistory(@RequestParam String province, @RequestParam String district, @RequestParam(defaultValue = "12") int months) {
+        return landForSaleService.getPriceStatsHistoryByDistrictAndTypeForSale(province, district, months);
     }
 
 }

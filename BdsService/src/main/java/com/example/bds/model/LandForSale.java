@@ -238,15 +238,15 @@ public class LandForSale {
 //        imageLand.setLandForSale(null);
 //    }
 
-    public String formatToReadableUnit(double number) {
-        if (number >= 1000000000) {
-            return (number / 1000000000) + " tỷ";
-        } else if (number >= 1000000) {
-            return (number / 1000000) + " triệu";
-        } else if (number >= 1000) {
-            return (number / 1000) + " ngàn";
+    public String formatToReadableUnit(double price) {
+        if (price >= 1000000000) {
+            return String.format("%.1f tỷ", price / 1000000000);
+        } else if (price >= 1000000) {
+            return String.format("%.1f triệu", price / 1000000);
+        } else if (price >= 1000) {
+            return String.format("%.1f nghìn", price / 1000);
         } else {
-            return number + " đồng";
+            return String.format("%.0f", price);
         }
     }
 

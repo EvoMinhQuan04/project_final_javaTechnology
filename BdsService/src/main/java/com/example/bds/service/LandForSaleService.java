@@ -12,9 +12,13 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.math.BigInteger;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
+import java.util.TreeMap;
 import java.util.stream.Collectors;
 
 @Service
@@ -180,6 +184,150 @@ public class LandForSaleService {
         }
     }
 
+    /**
+     * Lấy lịch sử giá trung bình theo tháng của một khu vực (district, province)
+     * @param province tên tỉnh/thành
+     * @param district tên quận/huyện
+     * @param months số tháng gần nhất
+     * @return List<Double> giá trung bình từng tháng (mới nhất đến cũ)
+     */
+    public List<Double> getAveragePriceHistoryByDistrict(String province, String district, int months) {
+        List<LandForSale> all = landForSaleRepository.findByProvinceAndDistrict(province, district);
+        // Giả sử datePosted luôn có dữ liệu
+        Map<String, List<Double>> monthToPrices = new TreeMap<>(Collections.reverseOrder());
+        for (LandForSale land : all) {
+            if (land.getDatePosted() == null) continue;
+            String key = land.getDatePosted().getYear() + "-" + String.format("%02d", land.getDatePosted().getMonthValue());
+            monthToPrices.computeIfAbsent(key, k -> new ArrayList<>()).add(land.getPrice() / land.getArea());
+        }
+        List<Double> result = new ArrayList<>();
+        int count = 0;
+        for (List<Double> prices : monthToPrices.values()) {
+            if (count++ >= months) break;
+            double avg = prices.stream().mapToDouble(Double::doubleValue).average().orElse(0);
+            result.add(avg);
+        }
+        return result;
+    }
 
+    /**
+     * Lấy lịch sử giá trung bình theo tháng của một khu vực (district, province) và loại hình (Bán/Cho thuê)
+     */
+    public List<Double> getAveragePriceHistoryByDistrictAndType(String province, String district, String type, int months) {
+        List<LandForSale> all = landForSaleRepository.findByProvinceAndDistrict(province, district);
+        // Lọc đúng loại hình
+        all = all.stream().filter(l -> l.getType() != null && l.getType().equalsIgnoreCase(type)).toList();
+        Map<String, List<Double>> monthToPrices = new TreeMap<>(Collections.reverseOrder());
+        for (LandForSale land : all) {
+            if (land.getDatePosted() == null) continue;
+            String key = land.getDatePosted().getYear() + "-" + String.format("%02d", land.getDatePosted().getMonthValue());
+            monthToPrices.computeIfAbsent(key, k -> new ArrayList<>()).add(land.getPrice());
+        }
+        List<Double> result = new ArrayList<>();
+        int count = 0;
+        for (List<Double> prices : monthToPrices.values()) {
+            if (count++ >= months) break;
+            double avg = prices.stream().mapToDouble(Double::doubleValue).average().orElse(0);
+            result.add(avg);
+        }
+        return result;
+    }
+
+    /**
+     * Lấy lịch sử giá bán trung bình trên mỗi mét vuông theo tháng của một khu vực (district, province) và loại hình Bán
+     */
+    public List<Double> getAveragePriceHistoryByDistrictAndTypeForSale(String province, String district, int months) {
+        List<LandForSale> all = landForSaleRepository.findByProvinceAndDistrict(province, district);
+        // Lọc đúng loại hình Bán
+        all = all.stream().filter(l -> l.getType() != null && l.getType().equalsIgnoreCase("Bán")).toList();
+        Map<String, List<LandForSale>> monthToLands = new TreeMap<>(Collections.reverseOrder());
+        for (LandForSale land : all) {
+            if (land.getDatePosted() == null) continue;
+            String key = land.getDatePosted().getYear() + "-" + String.format("%02d", land.getDatePosted().getMonthValue());
+            monthToLands.computeIfAbsent(key, k -> new ArrayList<>()).add(land);
+        }
+        List<Double> result = new ArrayList<>();
+        int count = 0;
+        for (List<LandForSale> lands : monthToLands.values()) {
+            if (count++ >= months) break;
+            double totalPrice = lands.stream().mapToDouble(LandForSale::getPrice).sum();
+            double totalArea = lands.stream().mapToDouble(LandForSale::getArea).sum();
+            double avg = (totalArea > 0) ? totalPrice / totalArea : 0;
+            result.add(avg);
+        }
+        return result;
+    }
+
+    /**
+     * Lấy lịch sử giá bán trung bình, cao nhất, thấp nhất trên mỗi mét vuông theo tháng của một khu vực (district, province) và loại hình Bán
+     * Trả về List<List<Double>>: [avgList, maxList, minList]
+     */
+    public List<List<Double>> getPriceStatsHistoryByDistrictAndTypeForSale(String province, String district, int months) {
+        List<LandForSale> all = landForSaleRepository.findByProvinceAndDistrict(province, district);
+        // Lọc đúng loại hình Bán
+        all = all.stream().filter(l -> l.getType() != null && l.getType().equalsIgnoreCase("Bán")).toList();
+        Map<String, List<LandForSale>> monthToLands = new TreeMap<>(Collections.reverseOrder());
+        for (LandForSale land : all) {
+            if (land.getDatePosted() == null) continue;
+            String key = land.getDatePosted().getYear() + "-" + String.format("%02d", land.getDatePosted().getMonthValue());
+            monthToLands.computeIfAbsent(key, k -> new ArrayList<>()).add(land);
+        }
+        List<Double> avgList = new ArrayList<>();
+        List<Double> maxList = new ArrayList<>();
+        List<Double> minList = new ArrayList<>();
+        int count = 0;
+        for (List<LandForSale> lands : monthToLands.values()) {
+            if (count++ >= months) break;
+            double totalPrice = lands.stream().mapToDouble(LandForSale::getPrice).sum();
+            double totalArea = lands.stream().mapToDouble(LandForSale::getArea).sum();
+            double avg = (totalArea > 0) ? totalPrice / totalArea : 0;
+            avgList.add(avg);
+            // Tính max, min giá/m2
+            double max = lands.stream().mapToDouble(l -> l.getArea() > 0 ? l.getPrice() / l.getArea() : 0).max().orElse(0);
+            double min = lands.stream().mapToDouble(l -> l.getArea() > 0 ? l.getPrice() / l.getArea() : 0).min().orElse(0);
+            maxList.add(max);
+            minList.add(min);
+        }
+        List<List<Double>> result = new ArrayList<>();
+        result.add(avgList);
+        result.add(maxList);
+        result.add(minList);
+        return result;
+    }
+
+    /**
+     * Lấy lịch sử giá thuê trung bình, cao nhất, thấp nhất theo tháng của một khu vực (district, province) và loại hình Cho thuê
+     * Trả về List<List<Double>>: [avgList, maxList, minList]
+     */
+    public List<List<Double>> getPriceStatsHistoryByDistrictAndTypeForRent(String province, String district, int months) {
+        List<LandForSale> all = landForSaleRepository.findByProvinceAndDistrict(province, district);
+        // Lọc đúng loại hình Cho thuê
+        all = all.stream().filter(l -> l.getType() != null && l.getType().equalsIgnoreCase("Cho thuê")).toList();
+        Map<String, List<LandForSale>> monthToLands = new TreeMap<>(Collections.reverseOrder());
+        for (LandForSale land : all) {
+            if (land.getDatePosted() == null) continue;
+            String key = land.getDatePosted().getYear() + "-" + String.format("%02d", land.getDatePosted().getMonthValue());
+            monthToLands.computeIfAbsent(key, k -> new ArrayList<>()).add(land);
+        }
+        List<Double> avgList = new ArrayList<>();
+        List<Double> maxList = new ArrayList<>();
+        List<Double> minList = new ArrayList<>();
+        int count = 0;
+        for (List<LandForSale> lands : monthToLands.values()) {
+            if (count++ >= months) break;
+            // Trung bình giá thuê (theo tổng giá/tháng)
+            double avg = lands.stream().mapToDouble(LandForSale::getPrice).average().orElse(0);
+            avgList.add(avg);
+            double max = lands.stream().mapToDouble(LandForSale::getPrice).max().orElse(0);
+            double min = lands.stream().mapToDouble(LandForSale::getPrice).min().orElse(0);
+            maxList.add(max);
+            minList.add(min);
+        }
+        List<List<Double>> result = new ArrayList<>();
+        result.add(avgList);
+        result.add(maxList);
+        result.add(minList);
+        return result;
+    }
 
 }

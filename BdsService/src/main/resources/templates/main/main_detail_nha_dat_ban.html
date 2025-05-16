@@ -226,6 +226,94 @@
                         </div>
                     </div>
 
+                    <!-- Biểu đồ giá khu vực: Đặt ngay dưới đặc điểm bất động sản -->
+                    <div class="re__section re__pr-price-history js__section js__li-price-history">
+                        <span class="re__section-title">Lịch sử giá bán nhà khu vực <span id="area-label"></span></span>
+                        <div id="current-month-compare" style="margin: 8px 0 8px 0; font-size: 15px; color: #1a202c;"></div>
+                        <canvas id="priceHistoryChart" height="100"></canvas>
+                    </div>
+                    <script src="/assets/vendors/chart.js/chart.umd.js"></script>
+                    <script>
+                        document.addEventListener('DOMContentLoaded', function() {
+                            var province = '[[${landForSale.province}]]';
+                            var district = '[[${landForSale.district}]]';
+                            document.getElementById('area-label').innerText = district + ', ' + province;
+                            fetch(`/api/price-stats-history?province=${encodeURIComponent(province)}&district=${encodeURIComponent(district)}&months=12`)
+                                .then(res => res.json())
+                                .then(data => {
+                                    // data = [avgList, maxList, minList]
+                                    let avg = data[0].reverse();
+                                    let max = data[1].reverse();
+                                    let min = data[2].reverse();
+                                    const now = new Date();
+                                    let labels = [];
+                                    for (let i = 0; i < avg.length; i++) {
+                                        let d = new Date(now.getFullYear(), now.getMonth() - (avg.length - 1 - i), 1);
+                                        labels.push(('0' + (d.getMonth() + 1)).slice(-2) + '/' + d.getFullYear());
+                                    }
+                                    // Tính phần trăm tăng/giảm tháng hiện tại so với tháng trước cho giá trung bình
+                                    if (avg.length >= 2) {
+                                        let current = avg[avg.length - 1];
+                                        let prev = avg[avg.length - 2];
+                                        let percent = prev === 0 ? 0 : ((current - prev) / prev * 100);
+                                        let trend = percent > 0 ? 'tăng' : (percent < 0 ? 'giảm' : 'không đổi');
+                                        let absPercent = Math.abs(percent).toFixed(2);
+                                        let text = `Giá trung bình tháng ${labels[labels.length-1]} so với tháng ${labels[labels.length-2]}: ${trend} ${absPercent}%`;
+                                        document.getElementById('current-month-compare').innerText = text;
+                                    } else {
+                                        document.getElementById('current-month-compare').innerText = '';
+                                    }
+                                    const ctx = document.getElementById('priceHistoryChart').getContext('2d');
+                                    new Chart(ctx, {
+                                        type: 'line',
+                                        data: {
+                                            labels: labels,
+                                            datasets: [
+                                                {
+                                                    label: 'Giá trung bình (triệu/m²)',
+                                                    data: avg.map(v => (v/1000000).toFixed(2)),
+                                                    borderColor: '#007bff',
+                                                    backgroundColor: 'rgba(0,123,255,0.15)',
+                                                    fill: true,
+                                                    tension: 0.4
+                                                },
+                                                {
+                                                    label: 'Giá cao nhất (triệu/m²)',
+                                                    data: max.map(v => (v/1000000).toFixed(2)),
+                                                    borderColor: '#e74c3c',
+                                                    backgroundColor: 'rgba(231,76,60,0.1)',
+                                                    fill: false,
+                                                    borderDash: [5,5],
+                                                    tension: 0.4
+                                                },
+                                                {
+                                                    label: 'Giá thấp nhất (triệu/m²)',
+                                                    data: min.map(v => (v/1000000).toFixed(2)),
+                                                    borderColor: '#ffc107',
+                                                    backgroundColor: 'rgba(255,193,7,0.1)',
+                                                    fill: false,
+                                                    borderDash: [2,2],
+                                                    tension: 0.4
+                                                }
+                                            ]
+                                        },
+                                        options: {
+                                            responsive: true,
+                                            plugins: {
+                                                legend: { display: true },
+                                                title: { display: false }
+                                            },
+                                            scales: {
+                                                y: {
+                                                    beginAtZero: true,
+                                                    title: { display: true, text: 'Triệu/m²' }
+                                                }
+                                            }
+                                        }
+                                    });
+                                });
+                        });
+                    </script>
 
                     <div class="re__ldp-project-info">
 
@@ -1070,6 +1158,5 @@
             }
         })();
     </script>
-
 
 </div>
