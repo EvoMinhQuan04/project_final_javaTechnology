@@ -1,4 +1,4 @@
-![Người đăng tin đăng tin](https://github.com/user-attachments/assets/f1c0a7d3-ee26-4285-8b6b-fe51c30cc13b)# Dự án Bất Động Sản xây dựng theo kiến trúc Microservice
+# Dự án Bất Động Sản xây dựng theo kiến trúc Microservice
 ## Người thực hiện:
 - Cao Minh Quân - 52200136
 - Đinh Phát Phát - 52200010
