@@ -66,7 +66,7 @@ spring:
 server:
   port: 8081
 ```
-Di chuyển vài từng Service và chạy các lệnh sau:
+Di chuyển vào từng Service và chạy các lệnh sau:
 ```bash
 mvn clean install !! mvn clean install -DskipTests (để bỏ qua unit Test)
 mvn spring-boot: run
