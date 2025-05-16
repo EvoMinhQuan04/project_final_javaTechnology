@@ -81,3 +81,20 @@ Ngày phát hành: 	07/15
 Mã OTP: 123456
 ```
 ### KIỂM THỬ API VỚI POSTMAN
+1. Đăng nhập
+![Đăng nhập](https://github.com/user-attachments/assets/e523868a-a2ec-41b2-a7f2-f52026ae01f7)
+2. Đăng xuất
+![Đăng xuất](https://github.com/user-attachments/assets/18d344f5-d823-4bb7-8b27-ffd23bf37d37)
+3. Trang chủ
+![Trang chủ](https://github.com/user-attachments/assets/c82af0b7-27bc-4988-95c9-30fa525e03f1)
+4. Đăng ký
+![Đăng ký](https://github.com/user-attachments/assets/30762f48-356d-4a1a-a246-b74860127f76)
+5. Nhà đất bán
+![Nhà đất bán](https://github.com/user-attachments/assets/917e7b07-a079-4f70-9e72-bb1349d71060)
+6. Chi tiết nhà đất bán
+![Chi tiết nhà đất bán](https://github.com/user-attachments/assets/01abdf41-9a77-4d34-8b56-6ca5cfa238aa)
+7. Nhà đất cho thuê
+![Nhà đất cho thuê](https://github.com/user-attachments/assets/edff55be-967d-4d2f-8cc8-42ea5f01838e)
+8. Chi tiết nhà đất cho thuê
+![Chi tiết nhà đất cho thuê](https://github.com/user-attachments/assets/b3bf4f96-7072-4845-beb8-8f7d9a0399a9)
+
