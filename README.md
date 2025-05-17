@@ -9,6 +9,11 @@ Clone dự án
 ```bash
 git clone https://github.com/EvoMinhQuan04/project_final_javaTechnology.git
 ```
+
+Chạy với docker: ở thư mục gốc, chạy <docker-compose up --build>
+
+Hoặc:
+
 Mở thư mục và cấu hình cơ sở dữ liệu MySQL
 Đối với BdsService, tạo database với tên tương ứng trong cấu hình bên dưới - final_java
 ```bash
