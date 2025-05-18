@@ -4,6 +4,8 @@
 - Đinh Phát Phát - 52200010
 - Huỳnh Kiến Đông Duy - 52200244
 
+# Link Video Demo: https://youtu.be/61j8T0swK00
+
 ## Cách cài đặt:
 Clone dự án 
 ```bash
